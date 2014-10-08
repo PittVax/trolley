@@ -528,18 +528,18 @@
       <ColumnLabel>Value 2</ColumnLabel>
     </Table>
     <Table xmi:id="_OkPfYE5ZEeSOruBSA_w1UA" NameID="Vax_monthly_from_spreadsheet" Label="From G-Drive sheet Vaccination rate calculation using pVaxMonthly of .53" Comment="" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider">
-      <DataProviderOptions xmi:id="_hl3WME5ZEeSOruBSF6w1UA" key="null_values" value="error"/>
-      <DataProviderOptions xmi:id="_hl39QE5ZEeSOruBSF6w1UA" key="update" value="manually"/>
-      <DataProviderOptions xmi:id="_hl39QU5ZEeSOruBSF6w1UA" key="idx" value="1.0"/>
-      <DataProviderOptions xmi:id="_hl39Qk5ZEeSOruBSF6w1UA" key="inc" value="1.0"/>
-      <DataProviderOptions xmi:id="_hl4kUE5ZEeSOruBSG5w1UA" key="gen_idx" value="false"/>
-      <DataProviderOptions xmi:id="_hl4kUU5ZEeSOruBSG5w1UA" key="query" value="select * from my_table_name"/>
-      <DataProviderOptions xmi:id="_hl5LYE5ZEeSOruBSG5w1UA" key="substitute_expression" value=""/>
-      <DataProviderOptions xmi:id="_hl5LYU5ZEeSOruBSG5w1UA" key="save_passsword" value="false"/>
-      <DataProviderOptions xmi:id="_hl5ycE5ZEeSOruBSG5w1UA" key="warn_to_substituting" value="false"/>
-      <DataProviderOptions xmi:id="_hl5ycU5ZEeSOruBSH4w1UA" key="user" value=""/>
-      <DataProviderOptions xmi:id="_hl6ZgE5ZEeSOruBSH4w1UA" key="database" value=""/>
-      <DataProviderOptions xmi:id="_hl6ZgU5ZEeSOruBSH4w1UA" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+      <DataProviderOptions xmi:id="_fgheQE7xEeS_nIMdF6figg" key="null_values" value="error"/>
+      <DataProviderOptions xmi:id="_fgiFUE7xEeS_nIMdF6figg" key="update" value="manually"/>
+      <DataProviderOptions xmi:id="_fgiFUU7xEeS_nIMdF6figg" key="idx" value="1.0"/>
+      <DataProviderOptions xmi:id="_fgiFUk7xEeS_nIMdG5figg" key="inc" value="1.0"/>
+      <DataProviderOptions xmi:id="_fgiFU07xEeS_nIMdG5figg" key="gen_idx" value="false"/>
+      <DataProviderOptions xmi:id="_fgiFVE7xEeS_nIMdG5figg" key="query" value="select * from my_table_name"/>
+      <DataProviderOptions xmi:id="_fgisYE7xEeS_nIMdG5figg" key="substitute_expression" value=""/>
+      <DataProviderOptions xmi:id="_fgisYU7xEeS_nIMdG5figg" key="save_passsword" value="false"/>
+      <DataProviderOptions xmi:id="_fgisYk7xEeS_nIMdH4figg" key="warn_to_substituting" value="false"/>
+      <DataProviderOptions xmi:id="_fgisY07xEeS_nIMdH4figg" key="user" value=""/>
+      <DataProviderOptions xmi:id="_fgisZE7xEeS_nIMdH4figg" key="database" value=""/>
+      <DataProviderOptions xmi:id="_fgjTcE7xEeS_nIMdH4figg" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
       <Row xmi:id="_RrqjUE5ZEeSOruBSD8w1UA" Index="1.0" Values="0.0"/>
       <Row xmi:id="_RrqjUU5ZEeSOruBSD8w1UA" Index="2.0" Values="0.53"/>
       <Row xmi:id="_RrqjUk5ZEeSOruBSD8w1UA" Index="3.0" Values="0.542553191"/>
@@ -578,18 +578,18 @@
       <ColumnLabel>Value 1</ColumnLabel>
     </Table>
     <Table xmi:id="_7PJnEE5lEeSR3NfvA_2Hrg" NameID="Vax_monthly_fluvaxview" Label="estimates from CDC 6mo - 17 years" Comment="http://www.cdc.gov/flu/fluvaxview/coverage-1314estimates.htm#by-month-children" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider">
-      <DataProviderOptions xmi:id="_7PJnEU5lEeSR3NfvA_2Hrg" key="null_values" value="error"/>
-      <DataProviderOptions xmi:id="_7PKOIE5lEeSR3NfvB-2Hrg" key="update" value="manually"/>
-      <DataProviderOptions xmi:id="_7PKOIU5lEeSR3NfvB-2Hrg" key="idx" value="1.0"/>
-      <DataProviderOptions xmi:id="_7PKOIk5lEeSR3NfvB-2Hrg" key="inc" value="1.0"/>
-      <DataProviderOptions xmi:id="_7PKOI05lEeSR3NfvB-2Hrg" key="gen_idx" value="false"/>
-      <DataProviderOptions xmi:id="_7PKOJE5lEeSR3NfvB-2Hrg" key="query" value="select * from my_table_name"/>
-      <DataProviderOptions xmi:id="_7PKOJU5lEeSR3NfvC92Hrg" key="substitute_expression" value=""/>
-      <DataProviderOptions xmi:id="_7PKOJk5lEeSR3NfvC92Hrg" key="save_passsword" value="false"/>
-      <DataProviderOptions xmi:id="_7PKOJ05lEeSR3NfvC92Hrg" key="warn_to_substituting" value="false"/>
-      <DataProviderOptions xmi:id="_7PKOKE5lEeSR3NfvC92Hrg" key="user" value=""/>
-      <DataProviderOptions xmi:id="_7PKOKU5lEeSR3NfvC92Hrg" key="database" value=""/>
-      <DataProviderOptions xmi:id="_7PKOKk5lEeSR3NfvD82Hrg" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+      <DataProviderOptions xmi:id="_Ya1N8E7xEeS_nIMdD8figg" key="null_values" value="error"/>
+      <DataProviderOptions xmi:id="_Ya1N8U7xEeS_nIMdD8figg" key="update" value="manually"/>
+      <DataProviderOptions xmi:id="_Ya1N8k7xEeS_nIMdD8figg" key="idx" value="1.0"/>
+      <DataProviderOptions xmi:id="_Ya1N807xEeS_nIMdD8figg" key="inc" value="1.0"/>
+      <DataProviderOptions xmi:id="_Ya11AE7xEeS_nIMdD8figg" key="gen_idx" value="false"/>
+      <DataProviderOptions xmi:id="_Ya11AU7xEeS_nIMdE7figg" key="query" value="select * from my_table_name"/>
+      <DataProviderOptions xmi:id="_Ya11Ak7xEeS_nIMdE7figg" key="substitute_expression" value=""/>
+      <DataProviderOptions xmi:id="_Ya11A07xEeS_nIMdE7figg" key="save_passsword" value="false"/>
+      <DataProviderOptions xmi:id="_Ya2cEE7xEeS_nIMdE7figg" key="warn_to_substituting" value="false"/>
+      <DataProviderOptions xmi:id="_Ya2cEU7xEeS_nIMdE7figg" key="user" value=""/>
+      <DataProviderOptions xmi:id="_Ya2cEk7xEeS_nIMdF6figg" key="database" value=""/>
+      <DataProviderOptions xmi:id="_Ya2cE07xEeS_nIMdF6figg" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
       <Row xmi:id="_9LTxwE5lEeSR3NfvD82Hrg" Index="1.0" Values="0.05"/>
       <Row xmi:id="_9LTxwU5lEeSR3NfvD82Hrg" Index="2.0" Values="0.115789474"/>
       <Row xmi:id="_9LTxwk5lEeSR3NfvD82Hrg" Index="3.0" Values="0.226190476"/>
@@ -601,7 +601,6 @@
       <Row xmi:id="_9LTxyE5lEeSR3NfvE72Hrg" Index="9.0" Values="0.016587678"/>
       <Row xmi:id="_9LUY0E5lEeSR3NfvF62Hrg" Index="10.0" Values="0.009638554"/>
       <ColumnLabel>Value 1</ColumnLabel>
-      <ColumnLabel>Value 2</ColumnLabel>
     </Table>
     <CategoriesRoot xmi:id="_HwM70EpCEeSvCplqZm-Q5g">
       <Category xmi:id="_HwM70UpCEeSvCplqal-Q5g" Name="ModelTransforms"/>
