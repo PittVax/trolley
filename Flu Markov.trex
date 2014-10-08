@@ -12,33 +12,33 @@
       <Definition xmi:id="_HwIqGUpCEeSvCplqB--Q5g" Variable="cFlu_MD" Value="111" Comment=""/>
       <Definition xmi:id="_HwIqGkpCEeSvCplqC9-Q5g" Variable="cNonMed_Daily" Value="162" Comment=""/>
       <Definition xmi:id="_HwIqG0pCEeSvCplqC9-Q5g" Variable="cLAIV" Value="22.70" Comment=""/>
-      <Definition xmi:id="_HwIqHEpCEeSvCplqC9-Q5g" Variable="cLRI_Total" Value="33.3333 + (pGetFlu_Rx * cFluRx) + (pVisitMD_LRI * cFlu_MD * numVisits_LRI) + (cNonMed_Daily * daysLRI)"/>
+      <Definition xmi:id="_HwIqHEpCEeSvCplqC9-Q5g" Variable="cLRI_Total" Value="33.3333 + (pGetFlu_Rx * cFluRx) + (pVisitMD_LRI * cFlu_MD * numVisits_LRI) + (cNonMed_Daily * daysLRI)" Comment=""/>
       <Definition xmi:id="_HwIqHUpCEeSvCplqC9-Q5g" Variable="cTIV" Value="10.69" Comment=""/>
-      <Definition xmi:id="_HwIqHkpCEeSvCplqC9-Q5g" Variable="cAdvEvent_Other" Value="1.81"/>
-      <Definition xmi:id="_HwIqH0pCEeSvCplqD8-Q5g" Variable="cAOM_Total" Value="33.3333 + (pGetFlu_Rx * cFluRx) + (pVisitMD_AOM * cFlu_MD * numVisits_AOM) + (cNonMed_Daily * daysAOM)"/>
+      <Definition xmi:id="_HwIqHkpCEeSvCplqC9-Q5g" Variable="cAdvEvent_Other" Value="1.81" Comment=""/>
+      <Definition xmi:id="_HwIqH0pCEeSvCplqD8-Q5g" Variable="cAOM_Total" Value="33.3333 + (pGetFlu_Rx * cFluRx) + (pVisitMD_AOM * cFlu_MD * numVisits_AOM) + (cNonMed_Daily * daysAOM)" Comment=""/>
       <Definition xmi:id="_HwIqIEpCEeSvCplqD8-Q5g" Variable="cFluRx" Value="103" Comment=""/>
-      <Definition xmi:id="_HwIqIUpCEeSvCplqD8-Q5g" Variable="duAOM" Value="(1-uFlu) * (daysAOM/365)"/>
+      <Definition xmi:id="_HwIqIUpCEeSvCplqD8-Q5g" Variable="duAOM" Value="(1-uFlu) * (daysAOM/365)" Comment=""/>
       <Definition xmi:id="_HwIqIkpCEeSvCplqD8-Q5g" Variable="duFlu" Value="(1-uFlu) * (daysFlu/365)" Comment=""/>
-      <Definition xmi:id="_HwIqI0pCEeSvCplqD8-Q5g" Variable="duHosp" Value="0.0444"/>
+      <Definition xmi:id="_HwIqI0pCEeSvCplqD8-Q5g" Variable="duHosp" Value="0.0444" Comment=""/>
       <Definition xmi:id="_HwIqJEpCEeSvCplqE7-Q5g" Variable="duLRI" Value="(1-uFlu) * (daysLRI/365)" Comment=""/>
-      <Definition xmi:id="_HwIqJUpCEeSvCplqE7-Q5g" Variable="duAE_Other" Value="0"/>
+      <Definition xmi:id="_HwIqJUpCEeSvCplqE7-Q5g" Variable="duAE_Other" Value="0" Comment=""/>
       <Definition xmi:id="_HwIqJkpCEeSvCplqE7-Q5g" Variable="pAE_Wheeze_LAIV" Value="0.0215" Comment=""/>
-      <Definition xmi:id="_HwJRIEpCEeSvCplqE7-Q5g" Variable="pAE_Wheeze_TIV" Value="0.0255"/>
-      <Definition xmi:id="_HwJRIUpCEeSvCplqE7-Q5g" Variable="pLAIV_contraindication" Value="0.11111"/>
-      <Definition xmi:id="_HwJRIkpCEeSvCplqF6-Q5g" Variable="pDie_Flu" Value="0.0000066"/>
+      <Definition xmi:id="_HwJRIEpCEeSvCplqE7-Q5g" Variable="pAE_Wheeze_TIV" Value="0.0255" Comment=""/>
+      <Definition xmi:id="_HwJRIUpCEeSvCplqE7-Q5g" Variable="pLAIV_contraindication" Value="0.11111" Comment=""/>
+      <Definition xmi:id="_HwJRIkpCEeSvCplqF6-Q5g" Variable="pDie_Flu" Value="0.0000066" Comment=""/>
       <Definition xmi:id="_HwJRI0pCEeSvCplqF6-Q5g" Variable="pDie_Flu_AOM" Value="0.0000066" Comment=""/>
-      <Definition xmi:id="_HwJRJEpCEeSvCplqF6-Q5g" Variable="pDie_Flu_LRI" Value="0.0001676"/>
+      <Definition xmi:id="_HwJRJEpCEeSvCplqF6-Q5g" Variable="pDie_Flu_LRI" Value="0.0001676" Comment=""/>
       <Definition xmi:id="_HwJRJUpCEeSvCplqF6-Q5g" Variable="pDie_Flu_LRI_LAIV" Value="pDie_Flu_LRI" Comment=""/>
       <Definition xmi:id="_HwJRJkpCEeSvCplqF6-Q5g" Variable="pDie_Flu_LRI_TIV" Value="pDie_Flu_LRI" Comment=""/>
-      <Definition xmi:id="_HwJRJ0pCEeSvCplqG5-Q5g" Variable="pFlu_AOM" Value="pFlu * Percent_AOM"/>
-      <Definition xmi:id="_HwJRKEpCEeSvCplqG5-Q5g" Variable="pFlu_AOM_LAIV" Value="pFlu_LAIV * Percent_AOM_LAIV"/>
-      <Definition xmi:id="_HwJRKUpCEeSvCplqG5-Q5g" Variable="pFlu_AOM_TIV" Value="pFlu_TIV * Percent_AOM_TIV"/>
+      <Definition xmi:id="_HwJRJ0pCEeSvCplqG5-Q5g" Variable="pFlu_AOM" Value="pFlu * Percent_AOM" Comment=""/>
+      <Definition xmi:id="_HwJRKEpCEeSvCplqG5-Q5g" Variable="pFlu_AOM_LAIV" Value="pFlu_LAIV * Percent_AOM_LAIV" Comment=""/>
+      <Definition xmi:id="_HwJRKUpCEeSvCplqG5-Q5g" Variable="pFlu_AOM_TIV" Value="pFlu_TIV * Percent_AOM_TIV" Comment=""/>
       <Definition xmi:id="_HwJRKkpCEeSvCplqG5-Q5g" Variable="pFlu_LAIV" Value="pFlu * (1 - eff_LAIV)" Comment=""/>
       <Definition xmi:id="_HwJRK0pCEeSvCplqG5-Q5g" Variable="pFlu" Value="0.2092" Comment=""/>
       <Definition xmi:id="_HwJRLEpCEeSvCplqH4-Q5g" Variable="pFlu_LRI" Value="pFlu * Percent_LRI" Comment=""/>
       <Definition xmi:id="_HwJRLUpCEeSvCplqH4-Q5g" Variable="pFlu_TIV" Value="pFlu * (1-eff_TIV)" Comment=""/>
-      <Definition xmi:id="_HwJRLkpCEeSvCplqH4-Q5g" Variable="pHosp_AOM" Value="0.001111"/>
-      <Definition xmi:id="_HwJRL0pCEeSvCplqH4-Q5g" Variable="pHosp_Flu" Value="0.001111"/>
+      <Definition xmi:id="_HwJRLkpCEeSvCplqH4-Q5g" Variable="pHosp_AOM" Value="0.001111" Comment=""/>
+      <Definition xmi:id="_HwJRL0pCEeSvCplqH4-Q5g" Variable="pHosp_Flu" Value="0.001111" Comment=""/>
       <Definition xmi:id="_HwJRMEpCEeSvCplqH4-Q5g" Variable="pHosp_LRI" Value="0.0002222" Comment=""/>
       <Definition xmi:id="_HwJRMUpCEeSvCplqI3-Q5g" Variable="pPriorVaccination" Value="0.000001111111"/>
       <Definition xmi:id="_HwJRMkpCEeSvCplqI3-Q5g" Variable="pFlu_LRI_LAIV" Value="pFlu_LAIV * Percent_LRI" Comment=""/>
@@ -62,7 +62,7 @@
       <Definition xmi:id="_HwJRREpCEeSvCplqL0-Q5g" Variable="pHosp_Wheeze_TIV" Value="0.0018" Comment=""/>
       <Definition xmi:id="_HwJRRUpCEeSvCplqMz-Q5g" Variable="pAE_noWheeze_LAIV" Value="0.5 + 0.278" Comment=""/>
       <Definition xmi:id="_HwJRRkpCEeSvCplqMz-Q5g" Variable="pAE_noWheeze_TIV" Value="0.412 + 0.338" Comment=""/>
-      <Definition xmi:id="_HwJRR0pCEeSvCplqMz-Q5g" Variable="duAE_Wheeze" Value="(1-uWheeze) * (daysWheeze/365)"/>
+      <Definition xmi:id="_HwJRR0pCEeSvCplqMz-Q5g" Variable="duAE_Wheeze" Value="(1-uWheeze) * (daysWheeze/365)" Comment=""/>
       <Definition xmi:id="_HwJRSEpCEeSvCplqMz-Q5g" Variable="uWheeze" Value="0.851" Comment=""/>
       <Definition xmi:id="_HwJRSUpCEeSvCplqMz-Q5g" Variable="daysWheeze" Value="12.78" Comment=""/>
       <Definition xmi:id="_HwJRSkpCEeSvCplqNy-Q5g" Variable="daysFlu" Value="3" Comment=""/>
@@ -364,37 +364,41 @@
         <Definition xmi:id="_HwMUkUpCEeSvCplq7E-Q5g" Variable="cVaccineTotal" Value="cTIV + cVaccine_Admin" Comment=""/>
       </Node>
     </Node>
-    <Variable xmi:id="_HwMUkkpCEeSvCplq8D-Q5g" NameID="pLAIV_contraindication" Label="Probability patient has LAIV contraindicationasthma" Comment="comment" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUk0pCEeSvCplq8D-Q5g" NameID="pFlu" Label="Probability of flu, no vaccination" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUkkpCEeSvCplq8D-Q5g" NameID="pLAIV_contraindication" Label="Probability patient has LAIV contraindicationasthma" Comment="comment" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUk0pCEeSvCplq8D-Q5g" NameID="pFlu" Label="Probability of contracting flu given no vaccination" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
     <Variable xmi:id="_HwMUlEpCEeSvCplq8D-Q5g" NameID="pFlu_postVax" Label="Probability of flu given vax+" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUlUpCEeSvCplq8D-Q5g" NameID="pVaccinated_Monthly" Label="Probability of vaccination by month" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUlkpCEeSvCplq8D-Q5g" NameID="cyclen" Label="Length of Markov cycle" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUl0pCEeSvCplq9C-Q5g" NameID="cFluTotal" Label="Total of all flu costs" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUmEpCEeSvCplq9C-Q5g" NameID="dr" Label="Discount rate" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUmUpCEeSvCplq9C-Q5g" NameID="duFlu" Label="Disutility of flu (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUmkpCEeSvCplq9C-Q5g" NameID="cLRI_Total" Label="Cost of lower respiratory infection" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUm0pCEeSvCplq9C-Q5g" NameID="cAOM_Total" Label="Cost of Acute Otitis Media" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUnEpCEeSvCplq-B-Q5g" NameID="duLRI" Label="Disutility of lower respiratory infection (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUnUpCEeSvCplq-B-Q5g" NameID="duAOM" Label="Disutility of acute otitis media (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUmUpCEeSvCplq9C-Q5g" NameID="duFlu" Label="Disutility of flu (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUmkpCEeSvCplq9C-Q5g" NameID="cLRI_Total" Label="Cost of lower respiratory infection" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUm0pCEeSvCplq9C-Q5g" NameID="cAOM_Total" Label="Cost of Acute Otitis Media" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUnEpCEeSvCplq-B-Q5g" NameID="duLRI" Label="Disutility of lower respiratory infection (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUnUpCEeSvCplq-B-Q5g" NameID="duAOM" Label="Disutility of acute otitis media (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
     <Variable xmi:id="_HwMUnkpCEeSvCplq-B-Q5g" NameID="cVaccineTotal" Label="Total of all vaccination costs" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUn0pCEeSvCplq-B-Q5g" NameID="pFlu_AOM" Label="Probability of acute otitis media given vax-" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUoEpCEeSvCplq-B-Q5g" NameID="pFlu_LRI" Label="Probability of lower respiratory infection given vax-" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUoUpCEeSvCplq_A-Q5g" NameID="cLAIV" Label="Cost of LAIV dose  (FluMist - 2014 CDC Ped Influenza Price List, private sector cost)" Comment="White, T., Lavoie, S., &amp; Nettleman, M. D. (1999). Potential cost savings attributable to influenza vaccination of school-aged children. Pediatrics, 103(6), e73. doi:10.1542/peds.103.6.e73" Category="#_HwM70kpCEeSvCplqal-Q5g #_HwM700pCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUokpCEeSvCplq_A-Q5g" NameID="cTIV" Label="Cost of TIV dose (Fluzone - 2014 CDC Ped Influenza Price List, private sector cost)" Comment="White, T., Lavoie, S., &amp; Nettleman, M. D. (1999). Potential cost savings attributable to influenza vaccination of school-aged children. Pediatrics, 103(6), e73. doi:10.1542/peds.103.6.e73" Category="#_HwM70kpCEeSvCplqal-Q5g #_HwM700pCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUo0pCEeSvCplq_A-Q5g" NameID="pAE_Wheeze_LAIV" Label="Probability of wheeze adverse event from LAIV (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUpEpCEeSvCplq_A-Q5g" NameID="pAE_Wheeze_TIV" Label="Probability of wheeze adverse event from TIV (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUpUpCEeSvCplq_A-Q5g" NameID="pDie_Flu" Label="Probability of death from flu (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUpkpCEeSvCplqA_-Q5g" NameID="pDie_Flu_LRI" Label="Probability of death from lower respiratory infection given vax- and flu+" Comment="Centers for Disease, C., Prevention, &amp; Thompson MG&#xa0; Zhou H, Bridges CB, Cheng PY, Burns E, S. D. K. (2010). Estimates of deaths associated with seasonal influenza --- United States, 1976-2007. MMWR Morb Mortal Wkly Rep, 59(33), 1057&#x2013;1062. doi:mm5933a1 [pii]&#xD;&#xA;&#xD;&#xA;Luce, B. R., Nichol, K. L., Belshe, R. B., Frick, K. D., Li, S. X., Boscoe, A., &#x2026; Mahadevia, P. J. (2008). Cost-effectiveness of live attenuated influenza vaccine versus inactivated influenza vaccine among children aged 24-59 months in the United States. Vaccine, 26(23), 2841&#x2013;8. doi:10.1016/j.vaccine.2008.03.046&#xD;&#xA;" Category="#_HwM70kpCEeSvCplqal-Q5g #_HwM700pCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUp0pCEeSvCplqA_-Q5g" NameID="pDie_Flu_LRI_LAIV" Label="Probability of death from lower respiratory infection given LAIV+ and flu+(Assumed from Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUqEpCEeSvCplqA_-Q5g" NameID="pDie_Flu_LRI_TIV" Label="Probability of death from lower respiratory infection given TIV+ and flu+(Assumed from Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUqUpCEeSvCplqA_-Q5g" NameID="pFlu_AOM_LAIV" Label="Probability of acute otitis media given LAIV+ (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUqkpCEeSvCplqA_-Q5g" NameID="pFlu_AOM_TIV" Label="Probability of acute otitis media given TIV+ (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUq0pCEeSvCplqB--Q5g" NameID="pFlu_LAIV" Label="Probability of flu+ given LAIV+ (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUrEpCEeSvCplqB--Q5g" NameID="pFlu_TIV" Label="Probability of flu given TIV+ (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUrUpCEeSvCplqB--Q5g" NameID="pHosp_Flu" Label="Probability of hospitalization given vax- and flu+ and no complications" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g" ShowInTree="false"/>
-    <Variable xmi:id="_HwMUrkpCEeSvCplqB--Q5g" NameID="pHosp_LRI" Label="Probability of hospitalization given vax- and flu+ and lower respiratory infection" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUr0pCEeSvCplqB--Q5g" NameID="pHosp_AOM" Label="Probability of hospitalization given vax- and flu+ and acute otitis media" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUsEpCEeSvCplqC9-Q5g" NameID="pDie_Flu_AOM" Label="Probability of death from acute otitis media given vax- and flu+ (Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUn0pCEeSvCplq-B-Q5g" NameID="pFlu_AOM" Label="Probability of acute otitis media given vax-" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUoEpCEeSvCplq-B-Q5g" NameID="pFlu_LRI" Label="Probability of lower respiratory infection given vax-" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUoUpCEeSvCplq_A-Q5g" NameID="cLAIV" Label="Cost of LAIV dose  (FluMist - 2014 CDC Ped Influenza Price List, private sector cost)" Comment="White, T., Lavoie, S., &amp; Nettleman, M. D. (1999). Potential cost savings attributable to influenza vaccination of school-aged children. Pediatrics, 103(6), e73. doi:10.1542/peds.103.6.e73" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUokpCEeSvCplq_A-Q5g" NameID="cTIV" Label="Cost of TIV dose (Fluzone - 2014 CDC Ped Influenza Price List, private sector cost)" Comment="White, T., Lavoie, S., &amp; Nettleman, M. D. (1999). Potential cost savings attributable to influenza vaccination of school-aged children. Pediatrics, 103(6), e73. doi:10.1542/peds.103.6.e73" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUo0pCEeSvCplq_A-Q5g" NameID="pAE_Wheeze_LAIV" Label="Probability of wheeze adverse event from LAIV (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg">
+      <SensitivityRange xmi:id="_pizDME7rEeS_nIMdB-figg"/>
+    </Variable>
+    <Variable xmi:id="_HwMUpEpCEeSvCplq_A-Q5g" NameID="pAE_Wheeze_TIV" Label="Probability of wheeze adverse event from TIV (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUpUpCEeSvCplq_A-Q5g" NameID="pDie_Flu" Label="Probability of death from flu (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUpkpCEeSvCplqA_-Q5g" NameID="pDie_Flu_LRI" Label="Probability of death from lower respiratory infection given vax- and flu+" Comment="Centers for Disease, C., Prevention, &amp; Thompson MG&#xa0; Zhou H, Bridges CB, Cheng PY, Burns E, S. D. K. (2010). Estimates of deaths associated with seasonal influenza --- United States, 1976-2007. MMWR Morb Mortal Wkly Rep, 59(33), 1057&#x2013;1062. doi:mm5933a1 [pii]&#xD;&#xA;&#xD;&#xA;Luce, B. R., Nichol, K. L., Belshe, R. B., Frick, K. D., Li, S. X., Boscoe, A., &#x2026; Mahadevia, P. J. (2008). Cost-effectiveness of live attenuated influenza vaccine versus inactivated influenza vaccine among children aged 24-59 months in the United States. Vaccine, 26(23), 2841&#x2013;8. doi:10.1016/j.vaccine.2008.03.046&#xD;&#xA;" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUp0pCEeSvCplqA_-Q5g" NameID="pDie_Flu_LRI_LAIV" Label="Probability of death from lower respiratory infection given LAIV+ and flu+(Assumed from Luce)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUqEpCEeSvCplqA_-Q5g" NameID="pDie_Flu_LRI_TIV" Label="Probability of death from lower respiratory infection given TIV+ and flu+(Assumed from Luce)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUqUpCEeSvCplqA_-Q5g" NameID="pFlu_AOM_LAIV" Label="Probability of acute otitis media given LAIV+ (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUqkpCEeSvCplqA_-Q5g" NameID="pFlu_AOM_TIV" Label="Probability of acute otitis media given TIV+ (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUq0pCEeSvCplqB--Q5g" NameID="pFlu_LAIV" Label="Probability of flu+ given LAIV+ (Luce)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUrEpCEeSvCplqB--Q5g" NameID="pFlu_TIV" Label="Probability of flu given TIV+ (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg">
+      <SensitivityRange xmi:id="_ciqi0E7tEeS_nIMdB-figg"/>
+    </Variable>
+    <Variable xmi:id="_HwMUrUpCEeSvCplqB--Q5g" NameID="pHosp_Flu" Label="Probability of hospitalization given vax- and flu+ and no complications" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUrkpCEeSvCplqB--Q5g" NameID="pHosp_LRI" Label="Probability of hospitalization given vax- and flu+ and lower respiratory infection" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUr0pCEeSvCplqB--Q5g" NameID="pHosp_AOM" Label="Probability of hospitalization given vax- and flu+ and acute otitis media" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUsEpCEeSvCplqC9-Q5g" NameID="pDie_Flu_AOM" Label="Probability of death from acute otitis media given vax- and flu+ (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
     <Variable xmi:id="_HwMUsUpCEeSvCplqC9-Q5g" NameID="pFlu_Monthly" Label="Probability of flu per Markov cycle given vax-" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUskpCEeSvCplqC9-Q5g" NameID="pFluTotal" Label="Probability sum of all flu partial probabilities given vax-" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUs0pCEeSvCplqC9-Q5g" NameID="pPriorVaccination" Label="Probability of having been vaccinated prior to Markov start" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
@@ -402,74 +406,76 @@
     <Variable xmi:id="_HwMUtUpCEeSvCplqD8-Q5g" NameID="pFlu_LRI_postVax" Label="Probability of lower respiratory infection given vax+" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUtkpCEeSvCplqD8-Q5g" NameID="pFluTotal_postVax" Label="Probability sum of all flu partial probabilities given vax+" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUt0pCEeSvCplqD8-Q5g" NameID="pFlu_AOM_postVax" Label="Probability of acute otitis media given vax+ " Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUuEpCEeSvCplqD8-Q5g" NameID="pDie_Flu_postVax" Label="Probability of death from flu given vax+" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUuEpCEeSvCplqD8-Q5g" NameID="pDie_Flu_postVax" Label="Probability of death from flu given vax+" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g #_e9Bz0E7qEeS_nIMdB-figg"/>
     <Variable xmi:id="_HwMUuUpCEeSvCplqD8-Q5g" NameID="pHosp_Flu_postVax" Label="Probability of hospitalization given vax+ and flu+ and no complications" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUukpCEeSvCplqE7-Q5g" NameID="pDie_Flu_LRI_postVax" Label="Probability of death from lower respiratory infection given vax+ and flu+" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUu0pCEeSvCplqE7-Q5g" NameID="pHosp_LRI_postVax" Label="Probability of hospitalization given vax+ and flu+ and lower respiratory infection" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUvEpCEeSvCplqE7-Q5g" NameID="pDie_Flu_AOM_postVax" Label="Probability of death from acute otitis media given vax+ and flu+" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
     <Variable xmi:id="_HwMUvUpCEeSvCplqE7-Q5g" NameID="pHosp_AOM_postVax" Label="Probability of hospitalization given vax+ and flu+ and acute otitis media" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUvkpCEeSvCplqE7-Q5g" NameID="duDeath" Label="Disutility of death" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUv0pCEeSvCplqF6-Q5g" NameID="duHosp" Label="Disutility of hospitalization" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUwEpCEeSvCplqF6-Q5g" NameID="cFlu_MD" Label="Cost of flu treatment" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUwUpCEeSvCplqF6-Q5g" NameID="cNonMed_Daily" Label="Cost of direct nonmedical (daily wages from Bureau of Labor Statistics)" Comment="BLS July 2012 - see Parameters spreadsheet tab" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUwkpCEeSvCplqF6-Q5g" NameID="cFluRx" Label="Cost of flu medication  (avg wholesale price - 2010)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUw0pCEeSvCplqF6-Q5g" NameID="duAE_Other" Label="Disutility of vaccination no wheeze adverse event (Luce - no disutility)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUxEpCEeSvCplqG5-Q5g" NameID="cAdvEvent_Other" Label="(Luce)" Comment="" Category="#_HwM70kpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUvkpCEeSvCplqE7-Q5g" NameID="duDeath" Label="Disutility of death" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUv0pCEeSvCplqF6-Q5g" NameID="duHosp" Label="Disutility of hospitalization" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUwEpCEeSvCplqF6-Q5g" NameID="cFlu_MD" Label="Cost of flu treatment" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUwUpCEeSvCplqF6-Q5g" NameID="cNonMed_Daily" Label="Cost of direct nonmedical (daily wages from Bureau of Labor Statistics)" Comment="BLS July 2012 - see Parameters spreadsheet tab" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUwkpCEeSvCplqF6-Q5g" NameID="cFluRx" Label="Cost of flu medication  (avg wholesale price - 2010)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUw0pCEeSvCplqF6-Q5g" NameID="duAE_Other" Label="Disutility of vaccination no wheeze adverse event (Luce - no disutility)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUxEpCEeSvCplqG5-Q5g" NameID="cAdvEvent_Other" Label="Cost of other adverse events, not AOM or wheezing (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
     <Variable xmi:id="_HwMUxUpCEeSvCplqG5-Q5g" NameID="pAE_noWheeze" Label="" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
-    <Variable xmi:id="_HwMUxkpCEeSvCplqG5-Q5g" NameID="pFlu_LRI_LAIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwMUx0pCEeSvCplqG5-Q5g" NameID="pFlu_LRI_TIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwMUyEpCEeSvCplqG5-Q5g" NameID="pDie_Flu_LAIV" Label="(Assumed from Luce)" Comment=""/>
-    <Variable xmi:id="_HwMUyUpCEeSvCplqH4-Q5g" NameID="pDie_Flu_TIV" Label="(Assumed from Luce)" Comment=""/>
-    <Variable xmi:id="_HwMUykpCEeSvCplqH4-Q5g" NameID="pHosp_Flu_LAIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwMUy0pCEeSvCplqH4-Q5g" NameID="pHosp_Flu_TIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwMUzEpCEeSvCplqH4-Q5g" NameID="pHosp_LRI_LAIV" Label="" Comment=""/>
-    <Variable xmi:id="_HwMUzUpCEeSvCplqH4-Q5g" NameID="pHosp_LRI_TIV" Label="" Comment=""/>
-    <Variable xmi:id="_HwMUzkpCEeSvCplqI3-Q5g" NameID="pDie_Flu_AOM_LAIV" Label="(Assumed from Luce)" Comment=""/>
-    <Variable xmi:id="_HwMUz0pCEeSvCplqI3-Q5g" NameID="pDie_Flu_AOM_TIV" Label="(Assumed from Luce)" Comment=""/>
-    <Variable xmi:id="_HwMU0EpCEeSvCplqI3-Q5g" NameID="pHosp_AOM_LAIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwMU0UpCEeSvCplqI3-Q5g" NameID="pHosp_AOM_TIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwMU0kpCEeSvCplqI3-Q5g" NameID="pVaccinated_Monthly_LAIV" Label="" Comment=""/>
-    <Variable xmi:id="_HwMU00pCEeSvCplqJ2-Q5g" NameID="pVaccinated_Monthly_TIV" Label="" Comment=""/>
-    <Variable xmi:id="_HwMU1EpCEeSvCplqJ2-Q5g" NameID="pVaccinated_Yearly_LAIV" Label="" Comment=""/>
-    <Variable xmi:id="_HwMU1UpCEeSvCplqJ2-Q5g" NameID="pVaccinated_Yearly_TIV" Label="" Comment=""/>
-    <Variable xmi:id="_HwMU1kpCEeSvCplqJ2-Q5g" NameID="pAE_Wheeze" Label="" Comment=""/>
-    <Variable xmi:id="_HwM7gEpCEeSvCplqJ2-Q5g" NameID="cAdvEvent_Wheeze" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7gUpCEeSvCplqK1-Q5g" NameID="duAE_Wheeze" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7gkpCEeSvCplqK1-Q5g" NameID="pHosp_Wheeze" Label="" Comment=""/>
-    <Variable xmi:id="_HwM7g0pCEeSvCplqK1-Q5g" NameID="pHosp_Wheeze_LAIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7hEpCEeSvCplqK1-Q5g" NameID="pHosp_Wheeze_TIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7hUpCEeSvCplqK1-Q5g" NameID="pAE_noWheeze_LAIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7hkpCEeSvCplqL0-Q5g" NameID="pAE_noWheeze_TIV" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7h0pCEeSvCplqL0-Q5g" NameID="uWheeze" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7iEpCEeSvCplqL0-Q5g" NameID="daysWheeze" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7iUpCEeSvCplqL0-Q5g" NameID="daysFlu" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7ikpCEeSvCplqL0-Q5g" NameID="uFlu" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7i0pCEeSvCplqMz-Q5g" NameID="daysAOM" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7jEpCEeSvCplqMz-Q5g" NameID="daysLRI" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7jUpCEeSvCplqMz-Q5g" NameID="cHosp_Wheeze" Label="(HCUP)" Comment="HCUP - CCS asthma, mean cost, age 5-9"/>
-    <Variable xmi:id="_HwM7jkpCEeSvCplqMz-Q5g" NameID="cHosp_Flu" Label="" Comment=""/>
-    <Variable xmi:id="_HwM7j0pCEeSvCplqMz-Q5g" NameID="daysHosp_Flu" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7kEpCEeSvCplqNy-Q5g" NameID="cHosp_Flu_Daily" Label="Daily cost of flu hospitalization (from HCUP - see tab in Parameters spreadsheet)" Comment=""/>
-    <Variable xmi:id="_HwM7kUpCEeSvCplqNy-Q5g" NameID="cHosp_AOM" Label="" Comment=""/>
-    <Variable xmi:id="_HwM7kkpCEeSvCplqNy-Q5g" NameID="cHosp_LRI" Label="" Comment=""/>
-    <Variable xmi:id="_HwM7k0pCEeSvCplqNy-Q5g" NameID="daysHosp_LRI" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7lEpCEeSvCplqNy-Q5g" NameID="cVaccine_Admin" Label="(Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7lUpCEeSvCplqOx-Q5g" NameID="numVisits_Flu" Label="Number of visits with uncomplicated flu when MD visits occur (assumed)" Comment=""/>
-    <Variable xmi:id="_HwM7lkpCEeSvCplqOx-Q5g" NameID="pVisitMD_Flu" Label="Probability of seeking care with uncomplicated flu (Rose et al 2014)" Comment="used data for ages 2-6"/>
-    <Variable xmi:id="_HwM7l0pCEeSvCplqOx-Q5g" NameID="pGetFlu_Rx" Label="Probability of receiving antivirals for flu (assumed)" Comment=""/>
-    <Variable xmi:id="_HwM7mEpCEeSvCplqOx-Q5g" NameID="pVisitMD_LRI" Label="(assumed)" Comment=""/>
-    <Variable xmi:id="_HwM7mUpCEeSvCplqOx-Q5g" NameID="numVisits_LRI" Label="(assumed)" Comment=""/>
-    <Variable xmi:id="_HwM7mkpCEeSvCplqPw-Q5g" NameID="pVisitMD_AOM" Label="Probability of an MD visit with AOM (assumed)" Comment=""/>
-    <Variable xmi:id="_HwM7m0pCEeSvCplqPw-Q5g" NameID="numVisits_AOM" Label="Number of MD visits with AOM (assumed)" Comment=""/>
-    <Variable xmi:id="_HwM7nEpCEeSvCplqPw-Q5g" NameID="eff_LAIV" Label="Efficacy of LAIV in preventing flu" Comment=""/>
-    <Variable xmi:id="_HwM7nUpCEeSvCplqPw-Q5g" NameID="eff_TIV" Label="Efficacy of TIV in preventing flu (Rose)" Comment=""/>
-    <Variable xmi:id="_HwM7nkpCEeSvCplqPw-Q5g" NameID="Percent_AOM" Label="percentage of flu cases with AOM (est. Prosser, Salo)" Comment="">
+    <Variable xmi:id="_HwMUxkpCEeSvCplqG5-Q5g" NameID="pFlu_LRI_LAIV" Label="(Luce)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUx0pCEeSvCplqG5-Q5g" NameID="pFlu_LRI_TIV" Label="(Luce)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUyEpCEeSvCplqG5-Q5g" NameID="pDie_Flu_LAIV" Label="(Assumed from Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUyUpCEeSvCplqH4-Q5g" NameID="pDie_Flu_TIV" Label="(Assumed from Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUykpCEeSvCplqH4-Q5g" NameID="pHosp_Flu_LAIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUy0pCEeSvCplqH4-Q5g" NameID="pHosp_Flu_TIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUzEpCEeSvCplqH4-Q5g" NameID="pHosp_LRI_LAIV" Label="" Comment="" Category="#_HwM700pCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMUzUpCEeSvCplqH4-Q5g" NameID="pHosp_LRI_TIV" Label="" Comment="" Category="#_e9Bz0E7qEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMUzkpCEeSvCplqI3-Q5g" NameID="pDie_Flu_AOM_LAIV" Label="(Assumed from Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMUz0pCEeSvCplqI3-Q5g" NameID="pDie_Flu_AOM_TIV" Label="(Assumed from Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMU0EpCEeSvCplqI3-Q5g" NameID="pHosp_AOM_LAIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMU0UpCEeSvCplqI3-Q5g" NameID="pHosp_AOM_TIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwMU0kpCEeSvCplqI3-Q5g" NameID="pVaccinated_Monthly_LAIV" Label="" Comment="" Category="#_HwM700pCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMU00pCEeSvCplqJ2-Q5g" NameID="pVaccinated_Monthly_TIV" Label="" Comment="" Category="#_HwM700pCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwMU1EpCEeSvCplqJ2-Q5g" NameID="pVaccinated_Yearly_LAIV" Label="" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMU1UpCEeSvCplqJ2-Q5g" NameID="pVaccinated_Yearly_TIV" Label="" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwMU1kpCEeSvCplqJ2-Q5g" NameID="pAE_Wheeze" Label="" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwM7gEpCEeSvCplqJ2-Q5g" NameID="cAdvEvent_Wheeze" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7gUpCEeSvCplqK1-Q5g" NameID="duAE_Wheeze" Label="(Luce)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwM7gkpCEeSvCplqK1-Q5g" NameID="pHosp_Wheeze" Label="" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwM7g0pCEeSvCplqK1-Q5g" NameID="pHosp_Wheeze_LAIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7hEpCEeSvCplqK1-Q5g" NameID="pHosp_Wheeze_TIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7hUpCEeSvCplqK1-Q5g" NameID="pAE_noWheeze_LAIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7hkpCEeSvCplqL0-Q5g" NameID="pAE_noWheeze_TIV" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7h0pCEeSvCplqL0-Q5g" NameID="uWheeze" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7iEpCEeSvCplqL0-Q5g" NameID="daysWheeze" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7iUpCEeSvCplqL0-Q5g" NameID="daysFlu" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7ikpCEeSvCplqL0-Q5g" NameID="uFlu" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7i0pCEeSvCplqMz-Q5g" NameID="daysAOM" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7jEpCEeSvCplqMz-Q5g" NameID="daysLRI" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7jUpCEeSvCplqMz-Q5g" NameID="cHosp_Wheeze" Label="(HCUP)" Comment="HCUP - CCS asthma, mean cost, age 5-9" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7jkpCEeSvCplqMz-Q5g" NameID="cHosp_Flu" Label="" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwM7j0pCEeSvCplqMz-Q5g" NameID="daysHosp_Flu" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7kEpCEeSvCplqNy-Q5g" NameID="cHosp_Flu_Daily" Label="Daily cost of flu hospitalization (from HCUP - see tab in Parameters spreadsheet)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7kUpCEeSvCplqNy-Q5g" NameID="cHosp_AOM" Label="" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwM7kkpCEeSvCplqNy-Q5g" NameID="cHosp_LRI" Label="" Comment="" Category="#_HwM70UpCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwM7k0pCEeSvCplqNy-Q5g" NameID="daysHosp_LRI" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7lEpCEeSvCplqNy-Q5g" NameID="cVaccine_Admin" Label="(Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7lUpCEeSvCplqOx-Q5g" NameID="numVisits_Flu" Label="Number of visits with uncomplicated flu when MD visits occur (assumed)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7lkpCEeSvCplqOx-Q5g" NameID="pVisitMD_Flu" Label="Probability of seeking care with uncomplicated flu (Rose et al 2014)" Comment="used data for ages 2-6" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7l0pCEeSvCplqOx-Q5g" NameID="pGetFlu_Rx" Label="Probability of receiving antivirals for flu (assumed)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwM7mEpCEeSvCplqOx-Q5g" NameID="pVisitMD_LRI" Label="(assumed)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwM7mUpCEeSvCplqOx-Q5g" NameID="numVisits_LRI" Label="(assumed)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7mkpCEeSvCplqPw-Q5g" NameID="pVisitMD_AOM" Label="Probability of an MD visit with AOM (assumed)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwM7m0pCEeSvCplqPw-Q5g" NameID="numVisits_AOM" Label="Number of MD visits with AOM (assumed)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7nEpCEeSvCplqPw-Q5g" NameID="eff_LAIV" Label="Efficacy of LAIV in preventing flu" Comment="" Category="#_HwM700pCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwM7nUpCEeSvCplqPw-Q5g" NameID="eff_TIV" Label="Efficacy of TIV in preventing flu (Rose)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg"/>
+    <Variable xmi:id="_HwM7nkpCEeSvCplqPw-Q5g" NameID="Percent_AOM" Label="percentage of flu cases with AOM (est. Prosser, Salo)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg #_kV3j8E7uEeS_nIMdB-figg">
       <SensitivityRange xmi:id="_HwM7n0pCEeSvCplqQv-Q5g"/>
     </Variable>
-    <Variable xmi:id="_HwM7oEpCEeSvCplqQv-Q5g" NameID="Percent_AOM_LAIV" Label="percentage of flu cases with AOM (Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7oUpCEeSvCplqQv-Q5g" NameID="Percent_AOM_TIV" Label="percentage of flu cases with AOM (Luce)" Comment=""/>
-    <Variable xmi:id="_HwM7okpCEeSvCplqQv-Q5g" NameID="Percent_LRI" Label="percentage of flu cases with LRI" Comment=""/>
-    <Variable xmi:id="_HwM7o0pCEeSvCplqQv-Q5g" NameID="RR_AOM_LAIVvsTIV" Label="Risk ratio AOM LAIV vs TIV" Comment="">
+    <Variable xmi:id="_HwM7oEpCEeSvCplqQv-Q5g" NameID="Percent_AOM_LAIV" Label="percentage of flu cases with AOM (Luce)" Comment="" Category="#_kV3j8E7uEeS_nIMdB-figg">
+      <SensitivityRange xmi:id="_waMRcE7uEeS_nIMdB-figg"/>
+    </Variable>
+    <Variable xmi:id="_HwM7oUpCEeSvCplqQv-Q5g" NameID="Percent_AOM_TIV" Label="percentage of flu cases with AOM (Luce)" Comment="" Category="#_dEHKYE7qEeS_nIMdA_figg #_kV3j8E7uEeS_nIMdB-figg"/>
+    <Variable xmi:id="_HwM7okpCEeSvCplqQv-Q5g" NameID="Percent_LRI" Label="percentage of flu cases with LRI" Comment="" Category="#_HwM700pCEeSvCplqal-Q5g"/>
+    <Variable xmi:id="_HwM7o0pCEeSvCplqQv-Q5g" NameID="RR_AOM_LAIVvsTIV" Label="Risk ratio AOM LAIV vs TIV" Comment="" Category="#_HwM700pCEeSvCplqal-Q5g">
       <SensitivityRange xmi:id="_HwM7pEpCEeSvCplqRu-Q5g" LowValue="0.3" HighValue="0.73"/>
     </Variable>
     <Table xmi:id="_HwM7pUpCEeSvCplqRu-Q5g" NameID="Vax_monthly_LAIV" Label="" Comment="" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider">
@@ -599,8 +605,11 @@
     </Table>
     <CategoriesRoot xmi:id="_HwM70EpCEeSvCplqZm-Q5g">
       <Category xmi:id="_HwM70UpCEeSvCplqal-Q5g" Name="ModelTransforms"/>
-      <Category xmi:id="_HwM70kpCEeSvCplqal-Q5g" Name="NeedParameters">
-        <Category xmi:id="_HwM700pCEeSvCplqal-Q5g" Name="Possibly done"/>
+      <Category xmi:id="_HwM70kpCEeSvCplqal-Q5g" Name="Parameters">
+        <Category xmi:id="_HwM700pCEeSvCplqal-Q5g" Name="NeedReview"/>
+        <Category xmi:id="_dEHKYE7qEeS_nIMdA_figg" Name="Good"/>
+        <Category xmi:id="_e9Bz0E7qEeS_nIMdB-figg" Name="Missing"/>
+        <Category xmi:id="_kV3j8E7uEeS_nIMdB-figg" Name="Assumptions"/>
       </Category>
     </CategoriesRoot>
     <PreferenceSet xmi:id="_HwM71EpCEeSvCplqal-Q5g" NameID="Pref. set 1">
