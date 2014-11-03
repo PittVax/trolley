@@ -438,51 +438,6 @@
       <Parameter xmi:id="_Gz8asWBTEeS--oL7YnhnJw" Name="alpha" Value="(((0.412 + 0.338)^2)*(1-(0.412 + 0.338))/((0.12)^2)-(0.412 + 0.338))"/>
       <Parameter xmi:id="_Gz8asmBTEeS--oL7YnhnJw" Name="beta" Value="((1-(0.412 + 0.338))*(((1-(0.412 + 0.338))*(0.412 + 0.338))/((0.12)^2)-1))"/>
     </Distribution>
-    <Distribution xmi:id="_xaTAsGOAEeS17dv4A_uQOA" NameID="dist_cAdvEvent_Wheeze" Label="" Comment="" Index="13" Type="Gamma">
-      <Parameter xmi:id="_0SA8QGOiEeS17dv4NyuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="_0SA8QWOiEeS17dv4NyuQOA" Name="alpha" Value="((62.92)^2)/((7.5)^2)"/>
-      <Parameter xmi:id="_0SA8QmOiEeS17dv4NyuQOA" Name="lambda" Value="(62.92)/((7.5)^2)"/>
-    </Distribution>
-    <Distribution xmi:id="_lTIssGOjEeS17dv4OxuQOA" NameID="dist_cFluRx" Label="" Index="14" Type="Gamma">
-      <Parameter xmi:id="_lTbAkGOjEeS17dv4OxuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="_lTbnoGOjEeS17dv4OxuQOA" Name="alpha" Value="38.96786"/>
-      <Parameter xmi:id="_lTbnoWOjEeS17dv4OxuQOA" Name="lambda" Value="0.378329"/>
-    </Distribution>
-    <Distribution xmi:id="__QBakGOlEeS17dv4OxuQOA" NameID="dist_cFlu_MD" Label="" Index="15" Type="Gamma">
-      <Parameter xmi:id="__QWKsGOlEeS17dv4PwuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="__QWKsWOlEeS17dv4PwuQOA" Name="alpha" Value="55.0458543121441"/>
-      <Parameter xmi:id="__QWKsmOlEeS17dv4PwuQOA" Name="lambda" Value="0.753227344172743"/>
-    </Distribution>
-    <Distribution xmi:id="__QWKs2OlEeS17dv4PwuQOA" NameID="dist_cHosp_Flu_Daily" Label="" Index="16" Type="Gamma">
-      <Parameter xmi:id="__QpssGOlEeS17dv4PwuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="__QpssWOlEeS17dv4QvuQOA" Name="alpha" Value="119.210745522699"/>
-      <Parameter xmi:id="__QpssmOlEeS17dv4QvuQOA" Name="lambda" Value="5.57059558517284E-02"/>
-    </Distribution>
-    <Distribution xmi:id="__Qpss2OlEeS17dv4QvuQOA" NameID="dist_cHosp_Wheeze" Label="" Index="17" Type="Gamma">
-      <Parameter xmi:id="__Q91wGOlEeS17dv4QvuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="__Q91wWOlEeS17dv4QvuQOA" Name="alpha" Value="2001.63031684028"/>
-      <Parameter xmi:id="__Q91wmOlEeS17dv4RuuQOA" Name="lambda" Value="0.466037326388889"/>
-    </Distribution>
-    <Distribution xmi:id="__Q91w2OlEeS17dv4RuuQOA" NameID="dist_cNonMed_Daily" Label="" Comment="" Index="18" Type="Gamma">
-      <Parameter xmi:id="_59PVgGOpEeS17dv4bkuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="_59PVgWOpEeS17dv4bkuQOA" Name="alpha" Value="16"/>
-      <Parameter xmi:id="_59PVgmOpEeS17dv4bkuQOA" Name="lambda" Value="9.87654320987654E-02"/>
-    </Distribution>
-    <Distribution xmi:id="__Rbv02OlEeS17dv4StuQOA" NameID="dist_cLAIV" Label="" Comment="" Index="19" Type="Gamma">
-      <Parameter xmi:id="_9KTucGOpEeS17dv4bkuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="_9KTucWOpEeS17dv4bkuQOA" Name="alpha" Value="16"/>
-      <Parameter xmi:id="_9KTucmOpEeS17dv4cjuQOA" Name="lambda" Value="0.704845814977974"/>
-    </Distribution>
-    <Distribution xmi:id="__RuqwmOlEeS17dv4StuQOA" NameID="dist_cTIV" Label="" Comment="" Index="20" Type="Gamma">
-      <Parameter xmi:id="___z78GOpEeS17dv4cjuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="___z78WOpEeS17dv4cjuQOA" Name="alpha" Value="16"/>
-      <Parameter xmi:id="___z78mOpEeS17dv4cjuQOA" Name="lambda" Value="1.49672591206735"/>
-    </Distribution>
-    <Distribution xmi:id="__SA-o2OlEeS17dv4TsuQOA" NameID="dist_cVaccine_Admin" Label="" Comment="" Index="21" Type="Gamma">
-      <Parameter xmi:id="_B_SgYGOqEeS17dv4cjuQOA" Name="subtype" Value="1"/>
-      <Parameter xmi:id="_B_SgYWOqEeS17dv4diuQOA" Name="alpha" Value="47.9996337108146"/>
-      <Parameter xmi:id="_B_SgYmOqEeS17dv4diuQOA" Name="lambda" Value="1.91386099325417"/>
-    </Distribution>
     <Variable xmi:id="_hdMRpWA2EeS--oL7B-hnJw" NameID="pLAIV_contraindication" Label="Probability patient has LAIV contraindication (Zimmerman et al 2010)" Comment="comment" Category="#_hdVbUGA2EeS--oL72JhnJw">
       <SensitivityRange xmi:id="_hdMRpmA2EeS--oL7B-hnJw" LowValue="0.1108" HighValue="0.1228"/>
     </Variable>
