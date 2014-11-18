@@ -1,5 +1,19 @@
-Look at unused vars
-why ProbtoProb(pFluTotal ; 1/6) for monthly?
-cVaccine missing admin fee
-pDie_LRI/pDie_AOM - is vaccine status knowable? There are many parameters that appear after vaccination node. How shall we handle?
-Do we want pRX or just assume everybody gets drugs? See Linder T1
+Used Beta for:
+eff_LAIV
+eff_TIV
+
+duAE_Other points to dist_duAEOther, a Beta dist
+dist_duAE_Other, a Gamma dist is also in the list of dists
+which one is correct?
+
+dist_pHosp_LRI_LAIV is ugly. very small measurement. May be better to convert to hours.
+
+worst distributions
+48
+31
+30
+22
+24
+25
+26
+

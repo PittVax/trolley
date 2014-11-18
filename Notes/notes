@@ -1,5 +1,0 @@
-Look at unused vars
-why ProbtoProb(pFluTotal ; 1/6) for monthly?
-cVaccine missing admin fee
-pDie_LRI/pDie_AOM - is vaccine status knowable? There are many parameters that appear after vaccination node. How shall we handle?
-Do we want pRX or just assume everybody gets drugs? See Linder T1
