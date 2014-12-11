@@ -51,8 +51,6 @@
       <Definition xmi:id="_FBbkwGmxEeSkApNLJ24FwQ" Variable="pDie_Flu_AOM_TIV" Value="pDie_Flu_AOM" Comment=""/>
       <Definition xmi:id="_FBbkwWmxEeSkApNLJ24FwQ" Variable="pHosp_AOM_LAIV" Value="CHOOSE(_chMC + 1 ; 0.0002 ; dist_pHosp_AOM_LAIV)" Comment=""/>
       <Definition xmi:id="_FBbkwmmxEeSkApNLK14FwQ" Variable="pHosp_AOM_TIV" Value="CHOOSE(_chMC + 1 ; 0.0004 ; dist_pHosp_AOM_TIV)" Comment=""/>
-      <Definition xmi:id="_FBbkw2mxEeSkApNLK14FwQ" Variable="pVaccinated_Monthly_LAIV" Value="CHOOSE(_chEBM + 1 ; ( pGetVax * (VAX_MONTHLY[_stage] - VAX_MONTHLY[_stage-1])) / (1 - pGetVax *  VAX_MONTHLY[_stage-1] ) ; EBM_LAIV[_stage; 3])" Comment=""/>
-      <Definition xmi:id="_FBbkxGmxEeSkApNLK14FwQ" Variable="pVaccinated_Monthly_TIV" Value="CHOOSE(_chEBM + 1 ; pVaccinated_Monthly_LAIV ; EBM_TIV[_stage; 3])" Comment=""/>
       <Definition xmi:id="_FBbkxWmxEeSkApNLK14FwQ" Variable="pDie_Flu_LAIV" Value="pDie_Flu" Comment=""/>
       <Definition xmi:id="_FBbkxmmxEeSkApNLK14FwQ" Variable="cAdvEvent_Wheeze" Value="CHOOSE(_chMC + 1 ; 62.92 ; dist_cAdvEvent_Wheeze)" Comment=""/>
       <Definition xmi:id="_FBbkx2mxEeSkApNLL04FwQ" Variable="pHosp_Wheeze_LAIV" Value="CHOOSE(_chMC + 1 ; 0.0009 ; dist_pHosp_Wheeze_LAIV)" Comment=""/>
@@ -93,8 +91,11 @@
       <Definition xmi:id="_FBbk6mmxEeSkApNLSt4FwQ" Variable="pVisitMD_LRI" Value="CHOOSE(_chMC + 1 ; 1 ; dist_pVisitMD_LRI)" Comment=""/>
       <Definition xmi:id="_FBbk62mxEeSkApNLSt4FwQ" Variable="numVisits_Flu" Value="CHOOSE(_chMC + 1 ; 1 ; MAX(1 ; dist_numVisits_Flu))" Comment=""/>
       <Definition xmi:id="_FBbk7WmxEeSkApNLSt4FwQ" Variable="pGetVax" Value="1" Comment=""/>
-      <Definition xmi:id="_V-1rcGmyEeSkApNLC94FwQ" Variable="_chEBM" Value="1" Comment=""/>
-      <Definition xmi:id="_pKhdMGmyEeSkApNLC94FwQ" Variable="_chMC" Value="0" Comment=""/>
+      <Definition xmi:id="_pKhdMGmyEeSkApNLC94FwQ" Variable="_chMC" Value="0" Comment="Sets parameter values as a point estimate or distribution"/>
+      <Definition xmi:id="_CXIqIIFuEeSI7tp8F69FoA" Variable="_chModel" Value="0" Comment=""/>
+      <Definition xmi:id="_XyvWcIF2EeSwB9RAB-knvg" Variable="pVaccinated_Monthly_TIV" Value="CHOOSE(_chModel +1; pVax_Monthly; EBM_TIV[_stage; 3])" Comment=""/>
+      <Definition xmi:id="_Z72_EIF2EeSwB9RAB-knvg" Variable="pVaccinated_Monthly_LAIV" Value="CHOOSE(_chModel +1 ; pVax_Monthly ; EBM_LAIV[_stage; 3])" Comment=""/>
+      <Definition xmi:id="_gdW9MYF2EeSwB9RAC9knvg" Variable="pVax_Monthly" Value="( pGetVax * (VAX_MONTHLY[_stage] - VAX_MONTHLY[_stage-1])) / (1 - pGetVax *  VAX_MONTHLY[_stage-1] )" Comment=""/>
       <Node xmi:id="_FBbk72mxEeSkApNLTs4FwQ" NameID="Node3" Label="LAIV" NodeType="ChanceNode">
         <Node xmi:id="_FBbk8GmxEeSkApNLTs4FwQ" NameID="Node5" Label="LAIV elig" NodeType="LabelNode" CloneMasterIndex="3" CloneMasterName="Markov">
           <Prob xmi:id="_FBbk8WmxEeSkApNLTs4FwQ" Value="#"/>
@@ -112,8 +113,8 @@
           <Definition xmi:id="_FBbk_WmxEeSkApNLVq4FwQ" Variable="pAE_noWheeze" Value="pAE_noWheeze_LAIV" Comment=""/>
           <Definition xmi:id="_FBbk_mmxEeSkApNLWp4FwQ" Variable="pHosp_Wheeze" Value="pHosp_Wheeze_LAIV"/>
           <Definition xmi:id="_FBbk_2mxEeSkApNLWp4FwQ" Variable="cVaccineTotal" Value="cLAIV  + cVaccine_Admin" Comment=""/>
-          <Definition xmi:id="_FBblAGmxEeSkApNLWp4FwQ" Variable="pFlu_Monthly" Value="CHOOSE(_chEBM + 1 ; pFlu_Monthly ; EBM_LAIV[ _stage ; 1])" Comment=""/>
-          <Definition xmi:id="_FBblAWmxEeSkApNLWp4FwQ" Variable="pFlu_Monthly_postVax" Value="CHOOSE(_chEBM + 1 ; pFlu_Monthly_postVax ; EBM_LAIV[ _stage ; 2])"/>
+          <Definition xmi:id="_FBblAWmxEeSkApNLWp4FwQ" Variable="pFlu_Monthly_postVax" Value="CHOOSE(_chModel +1; pFlu_Monthly_postVax ; EBM_LAIV[ _stage ; 2])"/>
+          <Definition xmi:id="_sD2qwIFsEeSI7tp8E79FoA" Variable="pFlu_Monthly" Value="CHOOSE(_chModel +1 ; pFlu_Monthly ; EBM_LAIV[ _stage ; 1])" Comment=""/>
           <Node xmi:id="_FBblAmmxEeSkApNLWp4FwQ" NameID="Node7" Label="Markov" NodeType="MarkovNode">
             <Prob xmi:id="_FBblA2mxEeSkApNLXo4FwQ" Value="pGetVaccine"/>
             <Node xmi:id="_FBblBGmxEeSkApNLXo4FwQ" NameID="Node10" Label="Well - unvaccinated" NodeType="ChanceNode" CloneMasterIndex="2" CloneMasterName="Well">
@@ -149,6 +150,7 @@
                     <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_FBlVkWmxEeSkApNLcj4FwQ" MarkovJumpState="Post Flu">
                       <TransitionReward xmi:id="_FBlVkmmxEeSkApNLcj4FwQ" Set="1" Value="cHosp_Flu / (1+dr)^(_stage*cyclen)"/>
                       <TransitionReward xmi:id="_FBlVk2mxEeSkApNLcj4FwQ" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                      <TransitionReward xmi:id="_6XibgIFbEeSI7tp8C99FoA" Set="5" Value="1"/>
                     </MarkovData>
                   </Node>
                   <Node xmi:id="_FBlVlGmxEeSkApNLcj4FwQ" NameID="Node31" Label="Neither" NodeType="TerminalNode">
@@ -175,6 +177,7 @@
                     <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_FBlVpGmxEeSkApNLfg4FwQ" MarkovJumpState="Post Flu">
                       <TransitionReward xmi:id="_FBlVpWmxEeSkApNLgf4FwQ" Set="1" Value="cHosp_LRI / (1+dr)^(_stage*cyclen)"/>
                       <TransitionReward xmi:id="_FBlVpmmxEeSkApNLgf4FwQ" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                      <TransitionReward xmi:id="_5p1oAIFbEeSI7tp8C99FoA" Set="5" Value="1"/>
                     </MarkovData>
                   </Node>
                   <Node xmi:id="_FBlVp2mxEeSkApNLgf4FwQ" NameID="Node42" Label="Neither" NodeType="TerminalNode">
@@ -201,6 +204,7 @@
                     <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_FBlVt2mxEeSkApNLjc4FwQ" MarkovJumpState="Post Flu">
                       <TransitionReward xmi:id="_FBlVuGmxEeSkApNLjc4FwQ" Set="1" Value="cHosp_AOM / (1+dr)^(_stage*cyclen)"/>
                       <TransitionReward xmi:id="_FBlVuWmxEeSkApNLkb4FwQ" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                      <TransitionReward xmi:id="_3RYi4IFbEeSI7tp8C99FoA" Set="5" Value="1"/>
                     </MarkovData>
                   </Node>
                   <Node xmi:id="_FBlVummxEeSkApNLkb4FwQ" NameID="Node45" Label="Neither" NodeType="TerminalNode">
@@ -269,6 +273,7 @@
                     <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_FBlV6GmxEeSkApNLtS4FwQ" MarkovJumpState="Post Flu">
                       <TransitionReward xmi:id="_FBlV6WmxEeSkApNLtS4FwQ" Set="1" Value="cHosp_Flu / (1+dr)^(_stage*cyclen)"/>
                       <TransitionReward xmi:id="_FBlV6mmxEeSkApNLtS4FwQ" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                      <TransitionReward xmi:id="_1m6lIIFbEeSI7tp8B-9FoA" Set="5" Value="1"/>
                     </MarkovData>
                   </Node>
                   <Node xmi:id="_FBlV62mxEeSkApNLuR4FwQ" NameID="Node69" Label="Neither" NodeType="TerminalNode">
@@ -295,6 +300,7 @@
                     <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_FBlV-2mxEeSkApNLxO4FwQ" MarkovJumpState="Post Flu">
                       <TransitionReward xmi:id="_FBlV_GmxEeSkApNLxO4FwQ" Set="1" Value="cHosp_LRI / (1+dr)^(_stage*cyclen)"/>
                       <TransitionReward xmi:id="_FBlV_WmxEeSkApNLxO4FwQ" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                      <TransitionReward xmi:id="_0L-4MIFbEeSI7tp8B-9FoA" Set="5" Value="1"/>
                     </MarkovData>
                   </Node>
                   <Node xmi:id="_FBlV_mmxEeSkApNLxO4FwQ" NameID="Node65" Label="Neither" NodeType="TerminalNode">
@@ -321,6 +327,7 @@
                     <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_FBlWDmmxEeSkApNL1K4FwQ" MarkovJumpState="Post Flu">
                       <TransitionReward xmi:id="_FBlWD2mxEeSkApNL1K4FwQ" Set="1" Value="cHosp_AOM / (1+dr)^(_stage*cyclen)"/>
                       <TransitionReward xmi:id="_FBlWEGmxEeSkApNL1K4FwQ" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                      <TransitionReward xmi:id="_y9PNIIFbEeSI7tp8B-9FoA" Set="5" Value="1"/>
                     </MarkovData>
                   </Node>
                   <Node xmi:id="_FBlWEWmxEeSkApNL1K4FwQ" NameID="Node61" Label="Neither" NodeType="TerminalNode">
@@ -365,8 +372,8 @@
           <Definition xmi:id="_FBlWL2mxEeSkApNL7E4FwQ" Variable="pAE_noWheeze" Value="pAE_noWheeze_TIV" Comment=""/>
           <Definition xmi:id="_FBlWMGmxEeSkApNL7E4FwQ" Variable="pAE_Wheeze" Value="pAE_Wheeze_TIV" Comment=""/>
           <Definition xmi:id="_FBlWMWmxEeSkApNL8D4FwQ" Variable="pHosp_Wheeze" Value="pHosp_Wheeze_TIV" Comment=""/>
-          <Definition xmi:id="_VE7dYGmxEeSkApNLA_4FwQ" Variable="pFlu_Monthly" Value="CHOOSE(_chEBM + 1 ; pFlu_Monthly ; EBM_TIV[ _stage ; 1])" Comment=""/>
-          <Definition xmi:id="_VE7dYWmxEeSkApNLB-4FwQ" Variable="pFlu_Monthly_postVax" Value="CHOOSE(_chEBM + 1 ; pFlu_Monthly_postVax ; EBM_TIV[ _stage ; 2])" Comment=""/>
+          <Definition xmi:id="_xWxV4IFsEeSI7tp8E79FoA" Variable="pFlu_Monthly" Value="CHOOSE(_chModel +1  ; pFlu_Monthly ; EBM_TIV[ _stage ; 1])" Comment=""/>
+          <Definition xmi:id="_yomxMIFsEeSI7tp8E79FoA" Variable="pFlu_Monthly_postVax" Value="CHOOSE(_chModel +1; pFlu_Monthly_postVax ; EBM_TIV[ _stage ; 2])" Comment=""/>
         </Node>
       </Node>
       <Node xmi:id="_FBlWMmmxEeSkApNL8D4FwQ" NameID="Node2" Label="TIV" NodeType="LabelNode" AttachToCloneMaster="3">
@@ -384,8 +391,8 @@
         <Definition xmi:id="_FBlWPmmxEeSkApNL-B4FwQ" Variable="pAE_Wheeze" Value="pAE_Wheeze_TIV" Comment=""/>
         <Definition xmi:id="_FBlWP2mxEeSkApNL-B4FwQ" Variable="pHosp_Wheeze" Value="pHosp_Wheeze_TIV" Comment=""/>
         <Definition xmi:id="_FBlWQGmxEeSkApNL_A4FwQ" Variable="cVaccineTotal" Value="cTIV + cVaccine_Admin" Comment=""/>
-        <Definition xmi:id="_r0dwYGmxEeSkApNLB-4FwQ" Variable="pFlu_Monthly" Value="CHOOSE(_chEBM + 1 ; pFlu_Monthly ; EBM_TIV[ _stage ; 1])" Comment=""/>
-        <Definition xmi:id="_r0dwYWmxEeSkApNLB-4FwQ" Variable="pFlu_Monthly_postVax" Value="CHOOSE(_chEBM + 1 ; pFlu_Monthly_postVax ; EBM_TIV[ _stage ; 2])" Comment=""/>
+        <Definition xmi:id="_r0dwYWmxEeSkApNLB-4FwQ" Variable="pFlu_Monthly_postVax" Value="CHOOSE(_chModel +1; pFlu_Monthly_postVax ; EBM_TIV[ _stage ; 2])" Comment=""/>
+        <Definition xmi:id="_JjZ5AIFtEeSI7tp8F69FoA" Variable="pFlu_Monthly" Value="CHOOSE(_chModel +1 ; pFlu_Monthly ; EBM_TIV[ _stage ; 1])" Comment=""/>
       </Node>
     </Node>
     <Distribution xmi:id="_FBlWQWmxEeSkApNL_A4FwQ" NameID="distRR_AOM_LAIVvsTIV" Label="" Comment="" Index="1" Type="LogNormal">
@@ -655,15 +662,15 @@
       <Parameter xmi:id="_FBlXFGmxEeSkApNLpW4FwQ" Name="alpha" Value="29.1228747222222"/>
       <Parameter xmi:id="_FBlXFWmxEeSkApNLpW4FwQ" Name="beta" Value="5.09906972222222"/>
     </Distribution>
-    <Variable xmi:id="_FBlXFmmxEeSkApNLpW4FwQ" NameID="pLAIV_contraindication" Label="Probability patient has LAIV contraindication (Zimmerman et al 2010)" Comment="comment" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXFmmxEeSkApNLpW4FwQ" NameID="pLAIV_contraindication" Label="Probability of LAIV contraindication (Zimmerman et al 2010)" Comment="comment" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXF2mxEeSkApNLqV4FwQ" LowValue="0.1108" HighValue="0.1228" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXGGmxEeSkApNLqV4FwQ" LowValue="0.1108" HighValue="0.1228"/>
     </Variable>
-    <Variable xmi:id="_FBlXGWmxEeSkApNLqV4FwQ" NameID="pFlu" Label="Probability of contracting flu given no vaccination" Comment="SA based on R0 of 1.2 to 2.0 (base 1.6)" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXGWmxEeSkApNLqV4FwQ" NameID="pFlu" Label="Probability of contracting flu given vax-" Comment="SA based on R0 of 1.2 to 2.0 (base 1.6)" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXGmmxEeSkApNLqV4FwQ" LowValue="0.17" HighValue="0.37" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXG2mxEeSkApNLqV4FwQ" LowValue="0.17" HighValue="0.37"/>
     </Variable>
-    <Variable xmi:id="_FBlXHGmxEeSkApNLrU4FwQ" NameID="pFlu_postVax" Label="Probability of flu given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXHGmxEeSkApNLrU4FwQ" NameID="pFlu_postVax" Label="Probability of flu given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXHWmxEeSkApNLrU4FwQ" HighValue="0.0476" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXHmmxEeSkApNLrU4FwQ" HighValue="0.04760000000000002"/>
     </Variable>
@@ -675,7 +682,7 @@
       <SensitivityRange xmi:id="_FBlXI2mxEeSkApNLsT4FwQ" HighValue="0.083333" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXJGmxEeSkApNLsT4FwQ" HighValue="0.08333333333333333"/>
     </Variable>
-    <Variable xmi:id="_FBlXJWmxEeSkApNLsT4FwQ" NameID="cFluTotal" Label="Total of all flu costs" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXJWmxEeSkApNLsT4FwQ" NameID="cFluTotal" Label="Total of all flu costs" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXJmmxEeSkApNLtS4FwQ" HighValue="618.232" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXJ2mxEeSkApNLtS4FwQ" HighValue="618.232"/>
     </Variable>
@@ -683,7 +690,7 @@
       <SensitivityRange xmi:id="_FBlXKWmxEeSkApNLtS4FwQ" HighValue="0.03" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXKmmxEeSkApNLtS4FwQ" HighValue="0.03"/>
     </Variable>
-    <Variable xmi:id="_FBlXK2mxEeSkApNLuR4FwQ" NameID="duFlu" Label="Disutility of flu (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXK2mxEeSkApNLuR4FwQ" NameID="duFlu" Label="Disutility of flu (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXLGmxEeSkApNLuR4FwQ" HighValue="0.003633" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXLWmxEeSkApNLuR4FwQ" HighValue="0.0036328767123287664"/>
     </Variable>
@@ -691,27 +698,27 @@
       <SensitivityRange xmi:id="_FBlXL2mxEeSkApNLuR4FwQ" HighValue="818.62" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXMGmxEeSkApNLvQ4FwQ" HighValue="818.62"/>
     </Variable>
-    <Variable xmi:id="_FBlXMWmxEeSkApNLvQ4FwQ" NameID="cAOM_Total" Label="Cost total of Acute Otitis Media" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXMWmxEeSkApNLvQ4FwQ" NameID="cAOM_Total" Label="Cost total of Acute Otitis Media" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXMmmxEeSkApNLvQ4FwQ" HighValue="849.4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXM2mxEeSkApNLvQ4FwQ" HighValue="849.4"/>
     </Variable>
-    <Variable xmi:id="_FBlXNGmxEeSkApNLvQ4FwQ" NameID="duLRI" Label="Disutility of lower respiratory infection (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXNGmxEeSkApNLvQ4FwQ" NameID="duLRI" Label="Disutility of lower respiratory infection (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXNWmxEeSkApNLwP4FwQ" HighValue="0.004032" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXNmmxEeSkApNLwP4FwQ" HighValue="0.004032493150684931"/>
     </Variable>
-    <Variable xmi:id="_FBlXN2mxEeSkApNLwP4FwQ" NameID="duAOM" Label="Disutility of acute otitis media (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXN2mxEeSkApNLwP4FwQ" NameID="duAOM" Label="Disutility of acute otitis media (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXOGmxEeSkApNLwP4FwQ" HighValue="0.004263" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXOWmxEeSkApNLwP4FwQ" HighValue="0.004262575342465753"/>
     </Variable>
-    <Variable xmi:id="_FBlXOmmxEeSkApNLxO4FwQ" NameID="cVaccineTotal" Label="Total of all vaccination costs" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXOmmxEeSkApNLxO4FwQ" NameID="cVaccineTotal" Label="Total of all vaccination costs" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXO2mxEeSkApNLxO4FwQ" HighValue="32.6" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXPGmxEeSkApNLxO4FwQ" HighValue="32.6"/>
     </Variable>
-    <Variable xmi:id="_FBlXPWmxEeSkApNLxO4FwQ" NameID="pFlu_AOM" Label="Probability of acute otitis media given vax- and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXPWmxEeSkApNLxO4FwQ" NameID="pFlu_AOM" Label="Probability of acute otitis media given vax- and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXPmmxEeSkApNLxO4FwQ" HighValue="0.042" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXP2mxEeSkApNLyN4FwQ" HighValue="0.042"/>
     </Variable>
-    <Variable xmi:id="_FBlXQGmxEeSkApNLyN4FwQ" NameID="pFlu_LRI" Label="Probability of lower respiratory infection given vax- and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXQGmxEeSkApNLyN4FwQ" NameID="pFlu_LRI" Label="Probability of lower respiratory infection given vax- and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXQWmxEeSkApNLyN4FwQ" HighValue="0.02128" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXQmmxEeSkApNLyN4FwQ" HighValue="0.02128"/>
     </Variable>
@@ -723,96 +730,96 @@
       <SensitivityRange xmi:id="_FBlXR2mxEeSkApNLzM4FwQ" LowValue="5.345" HighValue="16.035" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXSGmxEeSkApNLzM4FwQ" LowValue="5.345" HighValue="16.035"/>
     </Variable>
-    <Variable xmi:id="_FBlXSWmxEeSkApNL0L4FwQ" NameID="pAE_Wheeze_LAIV" Label="Probability of wheeze adverse event from LAIV (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXSWmxEeSkApNL0L4FwQ" NameID="pAE_Wheeze_LAIV" Label="Probability of adverse event from LAIV: wheezing (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXSmmxEeSkApNL0L4FwQ" LowValue="0.01075" HighValue="0.03225" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXS2mxEeSkApNL0L4FwQ" LowValue="0.01075" HighValue="0.03225"/>
     </Variable>
-    <Variable xmi:id="_FBlXTGmxEeSkApNL0L4FwQ" NameID="pAE_Wheeze_TIV" Label="Probability of wheeze adverse event from TIV (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXTGmxEeSkApNL0L4FwQ" NameID="pAE_Wheeze_TIV" Label="Probability of adverse event from TIV: wheezing (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXTWmxEeSkApNL0L4FwQ" LowValue="0.01275" HighValue="0.03825" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXTmmxEeSkApNL1K4FwQ" LowValue="0.01275" HighValue="0.03825"/>
     </Variable>
     <Variable xmi:id="_FBlXT2mxEeSkApNL1K4FwQ" NameID="pDie_Flu" Label="Probability of death from flu (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXUGmxEeSkApNL1K4FwQ" LowValue="3.3E-6" HighValue="9.9E-6"/>
     </Variable>
-    <Variable xmi:id="_FBlXUWmxEeSkApNL1K4FwQ" NameID="pDie_Flu_LRI" Label="Probability of death from lower respiratory infection and flu given vax-" Comment="Centers for Disease, C., Prevention, &amp; Thompson MG&#xa0; Zhou H, Bridges CB, Cheng PY, Burns E, S. D. K. (2010). Estimates of deaths associated with seasonal influenza --- United States, 1976-2007. MMWR Morb Mortal Wkly Rep, 59(33), 1057&#x2013;1062. doi:mm5933a1 [pii]&#xD; ***SA 50-150% of base&#xA;&#xD;&#xA;Luce, B. R., Nichol, K. L., Belshe, R. B., Frick, K. D., Li, S. X., Boscoe, A., &#x2026; Mahadevia, P. J. (2008). Cost-effectiveness of live attenuated influenza vaccine versus inactivated influenza vaccine among children aged 24-59 months in the United States. Vaccine, 26(23), 2841&#x2013;8. doi:10.1016/j.vaccine.2008.03.046&#xD;&#xA;" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXUWmxEeSkApNL1K4FwQ" NameID="pDie_Flu_LRI" Label="Probability of death from LRI and flu given vax- (CDC 2010)" Comment="Centers for Disease, C., Prevention, &amp; Thompson MG&#xa0; Zhou H, Bridges CB, Cheng PY, Burns E, S. D. K. (2010). Estimates of deaths associated with seasonal influenza --- United States, 1976-2007. MMWR Morb Mortal Wkly Rep, 59(33), 1057&#x2013;1062. doi:mm5933a1 [pii]&#xD; ***SA 50-150% of base&#xD;&#xA;&#xD;&#xD;&#xA;Luce, B. R., Nichol, K. L., Belshe, R. B., Frick, K. D., Li, S. X., Boscoe, A., &#x2026; Mahadevia, P. J. (2008). Cost-effectiveness of live attenuated influenza vaccine versus inactivated influenza vaccine among children aged 24-59 months in the United States. Vaccine, 26(23), 2841&#x2013;8. doi:10.1016/j.vaccine.2008.03.046&#xD;&#xD;&#xA;" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXUmmxEeSkApNL1K4FwQ" LowValue="8.4E-5" HighValue="2.51E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXU2mxEeSkApNL2J4FwQ" LowValue="8.4E-5" HighValue="2.51E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXVGmxEeSkApNL2J4FwQ" NameID="pDie_Flu_LRI_LAIV" Label="Probability of death from lower respiratory infection given LAIV+ and flu+(Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXVGmxEeSkApNL2J4FwQ" NameID="pDie_Flu_LRI_LAIV" Label="Probability of death from LRI and flu given LAIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXVWmxEeSkApNL2J4FwQ" HighValue="1.68E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXVmmxEeSkApNL2J4FwQ" HighValue="1.676E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXV2mxEeSkApNL2J4FwQ" NameID="pDie_Flu_LRI_TIV" Label="Probability of death from lower respiratory infection given TIV+ and flu+(Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXV2mxEeSkApNL2J4FwQ" NameID="pDie_Flu_LRI_TIV" Label="Probability of death from LRI and flu given TIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXWGmxEeSkApNL3I4FwQ" HighValue="1.68E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXWWmxEeSkApNL3I4FwQ" HighValue="1.676E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXWmmxEeSkApNL3I4FwQ" NameID="pFlu_AOM_LAIV" Label="Probability of acute otitis media given LAIV+ and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXWmmxEeSkApNL3I4FwQ" NameID="pFlu_AOM_LAIV" Label="Probability of acute otitis media given LAIV+ and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXW2mxEeSkApNL3I4FwQ" HighValue="0.001745" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXXGmxEeSkApNL3I4FwQ" HighValue="0.0017450160000000005"/>
     </Variable>
-    <Variable xmi:id="_FBlXXWmxEeSkApNL4H4FwQ" NameID="pFlu_AOM_TIV" Label="Probability of acute otitis media given TIV+ and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXXWmxEeSkApNL4H4FwQ" NameID="pFlu_AOM_TIV" Label="Probability of acute otitis media given TIV+ and flu+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXXmmxEeSkApNL4H4FwQ" HighValue="0.007862" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXX2mxEeSkApNL4H4FwQ" HighValue="0.0078624"/>
     </Variable>
-    <Variable xmi:id="_FBlXYGmxEeSkApNL4H4FwQ" NameID="pFlu_LAIV" Label="Probability of flu+ given LAIV+ (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXYGmxEeSkApNL4H4FwQ" NameID="pFlu_LAIV" Label="Probability of flu+ given LAIV+ (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXYWmxEeSkApNL4H4FwQ" HighValue="0.0476" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXYmmxEeSkApNL5G4FwQ" HighValue="0.04760000000000002"/>
     </Variable>
-    <Variable xmi:id="_FBlXY2mxEeSkApNL5G4FwQ" NameID="pFlu_TIV" Label="Probability of flu given TIV+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXY2mxEeSkApNL5G4FwQ" NameID="pFlu_TIV" Label="Probability of flu given TIV+" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXZGmxEeSkApNL5G4FwQ" HighValue="0.1008" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXZWmxEeSkApNL5G4FwQ" HighValue="0.1008"/>
     </Variable>
-    <Variable xmi:id="_FBlXZmmxEeSkApNL5G4FwQ" NameID="pHosp_Flu" Label="Probability of hospitalization given vax- and flu+ and no complications (assumed same as Luce/TIV)" Comment="SA 50%-150% of base" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXZmmxEeSkApNL5G4FwQ" NameID="pHosp_Flu" Label="Probability of hospitalization for uncomplicated flu given vax- (assumed same as Luce/TIV)" Comment="SA 50%-150% of base" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXZ2mxEeSkApNL6F4FwQ" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXaGmxEeSkApNL6F4FwQ" LowValue="2.0E-4" HighValue="6.0E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXaWmxEeSkApNL6F4FwQ" NameID="pHosp_LRI" Label="Probability of hospitalization given vax- and flu+ and lower respiratory infection (Lavelle 2009 J Peds)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXaWmxEeSkApNL6F4FwQ" NameID="pHosp_LRI" Label="Probability of hospitalization for LRI and flu given vax- (Lavelle 2009 J Peds)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXammxEeSkApNL6F4FwQ" LowValue="3.2E-4" HighValue="9.6E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXa2mxEeSkApNL6F4FwQ" LowValue="3.2E-4" HighValue="9.6E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXbGmxEeSkApNL7E4FwQ" NameID="pHosp_AOM" Label="Probability of hospitalization given vax- and flu+ and acute otitis media (assumed same as Luce/TIV)" Comment="SA 50%-150% of base" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXbGmxEeSkApNL7E4FwQ" NameID="pHosp_AOM" Label="Probability of hospitalization for AOM and flu given vax- (assumed same as Luce/TIV)" Comment="SA 50%-150% of base" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXbWmxEeSkApNL7E4FwQ" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXbmmxEeSkApNL7E4FwQ" LowValue="2.0E-4" HighValue="6.0E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXb2mxEeSkApNL7E4FwQ" NameID="pDie_Flu_AOM" Label="Probability of death from acute otitis media and flu given vax- (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXb2mxEeSkApNL7E4FwQ" NameID="pDie_Flu_AOM" Label="Probability of death from AOM and flu given vax- (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXcGmxEeSkApNL7E4FwQ" LowValue="3.3E-6" HighValue="9.9E-6"/>
     </Variable>
     <Variable xmi:id="_FBlXcWmxEeSkApNL8D4FwQ" NameID="pFlu_Monthly" Label="Probability of flu per Markov cycle given vax-" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
       <SensitivityRange xmi:id="_FBlXcmmxEeSkApNL8D4FwQ"/>
     </Variable>
-    <Variable xmi:id="_FBlXc2mxEeSkApNL8D4FwQ" NameID="pFluTotal" Label="Probability sum of all flu partial probabilities given vax-" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXc2mxEeSkApNL8D4FwQ" NameID="pFluTotal" Label="Probability sum of all flu partial probabilities given vax-" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXdGmxEeSkApNL8D4FwQ" HighValue="0.34328" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXdWmxEeSkApNL8D4FwQ" HighValue="0.34328000000000003"/>
     </Variable>
-    <Variable xmi:id="_FBlXdmmxEeSkApNL9C4FwQ" NameID="pFlu_Monthly_postVax" Label="Probability of flu per Markov cycle given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXdmmxEeSkApNL9C4FwQ" NameID="pFlu_Monthly_postVax" Label="Probability of flu per Markov cycle given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXd2mxEeSkApNL9C4FwQ"/>
     </Variable>
-    <Variable xmi:id="_FBlXeGmxEeSkApNL9C4FwQ" NameID="pFlu_LRI_postVax" Label="Probability of lower respiratory infection given vax+ and flu+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXeGmxEeSkApNL9C4FwQ" NameID="pFlu_LRI_postVax" Label="Probability of lower respiratory infection given vax+ and flu+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXeWmxEeSkApNL9C4FwQ" HighValue="0.003618" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXemmxEeSkApNL9C4FwQ" HighValue="0.003617600000000001"/>
     </Variable>
-    <Variable xmi:id="_FBlXe2mxEeSkApNL-B4FwQ" NameID="pFluTotal_postVax" Label="Probability sum of all flu partial probabilities given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXe2mxEeSkApNL-B4FwQ" NameID="pFluTotal_postVax" Label="Probability sum of all flu partial probabilities given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXfGmxEeSkApNL-B4FwQ"/>
     </Variable>
-    <Variable xmi:id="_FBlXfWmxEeSkApNL-B4FwQ" NameID="pFlu_AOM_postVax" Label="Probability of acute otitis media given vax+ and flu+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXfWmxEeSkApNL-B4FwQ" NameID="pFlu_AOM_postVax" Label="Probability of acute otitis media given vax+ and flu+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXfmmxEeSkApNL-B4FwQ" HighValue="0.001745" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXf2mxEeSkApNL-B4FwQ" HighValue="0.0017450160000000005"/>
     </Variable>
-    <Variable xmi:id="_FBlXgGmxEeSkApNL_A4FwQ" NameID="pDie_Flu_postVax" Label="Probability of death from flu given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXgGmxEeSkApNL_A4FwQ" NameID="pDie_Flu_postVax" Label="Probability of death from flu given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXgWmxEeSkApNL_A4FwQ" HighValue="6.6E-6"/>
     </Variable>
     <Variable xmi:id="_FBlXgmmxEeSkApNL_A4FwQ" NameID="pHosp_Flu_postVax" Label="Probability of hospitalization given vax+ and flu+ and no complications" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
       <SensitivityRange xmi:id="_FBlXg2mxEeSkApNL_A4FwQ" HighValue="2.0E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXhGmxEeSkApNL_A4FwQ" HighValue="2.0E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXhWmxEeSkApNLA_4FwQ" NameID="pDie_Flu_LRI_postVax" Label="Probability of death from lower respiratory infection given vax+ and flu+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXhWmxEeSkApNLA_4FwQ" NameID="pDie_Flu_LRI_postVax" Label="Probability of death from LRI and flu given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXhmmxEeSkApNLA_4FwQ" HighValue="1.68E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXh2mxEeSkApNLA_4FwQ" HighValue="1.676E-4"/>
     </Variable>
     <Variable xmi:id="_FBlXiGmxEeSkApNLA_4FwQ" NameID="pHosp_LRI_postVax" Label="Probability of hospitalization given vax+ and flu+ and lower respiratory infection" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
       <SensitivityRange xmi:id="_FBlXiWmxEeSkApNLA_4FwQ"/>
     </Variable>
-    <Variable xmi:id="_FBlXimmxEeSkApNLB-4FwQ" NameID="pDie_Flu_AOM_postVax" Label="Probability of death from acute otitis media given vax+ and flu+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXimmxEeSkApNLB-4FwQ" NameID="pDie_Flu_AOM_postVax" Label="Probability of death from AOM and flu given vax+" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXi2mxEeSkApNLB-4FwQ" HighValue="6.6E-6"/>
     </Variable>
     <Variable xmi:id="_FBlXjGmxEeSkApNLB-4FwQ" NameID="pHosp_AOM_postVax" Label="Probability of hospitalization given vax+ and flu+ and acute otitis media" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
@@ -827,11 +834,11 @@
       <SensitivityRange xmi:id="_FBlXk2mxEeSkApNLC94FwQ" LowValue="0.00274" HighValue="0.027397" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXlGmxEeSkApNLD84FwQ" LowValue="0.00274" HighValue="0.027397"/>
     </Variable>
-    <Variable xmi:id="_FBlXlWmxEeSkApNLD84FwQ" NameID="cFlu_MD" Label="Cost of MD office visit (99213 - 2014)" Comment="SA - min &amp; max regional value" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXlWmxEeSkApNLD84FwQ" NameID="cFlu_MD" Label="Cost of MD office visit for flu (99213 - 2014)" Comment="SA - min &amp; max regional value" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXlmmxEeSkApNLD84FwQ" LowValue="60.22" HighValue="92.78" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXl2mxEeSkApNLD84FwQ" LowValue="60.22" HighValue="92.78"/>
     </Variable>
-    <Variable xmi:id="_FBlXmGmxEeSkApNLD84FwQ" NameID="cNonMed_Daily" Label="Cost of direct nonmedical (daily wages from Bureau of Labor Statistics)" Comment="BLS July 2012 - see Parameters spreadsheet tab" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXmGmxEeSkApNLD84FwQ" NameID="cNonMed_Daily" Label="Cost of daily direct nonmedical (daily wages from Bureau of Labor Statistics)" Comment="BLS July 2012 - see Parameters spreadsheet tab" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXmWmxEeSkApNLE74FwQ" LowValue="81.0" HighValue="243.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXmmmxEeSkApNLE74FwQ" LowValue="81.0" HighValue="243.0"/>
     </Variable>
@@ -839,27 +846,27 @@
       <SensitivityRange xmi:id="_FBlXnGmxEeSkApNLE74FwQ" LowValue="51.5" HighValue="154.5" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXnWmxEeSkApNLE74FwQ" LowValue="51.5" HighValue="154.5"/>
     </Variable>
-    <Variable xmi:id="_FBlXnmmxEeSkApNLF64FwQ" NameID="duAE_Other" Label="Disutility of vaccination no wheeze adverse event (Luce - no disutility)" Comment="Upper range = loss of 1 day" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXnmmxEeSkApNLF64FwQ" NameID="duAE_Other" Label="Disutility of adverse event other than wheezing (Luce - no disutility)" Comment="Upper range = loss of 1 day" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXn2mxEeSkApNLF64FwQ" HighValue="0.00274" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXoGmxEeSkApNLF64FwQ" HighValue="0.00274"/>
     </Variable>
-    <Variable xmi:id="_FBlXoWmxEeSkApNLF64FwQ" NameID="cAdvEvent_Other" Label="Cost of non-hospitalized other adverse events - not wheezing (Luce)" Comment="SA 50%-200% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXoWmxEeSkApNLF64FwQ" NameID="cAdvEvent_Other" Label="Cost of non-hospitalized other adverse events: not wheezing (Luce)" Comment="SA 50%-200% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXommxEeSkApNLF64FwQ" LowValue="0.905" HighValue="3.62" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXo2mxEeSkApNLG54FwQ" LowValue="0.905" HighValue="3.62"/>
     </Variable>
-    <Variable xmi:id="_FBlXpGmxEeSkApNLG54FwQ" NameID="pAE_noWheeze" Label="Probability of adverse event other than wheezing" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXpGmxEeSkApNLG54FwQ" NameID="pAE_noWheeze" Label="Probability of adverse event other than wheezing" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXpWmxEeSkApNLG54FwQ" HighValue="0.778" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXpmmxEeSkApNLG54FwQ" HighValue="0.778"/>
     </Variable>
-    <Variable xmi:id="_FBlXp2mxEeSkApNLG54FwQ" NameID="pFlu_LRI_LAIV" Label="Probability of lower respiratory infection and flu given LAIV+ (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXp2mxEeSkApNLG54FwQ" NameID="pFlu_LRI_LAIV" Label="Probability of lower respiratory infection and flu given LAIV+ (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXqGmxEeSkApNLH44FwQ" HighValue="0.003618" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXqWmxEeSkApNLH44FwQ" HighValue="0.003617600000000001"/>
     </Variable>
-    <Variable xmi:id="_FBlXqmmxEeSkApNLH44FwQ" NameID="pFlu_LRI_TIV" Label="Probability of lower respiratory infection and flu given TIV+  (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXqmmxEeSkApNLH44FwQ" NameID="pFlu_LRI_TIV" Label="Probability of lower respiratory infection and flu given TIV+  (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXq2mxEeSkApNLH44FwQ" HighValue="0.007661" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXrGmxEeSkApNLH44FwQ" HighValue="0.0076608"/>
     </Variable>
-    <Variable xmi:id="_FBlXrWmxEeSkApNLI34FwQ" NameID="pDie_Flu_LAIV" Label="Probability of death from flu given LAIV+(Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXrWmxEeSkApNLI34FwQ" NameID="pDie_Flu_LAIV" Label="Probability of death from flu given LAIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXrmmxEeSkApNLI34FwQ" HighValue="6.6E-6"/>
     </Variable>
     <Variable xmi:id="_FBlXr2mxEeSkApNLI34FwQ" NameID="pDie_Flu_TIV" Label="Probability of death from flu given TIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
@@ -873,18 +880,18 @@
       <SensitivityRange xmi:id="_FBlXtWmxEeSkApNLJ24FwQ" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXtmmxEeSkApNLJ24FwQ" LowValue="2.0E-4" HighValue="6.0E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXt2mxEeSkApNLK14FwQ" NameID="pHosp_LRI_LAIV" Label="Probability of hospitalization for flu+ and lower respiratory infection given LAIV+ (Luce)" Comment="Upper range = base probability for flu hosp given LAIV" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXt2mxEeSkApNLK14FwQ" NameID="pHosp_LRI_LAIV" Label="Probability of hospitalization for LRI and flu given LAIV+ (Luce)" Comment="Upper range = base probability for flu hosp given LAIV" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXuGmxEeSkApNLK14FwQ" HighValue="1.0E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXuWmxEeSkApNLK14FwQ" HighValue="1.0E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXummxEeSkApNLK14FwQ" NameID="pHosp_LRI_TIV" Label="Probability of hospitalization for flu+ and lower respiratory infection given TIV+(Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXummxEeSkApNLK14FwQ" NameID="pHosp_LRI_TIV" Label="Probability of hospitalization for LRI and flu given TIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXu2mxEeSkApNLK14FwQ" LowValue="5.0E-5" HighValue="1.5E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXvGmxEeSkApNLL04FwQ" LowValue="5.0E-5" HighValue="1.5E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlXvWmxEeSkApNLL04FwQ" NameID="pDie_Flu_AOM_LAIV" Label="Probability of death from acute otitis media and flu given LAIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXvWmxEeSkApNLL04FwQ" NameID="pDie_Flu_AOM_LAIV" Label="Probability of death from AOM and flu given LAIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXvmmxEeSkApNLL04FwQ" HighValue="6.6E-6"/>
     </Variable>
-    <Variable xmi:id="_FBlXv2mxEeSkApNLL04FwQ" NameID="pDie_Flu_AOM_TIV" Label="Probability of death from acute otitis media and flu given TIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXv2mxEeSkApNLL04FwQ" NameID="pDie_Flu_AOM_TIV" Label="Probability of death from AOM and flu given TIV+ (Assumed from Luce)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXwGmxEeSkApNLL04FwQ" HighValue="6.6E-6"/>
     </Variable>
     <Variable xmi:id="_FBlXwWmxEeSkApNLMz4FwQ" NameID="pHosp_AOM_LAIV" Label="Probability of hospitalization for AOM given LAIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
@@ -901,15 +908,15 @@
     <Variable xmi:id="_FBlXyWmxEeSkApNLNy4FwQ" NameID="pVaccinated_Monthly_TIV" Label="Probability of vaccination with TIV by month - f(pVaccinated_Montly_LAIV)" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
       <SensitivityRange xmi:id="_FBlXymmxEeSkApNLNy4FwQ"/>
     </Variable>
-    <Variable xmi:id="_FBlXy2mxEeSkApNLOx4FwQ" NameID="pAE_Wheeze" Label="Probability of the adverse event wheezing" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlXy2mxEeSkApNLOx4FwQ" NameID="pAE_Wheeze" Label="Probability of the adverse event wheezing" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlXzGmxEeSkApNLOx4FwQ" HighValue="0.0215" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlXzWmxEeSkApNLOx4FwQ" HighValue="0.0215"/>
     </Variable>
-    <Variable xmi:id="_FBlXzmmxEeSkApNLOx4FwQ" NameID="cAdvEvent_Wheeze" Label="Cost of non-hospitalized adverse event  - wheezing (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlXzmmxEeSkApNLOx4FwQ" NameID="cAdvEvent_Wheeze" Label="Cost of non-hospitalized adverse event: wheezing (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlXz2mxEeSkApNLOx4FwQ" LowValue="31.46" HighValue="94.38" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX0GmxEeSkApNLPw4FwQ" LowValue="31.46" HighValue="94.38"/>
     </Variable>
-    <Variable xmi:id="_FBlX0WmxEeSkApNLPw4FwQ" NameID="duAE_Wheeze" Label="Disutility of adverse event wheezing (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlX0WmxEeSkApNLPw4FwQ" NameID="duAE_Wheeze" Label="Disutility of adverse event wheezing (Luce)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlX0mmxEeSkApNLPw4FwQ" HighValue="0.005217" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX02mxEeSkApNLPw4FwQ" HighValue="0.0052170410958904114"/>
     </Variable>
@@ -917,11 +924,11 @@
       <SensitivityRange xmi:id="_FBlX1WmxEeSkApNLQv4FwQ" HighValue="9.0E-4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX1mmxEeSkApNLQv4FwQ" HighValue="9.0E-4"/>
     </Variable>
-    <Variable xmi:id="_FBlX12mxEeSkApNLQv4FwQ" NameID="pHosp_Wheeze_LAIV" Label="Probability of hospitalization for flu+ and lower respiratory infection given LAIV+(Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlX12mxEeSkApNLQv4FwQ" NameID="pHosp_Wheeze_LAIV" Label="Probability of hospitalization for wheezing given LAIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlX2GmxEeSkApNLQv4FwQ" LowValue="4.5E-4" HighValue="0.00135" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX2WmxEeSkApNLQv4FwQ" LowValue="4.5E-4" HighValue="0.00135"/>
     </Variable>
-    <Variable xmi:id="_FBlX2mmxEeSkApNLRu4FwQ" NameID="pHosp_Wheeze_TIV" Label="Probability of hospitalization for flu+ and wheezing given TIV+(Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlX2mmxEeSkApNLRu4FwQ" NameID="pHosp_Wheeze_TIV" Label="Probability of hospitalization for wheezing given TIV+(Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlX22mxEeSkApNLRu4FwQ" LowValue="9.0E-4" HighValue="0.0027" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX3GmxEeSkApNLRu4FwQ" LowValue="9.0E-4" HighValue="0.0027"/>
     </Variable>
@@ -933,7 +940,7 @@
       <SensitivityRange xmi:id="_FBlX4WmxEeSkApNLSt4FwQ" LowValue="0.5" HighValue="0.95" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX4mmxEeSkApNLSt4FwQ" LowValue="0.5" HighValue="0.95"/>
     </Variable>
-    <Variable xmi:id="_FBlX42mxEeSkApNLSt4FwQ" NameID="uWheeze" Label="Utility of AE - wheezing (Luce)" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlX42mxEeSkApNLSt4FwQ" NameID="uWheeze" Label="Utility of adverse event: wheezing (Luce)" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlX5GmxEeSkApNLTs4FwQ" LowValue="0.7" HighValue="0.95" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX5WmxEeSkApNLTs4FwQ" LowValue="0.7" HighValue="0.95"/>
     </Variable>
@@ -961,7 +968,7 @@
       <SensitivityRange xmi:id="_FBlX9mmxEeSkApNLWp4FwQ" LowValue="4103.0" HighValue="4487.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX92mxEeSkApNLWp4FwQ" LowValue="4103.0" HighValue="4487.0"/>
     </Variable>
-    <Variable xmi:id="_FBlX-GmxEeSkApNLXo4FwQ" NameID="cHosp_Flu" Label="Cost of hospitalization including non-medical indirect costs for expected stay due to flu" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlX-GmxEeSkApNLXo4FwQ" NameID="cHosp_Flu" Label="Cost of hospitalization including non-medical indirect costs for expected stay due to flu" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlX-WmxEeSkApNLXo4FwQ" HighValue="5064.4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlX-mmxEeSkApNLXo4FwQ" HighValue="5064.400000000001"/>
     </Variable>
@@ -977,7 +984,7 @@
       <SensitivityRange xmi:id="_FBlYAmmxEeSkApNLZm4FwQ" HighValue="5064.4" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYA2mxEeSkApNLZm4FwQ" HighValue="5064.400000000001"/>
     </Variable>
-    <Variable xmi:id="_FBlYBGmxEeSkApNLZm4FwQ" NameID="cHosp_LRI" Label="Cost of hospitalization including non-medical indirect costs for expected stay due to flu and LRI" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYBGmxEeSkApNLZm4FwQ" NameID="cHosp_LRI" Label="Cost of hospitalization including non-medical indirect costs for expected stay due to flu and LRI" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlYBWmxEeSkApNLZm4FwQ" HighValue="6445.6" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYBmmxEeSkApNLZm4FwQ" HighValue="6445.599999999999"/>
     </Variable>
@@ -989,7 +996,7 @@
       <SensitivityRange xmi:id="_FBlYC2mxEeSkApNLal4FwQ" LowValue="19.08" HighValue="32.32" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYDGmxEeSkApNLbk4FwQ" LowValue="19.08" HighValue="32.32"/>
     </Variable>
-    <Variable xmi:id="_FBlYDWmxEeSkApNLbk4FwQ" NameID="numVisits_Flu" Label="Number of visits with uncomplicated flu when MD visits occur (assumed)" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYDWmxEeSkApNLbk4FwQ" NameID="numVisits_Flu" Label="Number of MD visits with uncomplicated flu (assumed)" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYDmmxEeSkApNLbk4FwQ" LowValue="1.0" HighValue="3.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYD2mxEeSkApNLbk4FwQ" LowValue="1.0" HighValue="3.0"/>
     </Variable>
@@ -1005,7 +1012,7 @@
       <SensitivityRange xmi:id="_FBlYF2mxEeSkApNLdi4FwQ" LowValue="0.7" HighValue="1.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYGGmxEeSkApNLdi4FwQ" LowValue="0.7" HighValue="1.0"/>
     </Variable>
-    <Variable xmi:id="_FBlYGWmxEeSkApNLdi4FwQ" NameID="numVisits_LRI" Label="Number of visits with LRI (assumed)" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYGWmxEeSkApNLdi4FwQ" NameID="numVisits_LRI" Label="Number of MD visits with LRI (assumed)" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYGmmxEeSkApNLdi4FwQ" LowValue="1.0" HighValue="3.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYG2mxEeSkApNLeh4FwQ" LowValue="1.0" HighValue="3.0"/>
     </Variable>
@@ -1017,25 +1024,25 @@
       <SensitivityRange xmi:id="_FBlYIGmxEeSkApNLfg4FwQ" LowValue="1.0" HighValue="3.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYIWmxEeSkApNLfg4FwQ" LowValue="1.0" HighValue="3.0"/>
     </Variable>
-    <Variable xmi:id="_FBlYImmxEeSkApNLfg4FwQ" NameID="eff_LAIV" Label="Efficacy of LAIV in preventing flu (Rick's VE Excel file)" Comment="SA range from Excel" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYImmxEeSkApNLfg4FwQ" NameID="eff_LAIV" Label="LAIV efficacy against flu (Rick's VE Excel file)" Comment="SA range from Excel" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYI2mxEeSkApNLfg4FwQ" LowValue="0.46" HighValue="0.91"/>
     </Variable>
-    <Variable xmi:id="_FBlYJGmxEeSkApNLfg4FwQ" NameID="eff_TIV" Label="Efficacy of TIV in preventing flu  (Rick's VE Excel file)" Comment="SA range from Excel" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYJGmxEeSkApNLfg4FwQ" NameID="eff_TIV" Label="TIV efficacy against flu  (Rick's VE Excel file)" Comment="SA range from Excel" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYJWmxEeSkApNLgf4FwQ" LowValue="0.34" HighValue="0.81"/>
     </Variable>
     <Variable xmi:id="_FBlYJmmxEeSkApNLgf4FwQ" NameID="Percent_AOM" Label="Percentage of flu cases with AOM (est. Prosser, Salo)" Comment="SA =- Prosser calc for older and younger children" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYJ2mxEeSkApNLgf4FwQ" LowValue="0.064" HighValue="0.273" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYKGmxEeSkApNLgf4FwQ" LowValue="0.064" HighValue="0.273"/>
     </Variable>
-    <Variable xmi:id="_FBlYKWmxEeSkApNLgf4FwQ" NameID="Percent_AOM_LAIV" Label="Percentage of flu cases with AOM (calculated from Luce and RR from ACIP slides)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYKWmxEeSkApNLgf4FwQ" NameID="Percent_AOM_LAIV" Label="Percentage of flu cases with AOM given LAIV+ (calculated from Luce and RR from ACIP slides)" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlYKmmxEeSkApNLhe4FwQ" HighValue="0.03666" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYK2mxEeSkApNLhe4FwQ" HighValue="0.03666"/>
     </Variable>
-    <Variable xmi:id="_FBlYLGmxEeSkApNLhe4FwQ" NameID="Percent_AOM_TIV" Label="Percentage of flu cases with AOM post TIV (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYLGmxEeSkApNLhe4FwQ" NameID="Percent_AOM_TIV" Label="Percentage of flu cases with AOM given TIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYLWmxEeSkApNLhe4FwQ" LowValue="0.039" HighValue="0.117" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYLmmxEeSkApNLhe4FwQ" LowValue="0.039" HighValue="0.117"/>
     </Variable>
-    <Variable xmi:id="_FBlYL2mxEeSkApNLid4FwQ" NameID="Percent_LRI" Label="percentage of flu cases with LRI (Luce, calculated for LAIV [TIV 7.8%])" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYL2mxEeSkApNLid4FwQ" NameID="Percent_LRI" Label="Percentage of flu cases with LRI (Luce, calculated for LAIV [TIV 7.8%])" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYMGmxEeSkApNLid4FwQ" LowValue="0.038" HighValue="0.114" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYMWmxEeSkApNLid4FwQ" LowValue="0.038" HighValue="0.114"/>
     </Variable>
@@ -1043,28 +1050,29 @@
       <SensitivityRange xmi:id="_FBlYM2mxEeSkApNLid4FwQ" LowValue="0.3" HighValue="0.73" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYNGmxEeSkApNLjc4FwQ" LowValue="0.3" HighValue="0.73"/>
     </Variable>
-    <Variable xmi:id="_FBlYNWmxEeSkApNLjc4FwQ" NameID="pGetVax" Label="Probability of getting a vaccine throughout a flu season" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYNWmxEeSkApNLjc4FwQ" NameID="pGetVax" Label="Probability of getting a vaccine during the flu season" Comment="Assumed" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYNmmxEeSkApNLjc4FwQ" LowValue="0.5" HighValue="1.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYN2mxEeSkApNLjc4FwQ" LowValue="0.5" HighValue="1.0" Intervals="5"/>
     </Variable>
-    <Variable xmi:id="_FBlYOGmxEeSkApNLjc4FwQ" NameID="cTotalAdvEvent_Wheeze" Label="Total cost of wheezing" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYOGmxEeSkApNLjc4FwQ" NameID="cTotalAdvEvent_Wheeze" Label="Total cost of wheezing" Comment="" Category="#_FBlYpmmxEeSkApNL5G4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlYOWmxEeSkApNLkb4FwQ"/>
     </Variable>
-    <Variable xmi:id="_FBlYOmmxEeSkApNLkb4FwQ" NameID="cAOM_meds" Label="Cost of AOM medication (Table 3. http://onlinelibrary.wiley.com/doi/10.1002/lary.24190/pdf)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
+    <Variable xmi:id="_FBlYOmmxEeSkApNLkb4FwQ" NameID="cAOM_meds" Label="Cost of medication (Table 3. http://onlinelibrary.wiley.com/doi/10.1002/lary.24190/pdf)" Comment="SA 50%-150% of base" Category="#_FBlYo2mxEeSkApNL5G4FwQ">
       <SensitivityRange xmi:id="_FBlYO2mxEeSkApNLkb4FwQ" LowValue="15.0" HighValue="45.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYPGmxEeSkApNLkb4FwQ" LowValue="15.0" HighValue="45.0"/>
     </Variable>
-    <Variable xmi:id="_FBlYPWmxEeSkApNLkb4FwQ" NameID="cLRI_meds" Label="Cost of LRI medication (assumed = AOM medication)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
-      <SensitivityRange xmi:id="_FBlYPmmxEeSkApNLla4FwQ" HighValue="30.0" Intervals="0"/>
-      <SensitivityRange xmi:id="_FBlYP2mxEeSkApNLla4FwQ" HighValue="30.0"/>
+    <Variable xmi:id="_FBlYPWmxEeSkApNLkb4FwQ" NameID="cLRI_meds" Label="Cost of medication (assumed = AOM medication)" Comment="" Category="#_FBlYpWmxEeSkApNL5G4FwQ">
+      <SensitivityRange xmi:id="_FBlYPmmxEeSkApNLla4FwQ" LowValue="15.0" HighValue="45.0" Intervals="0"/>
     </Variable>
-    <Variable xmi:id="_FBlYQGmxEeSkApNLla4FwQ" NameID="_chMC" Label="point estimate = 0, distribution = 1" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
+    <Variable xmi:id="_FBlYQGmxEeSkApNLla4FwQ" NameID="_chMC" Label="point estimate = 0, distribution = 1" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ" ShowInTree="false">
       <SensitivityRange xmi:id="_FBlYQWmxEeSkApNLla4FwQ" HighValue="1.0" Intervals="0"/>
       <SensitivityRange xmi:id="_FBlYQmmxEeSkApNLla4FwQ" HighValue="1.0" Intervals="1"/>
     </Variable>
-    <Variable xmi:id="_FBlYQ2mxEeSkApNLmZ4FwQ" NameID="_chEBM" Label="" Comment="">
+    <Variable xmi:id="_FBlYQ2mxEeSkApNLmZ4FwQ" NameID="_chModel" Label="Table input selector {0:Default, 1:EBM, 2:ABM}" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ">
       <SensitivityRange xmi:id="_NWbEIGmyEeSkApNLC94FwQ" HighValue="1.0" Intervals="1"/>
     </Variable>
+    <Variable xmi:id="_Udq4EIF2EeSwB9RAA_knvg" NameID="pVax_Montly" Label="Probability of vaccination selected from VAX_MONTHLY table" Comment="" Category="#_FBlYoGmxEeSkApNL4H4FwQ"/>
+    <Variable xmi:id="_gdW9MIF2EeSwB9RAB-knvg" NameID="pVax_Monthly" Label="Probability of vaccination as selected from VAX_MONTHLY table" Comment=""/>
     <Table xmi:id="_FBlYRWmxEeSkApNLmZ4FwQ" NameID="Flu_attack_monthly" Label="" Comment="" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider">
       <DataProviderOptions xmi:id="_FBlYRmmxEeSkApNLmZ4FwQ" key="null_values" value="error"/>
       <DataProviderOptions xmi:id="_FBlYR2mxEeSkApNLmZ4FwQ" key="update" value="manually"/>
@@ -1184,7 +1192,7 @@
     <PreferenceSet xmi:id="_FBlYp2mxEeSkApNL6F4FwQ" NameID="Pref. set 1">
       <Preference xmi:id="_FBlYqGmxEeSkApNL6F4FwQ" Name="locale" Value="en_US"/>
       <Preference xmi:id="_FBlYqWmxEeSkApNL6F4FwQ" Name="useCustomRegionalNumericSettings" Value="false"/>
-      <Preference xmi:id="_GYblAGm3EeSkApNLD84FwQ" Name="calcType" Value="ct_costEff"/>
+      <Preference xmi:id="_OPm-4IFsEeSI7tp8D89FoA" Name="calcType" Value="ct_costEff"/>
       <Preference xmi:id="_FBlYq2mxEeSkApNL6F4FwQ" Name="defaultBranchesPerNode" Value="2"/>
       <Preference xmi:id="_FBlYrGmxEeSkApNL7E4FwQ" Name="addBranchesAt" Value="vTop"/>
       <Preference xmi:id="_FBlYrWmxEeSkApNL7E4FwQ" Name="keyboardNavigation" Value="vTopBranch"/>
@@ -1215,7 +1223,7 @@
       <Preference xmi:id="_FBlYxmmxEeSkApNLA_4FwQ" Name="forCostEffectivenessunitsText" Value=""/>
       <Preference xmi:id="_FBlYx2mxEeSkApNLA_4FwQ" Name="printingZoomFactor" Value="50"/>
       <Preference xmi:id="_FBlYyGmxEeSkApNLA_4FwQ" Name="1saWay0" Value="_chEBM"/>
-      <Preference xmi:id="_FBlYyWmxEeSkApNLA_4FwQ" Name="mainPayoff" Value="3"/>
+      <Preference xmi:id="_fPtnsIFdEeSI7tp8D89FoA" Name="mainPayoff" Value="5"/>
       <Preference xmi:id="_FBlYymmxEeSkApNLB-4FwQ" Name="optType3" Value="opt_low"/>
       <Preference xmi:id="_FBlYy2mxEeSkApNLB-4FwQ" Name="ceCostPayoff" Value="1"/>
       <Preference xmi:id="_FBlYzGmxEeSkApNLB-4FwQ" Name="ceEffPayoff" Value="2"/>
@@ -1225,7 +1233,7 @@
       <Preference xmi:id="_FBlY0GmxEeSkApNLC94FwQ" Name="2saWay1" Value="eff_TIV"/>
       <Preference xmi:id="_FBlY0WmxEeSkApNLC94FwQ" Name="optType4" Value="opt_high"/>
       <Preference xmi:id="_FBlY0mmxEeSkApNLC94FwQ" Name="customPayoffName4" Value="Influenza death"/>
-      <Preference xmi:id="_FBlY02mxEeSkApNLC94FwQ" Name="optType5" Value="opt_high"/>
+      <Preference xmi:id="_fPtnsYFdEeSI7tp8D89FoA" Name="optType5" Value="opt_high"/>
       <Preference xmi:id="_FBlY1GmxEeSkApNLD84FwQ" Name="forPayoff4evDecPlaces" Value="4"/>
       <Preference xmi:id="_FBlY1WmxEeSkApNLD84FwQ" Name="forPayoff4evDecTrailZeros" Value="true"/>
       <Preference xmi:id="_FBlY1mmxEeSkApNLD84FwQ" Name="forPayoff4thousandsSep" Value="false"/>
@@ -1266,6 +1274,8 @@
       <Preference xmi:id="_FBlY-WmxEeSkApNLK14FwQ" Name="monteNumVOISamples" Value="0"/>
       <Preference xmi:id="_FBlY-mmxEeSkApNLK14FwQ" Name="monteNumSamples" Value="5000"/>
       <Preference xmi:id="_FBlY-2mxEeSkApNLK14FwQ" Name="monteNumTrials" Value="0"/>
+      <Preference xmi:id="_cmPV8IFbEeSI7tp8A_9FoA" Name="customPayoffName5" Value="Influenza hospitalization"/>
+      <Preference xmi:id="_bo__sYFdEeSI7tp8C99FoA" Name="optType1" Value="opt_high"/>
     </PreferenceSet>
   </tree:Tree>
   <notation:Diagram xmi:id="_FBlY_GmxEeSkApNLL04FwQ" type="TreeDocument" element="#_FBbkkGmxEeSkApNLA_4FwQ" measurementUnit="Himetric">
