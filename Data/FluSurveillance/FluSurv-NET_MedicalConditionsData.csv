@@ -1,0 +1,112 @@
+Medical Conditions Breakdown by Season downloaded on Oct-08-2014
+Influenza Division - Centers for Disease Control and Prevention
+SEASON,MEDICAL CONDITION,CHILDREN-COUNT,CHILDREN-PERCENT(%),ADULTS-COUNT,ADULTS-PERCENT(%)
+2003-04,Asthma,231,17.7,N/A,N/A
+2003-04,Cardiovascular disease,27,2.1,N/A,N/A
+2003-04,Chronic lung disease,29,2.2,N/A,N/A
+2003-04,Immune suppression,25,1.9,N/A,N/A
+2003-04,Metabolic disorder,14,1.1,N/A,N/A
+2003-04,Renal disease,6,0.5,N/A,N/A
+2003-04,No known condition,747,57.2,N/A,N/A
+2004-05,Asthma,117,19,N/A,N/A
+2004-05,Cardiovascular disease,23,3.7,N/A,N/A
+2004-05,Chronic lung disease,17,2.8,N/A,N/A
+2004-05,Immune suppression,28,4.6,N/A,N/A
+2004-05,Metabolic disorder,11,1.8,N/A,N/A
+2004-05,Neuromuscular disorder,30,4.9,N/A,N/A
+2004-05,Renal disease,11,1.8,N/A,N/A
+2004-05,No known condition,335,54.5,N/A,N/A
+2005-06,Asthma,131,18.6,199,16.2
+2005-06,Cardiovascular disease,19,2.7,534,43.5
+2005-06,Chronic lung disease,26,3.7,321,26.1
+2005-06,Immune suppression,33,4.7,130,10.6
+2005-06,Metabolic disorder,19,2.7,357,29.1
+2005-06,Neuromuscular disorder,36,5.1,56,4.6
+2005-06,Pregnancy,N/A,N/A,N/A,N/A
+2005-06,Renal disease,17,2.4,147,12
+2005-06,No known condition,387,54.8,191,15.6
+2006-07,Asthma,81,15.5,130,17.2
+2006-07,Cardiovascular disease,20,3.8,291,38.5
+2006-07,Chronic lung disease,31,5.9,163,21.6
+2006-07,Immune suppression,25,4.8,95,12.6
+2006-07,Metabolic disorder,25,4.8,254,33.6
+2006-07,Neuromuscular disorder,26,5,37,4.9
+2006-07,Pregnancy,N/A,N/A,N/A,N/A
+2006-07,Renal disease,10,1.9,110,14.6
+2006-07,No known condition,300,57.4,132,17.5
+2007-08,Asthma,165,19.2,479,15.6
+2007-08,Cardiovascular disease,28,3.3,1350,44
+2007-08,Chronic lung disease,19,2.2,753,24.5
+2007-08,Immune suppression,41,4.8,326,10.6
+2007-08,Metabolic disorder,23,2.7,1090,35.5
+2007-08,Neuromuscular disorder,18,2.1,160,5.2
+2007-08,Pregnancy,N/A,N/A,N/A,N/A
+2007-08,Renal disease,13,1.5,484,15.8
+2007-08,No known condition,507,59,483,15.7
+2008-09,Asthma,159,20.1,198,21.9
+2008-09,Cardiovascular disease,32,4,243,26.9
+2008-09,Chronic lung disease,27,3.4,209,23.1
+2008-09,Immune suppression,35,4.4,135,14.9
+2008-09,Metabolic disorder,27,3.4,267,29.5
+2008-09,Neuromuscular disorder,43,5.4,43,4.8
+2008-09,Pregnancy,N/A,N/A,N/A,N/A
+2008-09,Renal disease,15,1.9,118,13
+2008-09,No known condition,417,52.6,173,19.1
+2009-10,Asthma,759,30,1448,29
+2009-10,Cardiovascular disease,103,4.1,1012,20.3
+2009-10,Chronic lung disease,97,3.8,937,18.8
+2009-10,Immune suppression,109,4.3,612,12.3
+2009-10,Metabolic disorder,79,3.1,1397,28
+2009-10,Neuromuscular disorder,114,4.5,216,4.3
+2009-10,Obesity,271,10.7,1862,37.3
+2009-10,Pregnancy,N/A,N/A,N/A,N/A
+2009-10,Renal disease,32,1.3,489,9.8
+2009-10,No known condition,1257,49.7,967,19.4
+2010-11,Asthma,267,18.9,943,19.3
+2010-11,Cardiovascular disease,64,4.5,1801,36.8
+2010-11,Chronic lung disease,67,4.8,1133,23.1
+2010-11,Immune suppression,70,5,605,12.4
+2010-11,Metabolic disorder,53,3.8,1748,35.7
+2010-11,Neuromuscular disorder,58,4.1,339,6.9
+2010-11,Obesity,76,5.4,1512,30.9
+2010-11,Pregnancy,N/A,N/A,N/A,N/A
+2010-11,Renal disease,20,1.4,749,15.3
+2010-11,No known condition,717,50.9,650,13.3
+2011-12,Asthma,95,19.9,412,21.3
+2011-12,Cardiovascular disease,24,5,716,37.1
+2011-12,Chronic lung disease,30,6.3,505,26.2
+2011-12,Immune suppression,19,4,353,18.3
+2011-12,Metabolic disorder,16,3.3,687,35.6
+2011-12,Neurologic disorder,62,13,354,18.3
+2011-12,Neuromuscular disorder,3,0.6,63,3.3
+2011-12,Obesity,37,7.7,682,35.3
+2011-12,Pregnancy,N/A,N/A,N/A,N/A
+2011-12,Renal disease,11,2.3,323,16.7
+2011-12,No known condition,227,47.5,153,7.9
+2012-13,Asthma,431,22.6,1941,18.6
+2012-13,Cardiovascular disease,126,6.6,4839,46.3
+2012-13,Chronic lung disease,107,5.6,2908,27.8
+2012-13,Immune suppression,155,8.1,1728,16.5
+2012-13,Metabolic disorder,70,3.7,4218,40.3
+2012-13,Neurologic disorder,296,15.5,2077,19.9
+2012-13,Neuromuscular disorder,45,2.4,459,4.4
+2012-13,Obesity,151,7.9,3349,32
+2012-13,Pregnancy,N/A,N/A,N/A,N/A
+2012-13,Renal disease,44,2.3,1925,18.4
+2012-13,No known condition,873,45.7,846,8.1
+2013-14,Asthma,319,26.1,1781,22.6
+2013-14,Cardiovascular disease,98,8,2893,36.7
+2013-14,Chronic lung disease,92,7.5,2332,29.6
+2013-14,Immune suppression,95,7.8,1472,18.7
+2013-14,Metabolic disorder,45,3.7,2946,37.4
+2013-14,Neurologic disorder,166,13.6,1350,17.1
+2013-14,Neuromuscular disorder,44,3.6,427,5.4
+2013-14,Obesity,92,7.5,3342,42.4
+2013-14,Pregnancy,N/A,N/A,N/A,N/A
+2013-14,Renal disease,23,1.9,1255,15.9
+2013-14,No known condition,521,42.6,823,10.4
+
+ Disclaimer:
+"The Influenza Hospitalization Surveillance Network (FluSurv-NET) conducts population-based surveillance for laboratory-confirmed influenza-associated hospitalizations in children (persons younger than 18 years) and adults.  The current network covers over 70 counties in the 10 Emerging Infections Program (EIP) states (CA, CO, CT, GA, MD, MN, NM, NY, OR, and TN) and three additional states (MI, OH, and UT).  The network represents approximately 8.5% of US population (~27 million people).  Cases are identified by reviewing hospital, laboratory, and admission databases and infection control logs for patients hospitalized during the influenza season with a documented positive influenza test (i.e., viral culture, direct/indirect fluorescent antibody assay (DFA/IFA), reverse transcription-polymerase chain reaction (RT-PCR), or  a rapid influenza diagnostic test (RIDT)).  Data gathered are used to estimate age-specific hospitalization rates on a weekly basis, and describe characteristics of persons hospitalized with severe influenza illness.   Laboratory-confirmation is dependent on clinician-ordered influenza testing.  Therefore, the rates provided are likely to be underestimated as influenza-related hospitalizations can be missed, either because testing is not performed, or because cases may be attributed to other causes of pneumonia or other common influenza-related complications.  FluSurv-NET hospitalization data are preliminary and subject to change as more data become available.  Please use the following citation when referencing these data: “FluView: Influenza Hospitalization Surveillance Network, Centers for Disease Control and Prevention.  WEBSITE.  Accessed on DATE”."
+"FluSurv-NET data are preliminary and displayed as they become available.  Therefore, figures are based on varying denominators as some variables represent information that may require more time to be collected.  Data are refreshed and updated weekly.<br/><br/>Pregnancy percentage calculated using number of female patients of childbearing age (15 to 44 years) as the denominator."
+"Asthma includes a medical diagnosis of asthma or reactive airway disease.  Cardiovascular diseases include conditions such as coronary heart disease, cardiac valve disorders, congestive heart failure, and pulmonary hypertension; does not include isolated hypertension.  Chronic lung diseases include conditions such as chronic obstructive pulmonary disease, bronchiolitis obliterans, chronic aspiration pneumonia, and interstitial lung disease.  Immune suppression includes conditions such as immunoglobulin deficiency, leukemia, lymphoma, HIV/AIDS, and individuals taking immunosuppressive medications.  Metabolic disorders include conditions such as diabetes mellitus, thyroid dysfunction, adrenal insufficiency, and liver disease.  Neurologic diseases include conditions such as seizure disorders, cerebral palsy, and cognitive dysfunction.  Neuromuscular diseases include conditions such as multiple sclerosis and muscular dystrophy.  Obesity was assigned if indicated in patient’s medical chart or if body mass index (BMI) >30 kg/m2.  Pregnancy percentage calculated using number of female cases aged between 15 and 44 years of age as the denominator.  Renal diseases include conditions such as acute or chronic renal failure, nephrotic syndrome, glomerulonephritis, and impaired creatinine clearance.  No known condition indicates that the case did not have any known underlying medical condition indicated in medical chart at the time of hospitalization."
