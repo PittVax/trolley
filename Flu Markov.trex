@@ -102,7 +102,7 @@
       <Definition xmi:id="_WX_NJon4EeSs1sB-TsdPyg" Variable="pFlu_Monthly_EBM_LAIV" Value="(EBM_LAIV_DAILY[_stage*30; 1] - EBM_LAIV_DAILY[(_stage*30)-30;1]) /(1-  EBM_LAIV_DAILY[(_stage*30)-30; 1])"/>
       <Node xmi:id="_WX_NJ4n4EeSs1sB-UrdPyg" NameID="Node3" Label="LAIV" NodeType="ChanceNode">
         <Node xmi:id="_WX_NKIn4EeSs1sB-UrdPyg" NameID="Node5" Label="LAIV elig" NodeType="LabelNode" CloneMasterIndex="3" CloneMasterName="Markov">
-          <Prob xmi:id="_WX_NKYn4EeSs1sB-UrdPyg" Value="#+debug(&quot;0&quot;)"/>
+          <Prob xmi:id="_WX_NKYn4EeSs1sB-UrdPyg" Value="#"/>
           <Definition xmi:id="_WX_NKon4EeSs1sB-UrdPyg" Variable="pFlu__PostVax" Value="pFlu_LAIV" Comment=""/>
           <Definition xmi:id="_WX_NK4n4EeSs1sB-UrdPyg" Variable="pFlu_AOM_postVax" Value="pFlu_AOM_LAIV" Comment=""/>
           <Definition xmi:id="_WX_NLIn4EeSs1sB-VqdPyg" Variable="pFlu_LRI_postVax" Value="pFlu_LRI_LAIV" Comment=""/>
@@ -361,7 +361,7 @@
           </Node>
         </Node>
         <Node xmi:id="_WX_0QYn4EeSs1sB-7EdPyg" NameID="Node4" Label="Not elig (set to get TIV)" NodeType="LabelNode" AttachToCloneMaster="3">
-          <Prob xmi:id="_WX_0Qon4EeSs1sB-7EdPyg" Value="pLAIV_contraindication+debug(&quot;1&quot;)"/>
+          <Prob xmi:id="_WX_0Qon4EeSs1sB-7EdPyg" Value="pLAIV_contraindication"/>
           <Definition xmi:id="_WX_0Q4n4EeSs1sB-7EdPyg" Variable="cVaccineTotal" Value="cTIV + cVaccine_Admin" Comment=""/>
           <Definition xmi:id="_WX_0RIn4EeSs1sB-7EdPyg" Variable="pDie_Flu_AOM_postVax" Value="pDie_Flu_AOM_TIV" Comment=""/>
           <Definition xmi:id="_WX_0RYn4EeSs1sB-8DdPyg" Variable="pDie_Flu_LRI_postVax" Value="pDie_Flu_LRI_TIV" Comment=""/>
