@@ -8,7 +8,7 @@
  *   Copyright (c) 2010 TreeAge Software, Inc.
  *   All rights reserved.
  ****************************************************************************/
-package com.treeage.treeagepro.tutorials;
+package fluModeling;
 
 import java.rmi.RemoteException;
 
