@@ -97,9 +97,9 @@
       <Definition xmi:id="_omL87aNDEeSbydqrSt8swQ" Variable="pVaccinated_Monthly" Value="CHOOSE(_chInput + 1 ; ( pGetVax * (VAX_MONTHLY[_stage] - VAX_MONTHLY[_stage-1])) / (1 - pGetVax *  VAX_MONTHLY[_stage-1] ) ; pVaccinated_Monthly_External)"/>
       <Definition xmi:id="_omL87qNDEeSbydqrTs8swQ" Variable="pVaccinated_Monthly_External_LAIV" Value="EXTERNAL_LAIV[_stage; 3]"/>
       <Definition xmi:id="_omL876NDEeSbydqrTs8swQ" Variable="pVaccinated_Monthly_External_TIV" Value="EXTERNAL_TIV[_stage; 3]"/>
-      <Definition xmi:id="_omL88KNDEeSbydqrTs8swQ" Variable="_chInput" Value="0" Comment=""/>
       <Definition xmi:id="_omL88aNDEeSbydqrTs8swQ" Variable="pFlu_Monthly_postVax_External_TIV" Value="EXTERNAL_TIV[ _stage ; 2]"/>
       <Definition xmi:id="_omL88qNDEeSbydqrTs8swQ" Variable="pFlu_Monthly_postVax_External_LAIV" Value="EXTERNAL_LAIV[ _stage ; 2]"/>
+      <Definition xmi:id="_rCPgYKWVEeSDY86uH4NvcA" Variable="_chInput" Value="1" Comment=""/>
       <Node xmi:id="_omL886NDEeSbydqrUr8swQ" NameID="Node3" Label="LAIV" NodeType="ChanceNode">
         <Node xmi:id="_omL89KNDEeSbydqrUr8swQ" NameID="Node5" Label="LAIV elig" NodeType="LabelNode" CloneMasterIndex="3" CloneMasterName="Markov">
           <Prob xmi:id="_omL89aNDEeSbydqrUr8swQ" Value="#"/>
@@ -1145,14 +1145,14 @@
       <DataProviderOptions xmi:id="_omPnFaNDEeSbydqr1K8swQ" key="user" value=""/>
       <DataProviderOptions xmi:id="_omPnFqNDEeSbydqr2J8swQ" key="database" value=""/>
       <DataProviderOptions xmi:id="_omPnF6NDEeSbydqr2J8swQ" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
-      <Row xmi:id="_omPnGKNDEeSbydqr2J8swQ" Index="1.0" Values="0.0 0.0 0.0"/>
-      <Row xmi:id="_omPnGaNDEeSbydqr2J8swQ" Index="2.0" Values="7.0E-4 0.0 0.1627"/>
-      <Row xmi:id="_omPnGqNDEeSbydqr2J8swQ" Index="3.0" Values="0.005003502 4.0E-4 0.212707512"/>
-      <Row xmi:id="_omPnG6NDEeSbydqr3I8swQ" Index="4.0" Values="0.019108921 0.00280112 0.186438107"/>
-      <Row xmi:id="_omPnHKNDEeSbydqr3I8swQ" Index="5.0" Values="0.037629447 0.008326645 0.106843185"/>
-      <Row xmi:id="_omPnHaNDEeSbydqr3I8swQ" Index="6.0" Values="0.034839122 0.010824482 0.088308977"/>
-      <Row xmi:id="_omPnHqNDEeSbydqr3I8swQ" Index="7.0" Values="0.015233469 0.006136224 0.052209755"/>
-      <Row xmi:id="_omPnH6NDEeSbydqr3I8swQ" Index="8.0" Values="0.0 0.0 0.0"/>
+      <Row xmi:id="_-y5yAKWWEeSDY86uH4NvcA" Index="1.0" Values="0.0 0.0 0.0"/>
+      <Row xmi:id="_-y5yAaWWEeSDY86uI3NvcA" Index="2.0" Values="7.0E-4 0.0 0.1602"/>
+      <Row xmi:id="_-y5yAqWWEeSDY86uI3NvcA" Index="3.0" Values="0.004803362 4.0E-4 0.210883544"/>
+      <Row xmi:id="_-y5yA6WWEeSDY86uI3NvcA" Index="4.0" Values="0.018401207 0.00260104 0.187867813"/>
+      <Row xmi:id="_-y5yBKWWEeSDY86uI3NvcA" Index="5.0" Values="0.036467937 0.008024072 0.105165366"/>
+      <Row xmi:id="_-y5yBaWWEeSDY86uI3NvcA" Index="6.0" Values="0.035190304 0.010616785 0.089078073"/>
+      <Row xmi:id="_-y5yBqWWEeSDY86uJ2NvcA" Index="7.0" Values="0.016969697 0.006847215 0.056530659"/>
+      <Row xmi:id="_-y5yB6WWEeSDY86uJ2NvcA" Index="8.0" Values="0.0 0.0 0.0"/>
       <ColumnLabel>Inf Unvax</ColumnLabel>
       <ColumnLabel>Inf Vax</ColumnLabel>
       <ColumnLabel>Coverage</ColumnLabel>
@@ -1171,14 +1171,14 @@
       <DataProviderOptions xmi:id="_omPnKqNDEeSbydqr6F8swQ" key="user" value=""/>
       <DataProviderOptions xmi:id="_omPnK6NDEeSbydqr6F8swQ" key="database" value=""/>
       <DataProviderOptions xmi:id="_omPnLKNDEeSbydqr6F8swQ" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
-      <Row xmi:id="_omPnLaNDEeSbydqr6F8swQ" Index="1.0" Values="0.0 0.0 0.0"/>
-      <Row xmi:id="_omPnLqNDEeSbydqr6F8swQ" Index="2.0" Values="7.0E-4 0.0 0.1625"/>
-      <Row xmi:id="_omPnL6NDEeSbydqr7E8swQ" Index="3.0" Values="0.005403783 9.0E-4 0.211940299"/>
-      <Row xmi:id="_omPnMKNDEeSbydqr7E8swQ" Index="4.0" Values="0.023040547 0.007206486 0.187121212"/>
-      <Row xmi:id="_omPnMaNDEeSbydqr7E8swQ" Index="5.0" Values="0.046755922 0.021776389 0.102889096"/>
-      <Row xmi:id="_omPnMqNDEeSbydqr7E8swQ" Index="6.0" Values="0.039866033 0.025456045 0.081238313"/>
-      <Row xmi:id="_omPnM6NDEeSbydqr7E8swQ" Index="7.0" Values="0.015415776 0.012690355 0.04703754"/>
-      <Row xmi:id="_omPnNKNDEeSbydqr8D8swQ" Index="8.0" Values="0.0 0.0 0.0"/>
+      <Row xmi:id="_AgPdkKWXEeSDY86uJ2NvcA" Index="1.0" Values="0.0 0.0 0.0"/>
+      <Row xmi:id="_AgPdkaWXEeSDY86uJ2NvcA" Index="2.0" Values="7.0E-4 0.0 0.16"/>
+      <Row xmi:id="_AgPdkqWXEeSDY86uJ2NvcA" Index="3.0" Values="0.005203643 9.0E-4 0.210238095"/>
+      <Row xmi:id="_AgPdk6WXEeSDY86uK1NvcA" Index="4.0" Values="0.022432351 0.006906216 0.18887549"/>
+      <Row xmi:id="_AgPdlKWXEeSDY86uK1NvcA" Index="5.0" Values="0.046305824 0.02136666 0.103512358"/>
+      <Row xmi:id="_AgPdlaWXEeSDY86uK1NvcA" Index="6.0" Values="0.039814415 0.025128733 0.080638474"/>
+      <Row xmi:id="_AgPdlqWXEeSDY86uK1NvcA" Index="7.0" Values="0.016743454 0.013733362 0.049830891"/>
+      <Row xmi:id="_AgPdl6WXEeSDY86uK1NvcA" Index="8.0" Values="0.0 0.0 0.0"/>
       <ColumnLabel>Inf Unvax</ColumnLabel>
       <ColumnLabel>Inf Vax</ColumnLabel>
       <ColumnLabel>Coverage</ColumnLabel>

@@ -93,8 +93,8 @@
       <Definition xmi:id="_T3_72qJtEeS5E9_VSt6oJw" Variable="pVisitMD_LRI" Value="CHOOSE(_chMC + 1 ; 1 ; dist_pVisitMD_LRI)" Comment=""/>
       <Definition xmi:id="_T3_726JtEeS5E9_VSt6oJw" Variable="numVisits_Flu" Value="CHOOSE(_chMC + 1 ; 1 ; MAX(1 ; dist_numVisits_Flu))" Comment=""/>
       <Definition xmi:id="_T3_73KJtEeS5E9_VSt6oJw" Variable="_chMC" Value="0" Comment="Sets parameter values as a point estimate or distribution"/>
-      <Definition xmi:id="_T3_73aJtEeS5E9_VSt6oJw" Variable="_chEBM" Value="1" Comment=""/>
       <Definition xmi:id="_T3_73qJtEeS5E9_VSt6oJw" Variable="pGetVax" Value="0.545" Comment=""/>
+      <Definition xmi:id="_ln0UgKWUEeSDY86uA_NvcA" Variable="_chEBM" Value="1" Comment=""/>
       <Node xmi:id="_T3_736JtEeS5E9_VTs6oJw" NameID="Node3" Label="LAIV" NodeType="ChanceNode">
         <Node xmi:id="_T3_74KJtEeS5E9_VTs6oJw" NameID="Node5" Label="LAIV elig" NodeType="LabelNode" CloneMasterIndex="3" CloneMasterName="Markov">
           <Prob xmi:id="_T3_74aJtEeS5E9_VTs6oJw" Value="#"/>
