@@ -1,0 +1,1734 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:tree="http://www.treeage.com/modeldefs/tree">
+  <tree:Tree xmi:id="_j3rNgKPcEeSRSYiLA_xisg">
+    <Node xmi:id="_j3r0kKPcEeSRSYiLA_xisg" NameID="Node1" Label="QIV vs TIV vs TIV_Hi Elderly" NodeType="DecisionNode">
+      <Definition xmi:id="_j3r0kaPcEeSRSYiLA_xisg" Variable="cyclen" Value="1/12" Comment=""/>
+      <Definition xmi:id="_j3r0kqPcEeSRSYiLA_xisg" Variable="dr" Value="0.03" Comment=""/>
+      <Definition xmi:id="_j3r0k6PcEeSRSYiLA_xisg" Variable="pFluTotal" Value="pFlu + pFlu_LRI" Comment=""/>
+      <Definition xmi:id="_j3r0lKPcEeSRSYiLB-xisg" Variable="pFlu_Monthly" Value="CHOOSE(_chInput + 1; ( pFlu*(ATTACK_MONTHLY[_stage] - ATTACK_MONTHLY[_stage-1])) / (1 - pFlu *  ATTACK_MONTHLY[_stage-1] ); pFlu_Monthly_External)" Comment=""/>
+      <Definition xmi:id="_j3r0laPcEeSRSYiLB-xisg" Variable="pFluTotal_postVax" Value="pFlu_LRI_postVax + pFlu_postVax" Comment=""/>
+      <Definition xmi:id="_j3r0lqPcEeSRSYiLB-xisg" Variable="pFlu_Monthly_postVax" Value="CHOOSE(_chInput +1; ( pFlu_postVax * (ATTACK_MONTHLY[_stage] - ATTACK_MONTHLY[_stage-1])) / (1 - pFlu_postVax *  ATTACK_MONTHLY[_stage-1] ); pFlu_Monthly_PostVax_External)" Comment=""/>
+      <Definition xmi:id="_j3r0l6PcEeSRSYiLB-xisg" Variable="cFluTotal" Value="(pGetFlu_Rx * cFluRx) + (pVisitMD_Flu * cFlu_MD * numVisits_Flu) + (cNonMed_Daily * daysFlu)" Comment=""/>
+      <Definition xmi:id="_j3r0mKPcEeSRSYiLB-xisg" Variable="cFlu_MD" Value="CHOOSE(_chMC + 1 ; 73.08 ; dist_cFlu_MD)" Comment=""/>
+      <Definition xmi:id="_j3r0maPcEeSRSYiLC9xisg" Variable="cNonMed_Daily" Value="CHOOSE(_chMC + 1 ; 162 ; dist_cNonMed_Daily)" Comment=""/>
+      <Definition xmi:id="_j3r0m6PcEeSRSYiLC9xisg" Variable="cLRI_Total" Value="cLRI_meds + (pGetFlu_Rx * cFluRx) + (pVisitMD_LRI * cFlu_MD * numVisits_LRI) + (cNonMed_Daily * daysLRI)" Comment=""/>
+      <Definition xmi:id="_j3r0nKPcEeSRSYiLC9xisg" Variable="cTIV" Value="CHOOSE(_chMC + 1 ; 10.69 ; dist_cTIV)" Comment=""/>
+      <Definition xmi:id="_j3r0naPcEeSRSYiLC9xisg" Variable="cAdvEvent_Other" Value="CHOOSE(_chMC + 1 ; 1.81 ; dist_cAdEventOther)" Comment=""/>
+      <Definition xmi:id="_j3r0n6PcEeSRSYiLD8xisg" Variable="cFluRx" Value="CHOOSE(_chMC + 1 ; 103 ; dist_cFluRx)" Comment=""/>
+      <Definition xmi:id="_j3r0oaPcEeSRSYiLD8xisg" Variable="duFlu" Value="uElderly * (1-uFlu) *( (daysFlu_noOfiiceVisit_Lost_prod/365) + (pVisitMD_Flu * (daysFlu_OfficeVisit_Lost_prod - daysFlu_noOfiiceVisit_Lost_prod)/365 ))" Comment=""/>
+      <Definition xmi:id="_j3r0oqPcEeSRSYiLD8xisg" Variable="duHosp" Value="uElderly * CHOOSE(_chMC + 1 ; daysHosp_Flu/365 + (1 - uFlu) * (daysHosp_Lost_prod - daysHosp_Flu) ; dist_duHosp)" Comment=""/>
+      <Definition xmi:id="_j3r0o6PcEeSRSYiLE7xisg" Variable="duLRI" Value="(1-uFlu) * (daysLRI/365)" Comment=""/>
+      <Definition xmi:id="_j3r0pKPcEeSRSYiLE7xisg" Variable="duAE_Other" Value="CHOOSE(_chMC + 1 ; 0 ; dist_duAEother)" Comment=""/>
+      <Definition xmi:id="_j3r0paPcEeSRSYiLE7xisg" Variable="pAE_Wheeze_QIV" Value="CHOOSE(_chMC + 1 ; 0.000000 ; MIN(0.05 ; dist_pAE_Wheeze_QIV))" Comment=""/>
+      <Definition xmi:id="_j3r0pqPcEeSRSYiLE7xisg" Variable="pAE_Wheeze_TIV" Value="CHOOSE(_chMC + 1 ; 0.000000 ; MIN(0.05 ; dist_pAE_Wheeze_TIV))" Comment=""/>
+      <Definition xmi:id="_j3r0qKPcEeSRSYiLF6xisg" Variable="pDie_Flu" Value="CHOOSE(_chMC + 1 ; 0.0117 ; dist_pDie_Flu)" Comment=""/>
+      <Definition xmi:id="_j3r0qqPcEeSRSYiLF6xisg" Variable="pDie_Flu_LRI" Value="CHOOSE(_chMC + 1 ; 0.0001676 ; dist_pDie_Flu_LRI)" Comment=""/>
+      <Definition xmi:id="_j3r0q6PcEeSRSYiLF6xisg" Variable="pDie_Flu_LRI_QIV" Value="pDie_Flu_LRI" Comment=""/>
+      <Definition xmi:id="_j3r0rKPcEeSRSYiLF6xisg" Variable="pDie_Flu_LRI_TIV" Value="pDie_Flu_LRI" Comment=""/>
+      <Definition xmi:id="_j3r0sKPcEeSRSYiLG5xisg" Variable="pFlu_QIV" Value="pFlu * (1 - eff_QIV)" Comment=""/>
+      <Definition xmi:id="_j3r0sqPcEeSRSYiLH4xisg" Variable="pFlu_LRI" Value="pFlu * Percent_LRI" Comment=""/>
+      <Definition xmi:id="_j3r0s6PcEeSRSYiLH4xisg" Variable="pFlu_TIV" Value="pFlu * (1-eff_TIV)" Comment=""/>
+      <Definition xmi:id="_j3r0taPcEeSRSYiLH4xisg" Variable="pHosp_Flu" Value="CHOOSE(_chMC + 1 ; 0.0421 ; dist_pHosp_Flu)" Comment=""/>
+      <Definition xmi:id="_j3r0tqPcEeSRSYiLH4xisg" Variable="pHosp_LRI" Value="CHOOSE(_chMC + 1 ; 0.00064 ; dist_pHosp_LRI)" Comment=""/>
+      <Definition xmi:id="_j3r0t6PcEeSRSYiLI3xisg" Variable="pFlu_LRI_QIV" Value="pFlu_QIV * Percent_LRI" Comment=""/>
+      <Definition xmi:id="_j3r0uKPcEeSRSYiLI3xisg" Variable="pFlu_LRI_TIV" Value="pFlu_TIV * Percent_LRI" Comment=""/>
+      <Definition xmi:id="_j3r0uaPcEeSRSYiLI3xisg" Variable="pDie_Flu_TIV" Value="pDie_Flu" Comment=""/>
+      <Definition xmi:id="_j3r0uqPcEeSRSYiLI3xisg" Variable="pHosp_Flu_QIV" Value="CHOOSE(_chMC + 1 ; pHosp_Flu ; dist_pHosp_Flu_QIV)" Comment=""/>
+      <Definition xmi:id="_j3r0u6PcEeSRSYiLI3xisg" Variable="pHosp_Flu_TIV" Value="CHOOSE(_chMC + 1 ; pHosp_Flu ; dist_pHosp_Flu_TIV)" Comment=""/>
+      <Definition xmi:id="_j3r0vKPcEeSRSYiLJ2xisg" Variable="pHosp_LRI_QIV" Value="CHOOSE(_chMC + 1 ; 0 ; dist_pHosp_LRI_QIV)" Comment=""/>
+      <Definition xmi:id="_j3r0vaPcEeSRSYiLJ2xisg" Variable="pHosp_LRI_TIV" Value="CHOOSE(_chMC + 1 ; 0.0001 ; dist_pHosp_LRI_TIV)" Comment=""/>
+      <Definition xmi:id="_j3r0wqPcEeSRSYiLK1xisg" Variable="pDie_Flu_QIV" Value="pDie_Flu" Comment=""/>
+      <Definition xmi:id="_j3r0w6PcEeSRSYiLK1xisg" Variable="cAdvEvent_Wheeze" Value="CHOOSE(_chMC + 1 ; 62.92 ; dist_cAdvEvent_Wheeze)" Comment=""/>
+      <Definition xmi:id="_j3r0xKPcEeSRSYiLK1xisg" Variable="pHosp_Wheeze_QIV" Value="CHOOSE(_chMC + 1 ; 0.0009 ; dist_pHosp_Wheeze_QIV)" Comment=""/>
+      <Definition xmi:id="_j3r0xaPcEeSRSYiLK1xisg" Variable="pHosp_Wheeze_TIV" Value="CHOOSE(_chMC + 1 ; 0.0018 ; dist_pHosp_Wheeze_TIV)" Comment=""/>
+      <Definition xmi:id="_j3r0xqPcEeSRSYiLL0xisg" Variable="pAE_noWheeze_QIV" Value="pAE_noWheeze_TIV" Comment=""/>
+      <Definition xmi:id="_j3r0x6PcEeSRSYiLL0xisg" Variable="pAE_noWheeze_TIV" Value="CHOOSE(_chMC + 1 ; 0.083; MIN(0.95 ; dist_pAE_NoWheeze_TIV))" Comment=""/>
+      <Definition xmi:id="_j3r0yKPcEeSRSYiLL0xisg" Variable="duAE_Wheeze" Value="(1-uWheeze) * (daysWheeze/365)" Comment=""/>
+      <Definition xmi:id="_j3r0yaPcEeSRSYiLL0xisg" Variable="uWheeze" Value="CHOOSE(_chMC + 1 ; 0.851 ; dist_uWheeze)" Comment=""/>
+      <Definition xmi:id="_j3r0yqPcEeSRSYiLL0xisg" Variable="daysWheeze" Value="CHOOSE(_chMC + 1 ; 12.78 ; dist_daysWheeze)" Comment=""/>
+      <Definition xmi:id="_j3r0y6PcEeSRSYiLMzxisg" Variable="daysFlu" Value="CHOOSE(_chMC + 1 ; 3 ; dist_daysFlu)" Comment=""/>
+      <Definition xmi:id="_j3r0zKPcEeSRSYiLMzxisg" Variable="uFlu" Value="CHOOSE(_chMC + 1 ; 0.558 ; dist_uFlu)" Comment=""/>
+      <Definition xmi:id="_j3r0zqPcEeSRSYiLMzxisg" Variable="daysLRI" Value="CHOOSE(_chMC + 1 ; 3.33 ; dist_daysLRI)" Comment=""/>
+      <Definition xmi:id="_j3r00KPcEeSRSYiLNyxisg" Variable="cHosp_Wheeze" Value="CHOOSE(_chMC + 1 ; 4295 ; dist_cHosp_Wheeze)" Comment=""/>
+      <Definition xmi:id="_j3r00aPcEeSRSYiLNyxisg" Variable="cHosp_Flu" Value="daysHosp_Flu * (cHosp_Flu_Daily + cNonMed_Daily)" Comment=""/>
+      <Definition xmi:id="_j3r00qPcEeSRSYiLNyxisg" Variable="daysHosp_Flu" Value="CHOOSE(_chMC + 1 ; 4.1 ; dist_daysHosp_Flu)" Comment=""/>
+      <Definition xmi:id="_j3r006PcEeSRSYiLNyxisg" Variable="cHosp_Flu_Daily" Value="CHOOSE(_chMC + 1 ; 1765.880000000 ; dist_cHosp_Flu_Daily)" Comment=""/>
+      <Definition xmi:id="_j3r01aPcEeSRSYiLOxxisg" Variable="cHosp_LRI" Value="daysHosp_LRI * (cHosp_Flu_Daily + cNonMed_Daily)" Comment=""/>
+      <Definition xmi:id="_j3r01qPcEeSRSYiLOxxisg" Variable="daysHosp_LRI" Value="CHOOSE(_chMC + 1 ; 2.8 ; dist_daysHosp_LRI)" Comment=""/>
+      <Definition xmi:id="_j3r016PcEeSRSYiLOxxisg" Variable="cVaccine_Admin" Value="CHOOSE(_chMC + 1 ; 25.08 ; dist_cVaccine_Admin)" Comment=""/>
+      <Definition xmi:id="_j3r02KPcEeSRSYiLOxxisg" Variable="pVisitMD_Flu" Value="CHOOSE(_chMC + 1 ; 0.40 ; dist_pVisitMD_Flu)" Comment=""/>
+      <Definition xmi:id="_j3r02aPcEeSRSYiLOxxisg" Variable="pGetFlu_Rx" Value="1" Comment=""/>
+      <Definition xmi:id="_j3r02qPcEeSRSYiLPwxisg" Variable="numVisits_LRI" Value="CHOOSE(_chMC + 1 ; 2 ; 1 + dist_numVisits_LRI)" Comment=""/>
+      <Definition xmi:id="_j3r04aPcEeSRSYiLQvxisg" Variable="Percent_LRI" Value="CHOOSE(_chMC + 1 ; 0.0000000000 ; dist_Percent_LRI)" Comment=""/>
+      <Definition xmi:id="_j3r046PcEeSRSYiLQvxisg" Variable="cTotalAdvEvent_Wheeze" Value="cAdvEvent_Wheeze + pHosp_Wheeze * (cHosp_Wheeze + (daysWheeze * cNonMed_Daily))" Comment=""/>
+      <Definition xmi:id="_j3r05KPcEeSRSYiLRuxisg" Variable="cLRI_meds" Value="CHOOSE(_chMC + 1 ; 30 ; dist_cLRI_meds)" Comment=""/>
+      <Definition xmi:id="_j3r056PcEeSRSYiLRuxisg" Variable="pVisitMD_LRI" Value="CHOOSE(_chMC + 1 ; 1 ; dist_pVisitMD_LRI)" Comment=""/>
+      <Definition xmi:id="_j3r06KPcEeSRSYiLRuxisg" Variable="numVisits_Flu" Value="CHOOSE(_chMC + 1 ; 1 ; MAX(1 ; dist_numVisits_Flu))" Comment=""/>
+      <Definition xmi:id="_j3r06aPcEeSRSYiLStxisg" Variable="_chMC" Value="0" Comment=""/>
+      <Definition xmi:id="_j3r066PcEeSRSYiLStxisg" Variable="pFlu_Monthly_External_TIV" Value="EXTERNAL_TIV[ _stage ; 1]" Comment=""/>
+      <Definition xmi:id="_j3r07KPcEeSRSYiLStxisg" Variable="pFlu_Monthly_External_QIV" Value="EXTERNAL_QIV[ _stage ; 1]" Comment=""/>
+      <Definition xmi:id="_j3r07aPcEeSRSYiLStxisg" Variable="pVaccinated_Monthly" Value="CHOOSE(_chInput + 1 ; ( pGetVax * (VAX_MONTHLY[_stage] - VAX_MONTHLY[_stage-1])) / (1 - pGetVax *  VAX_MONTHLY[_stage-1] ) ; pVaccinated_Monthly_External)" Comment=""/>
+      <Definition xmi:id="_j3r07qPcEeSRSYiLTsxisg" Variable="pVaccinated_Monthly_External_QIV" Value="EXTERNAL_QIV[_stage; 3]" Comment=""/>
+      <Definition xmi:id="_j3r076PcEeSRSYiLTsxisg" Variable="pVaccinated_Monthly_External_TIV" Value="EXTERNAL_TIV[_stage; 3]" Comment=""/>
+      <Definition xmi:id="_j3r08KPcEeSRSYiLTsxisg" Variable="_chInput" Value="0" Comment=""/>
+      <Definition xmi:id="_j3r08aPcEeSRSYiLTsxisg" Variable="pFlu_Monthly_postVax_External_TIV" Value="EXTERNAL_TIV[ _stage ; 2]" Comment=""/>
+      <Definition xmi:id="_j3r08qPcEeSRSYiLTsxisg" Variable="pFlu_Monthly_postVax_External_QIV" Value="EXTERNAL_QIV[ _stage ; 2]" Comment=""/>
+      <Definition xmi:id="_Rg0hQaP4EeS5LuUdG5o7Gg" Variable="pAE_noWheeze_TIV_Hi" Value="pAE_noWheeze_TIV" Comment=""/>
+      <Definition xmi:id="_xvirgaP4EeS5LuUdH4o7Gg" Variable="pAE_Wheeze_TIV_Hi" Value="pAE_Wheeze_TIV" Comment=""/>
+      <Definition xmi:id="_ArEPoaP5EeS5LuUdI3o7Gg" Variable="pDie_Flu_LRI_TIV_Hi" Value="pDie_Flu_LRI_TIV" Comment=""/>
+      <Definition xmi:id="_LQSh4KP5EeS5LuUdI3o7Gg" Variable="pDie_Flu_TIV_Hi" Value="pDie_Flu" Comment=""/>
+      <Definition xmi:id="_qp-hkaP5EeS5LuUdJ2o7Gg" Variable="pFlu_TIV_Hi" Value="pFlu * (1 - eff_TIV_Hi)" Comment=""/>
+      <Definition xmi:id="_9utp4KQREeS5LuUdXoo7Gg" Variable="cTIV_Hi" Value="cTIV + 13.000000" Comment=""/>
+      <Definition xmi:id="_B35FwKQSEeS5LuUdXoo7Gg" Variable="eff_TIV_Hi" Value="eff_TIV * ( 1+ RelEff_TIV_Hi)" Comment=""/>
+      <Definition xmi:id="_HS7yIKQSEeS5LuUdYno7Gg" Variable="eff_TIV" Value="CHOOSE(_chMC + 1 ; 0.500000000 ; dist_eff_TIV)" Comment=""/>
+      <Definition xmi:id="_O-koIKQSEeS5LuUdYno7Gg" Variable="cQIV" Value="CHOOSE(_chMC + 1 ; 16.15 ; dist_cQIV)" Comment=""/>
+      <Definition xmi:id="_pYAE0KTUEeSqB7yXA_bzlg" Variable="duDeath" Value="CHOOSE(_chMC + 1 ; 10.74 * uElderly; dist_duDeath)" Comment=""/>
+      <Definition xmi:id="_eWQ7oKVWEeSrfeWyA_QQWA" Variable="pFlu" Value="CHOOSE(_chMC + 1 ; 0.066 ; dist_pFlu)" Comment=""/>
+      <Definition xmi:id="_Igpv4KV6EeSrfeWyI3QQWA" Variable="pHosp_Flu_TIV_Hi" Value="pHosp_Flu_TIV" Comment=""/>
+      <Definition xmi:id="_1QA_IKWZEeSrfeWyI3QQWA" Variable="uElderly" Value="0.84" Comment=""/>
+      <Definition xmi:id="_cgNn0KY5EeSoQbKvA_wTNw" Variable="pGetVax" Value="0.65" Comment=""/>
+      <Definition xmi:id="_DiAhAKY9EeSoQbKvB-wTNw" Variable="eff_QIV" Value="CHOOSE(_chMC + 1 ; eff_TIV * (1 +  prop_Flu_B_uncov) ; dist_eff_QIV)" Comment=""/>
+      <Definition xmi:id="_FZQWgKY9EeSoQbKvB-wTNw" Variable="prop_Flu_B_uncov" Value="0.093" Comment=""/>
+      <Definition xmi:id="_RZ8RMKbtEeS-AORuA_067g" Variable="daysHosp_Lost_prod" Value="14.0000001" Comment=""/>
+      <Definition xmi:id="_b2ONYKbuEeS-AORuA_067g" Variable="daysFlu_noOfiiceVisit_Lost_prod" Value="1.0000000001" Comment=""/>
+      <Definition xmi:id="_p1N30KbuEeS-AORuB-067g" Variable="daysFlu_OfficeVisit_Lost_prod" Value="4.0000001" Comment=""/>
+      <Definition xmi:id="_5ijogKbwEeS-AORuB-067g" Variable="RelEff_TIV_Hi" Value="0.242" Comment=""/>
+      <Node xmi:id="_j3r09KPcEeSRSYiLUrxisg" NameID="Node5" Label="QIV " NodeType="LabelNode" CloneMasterIndex="3" CloneMasterName="Markov">
+        <Prob xmi:id="_j3r09aPcEeSRSYiLUrxisg" Value="#"/>
+        <Definition xmi:id="_j3r09qPcEeSRSYiLUrxisg" Variable="pFlu_postVax" Value="pFlu_QIV" Comment=""/>
+        <Definition xmi:id="_j3r0-KPcEeSRSYiLVqxisg" Variable="pFlu_LRI_postVax" Value="pFlu_LRI_QIV" Comment=""/>
+        <Definition xmi:id="_j3r0-qPcEeSRSYiLVqxisg" Variable="pDie_Flu_LRI_postVax" Value="pDie_Flu_LRI_QIV" Comment=""/>
+        <Definition xmi:id="_j3r0-6PcEeSRSYiLVqxisg" Variable="pDie_Flu_postVax" Value="pDie_Flu_QIV" Comment=""/>
+        <Definition xmi:id="_j3r0_aPcEeSRSYiLWpxisg" Variable="pHosp_Flu_postVax" Value="pHosp_Flu_QIV" Comment=""/>
+        <Definition xmi:id="_j3r0_qPcEeSRSYiLWpxisg" Variable="pHosp_LRI_postVax" Value="pHosp_LRI_QIV" Comment=""/>
+        <Definition xmi:id="_j3r0_6PcEeSRSYiLWpxisg" Variable="pAE_Wheeze" Value="pAE_Wheeze_QIV"/>
+        <Definition xmi:id="_j3r1AKPcEeSRSYiLWpxisg" Variable="pAE_noWheeze" Value="pAE_noWheeze_QIV" Comment=""/>
+        <Definition xmi:id="_j3r1AaPcEeSRSYiLWpxisg" Variable="pHosp_Wheeze" Value="pHosp_Wheeze_QIV"/>
+        <Definition xmi:id="_j3r1AqPcEeSRSYiLXoxisg" Variable="cVaccineTotal" Value="cQIV  + cVaccine_Admin" Comment=""/>
+        <Definition xmi:id="_j3r1A6PcEeSRSYiLXoxisg" Variable="pFlu_Monthly_External" Value="pFlu_Monthly_External_QIV"/>
+        <Definition xmi:id="_j3r1BKPcEeSRSYiLXoxisg" Variable="pVaccinated_Monthly_External" Value="pVaccinated_Monthly_External_QIV"/>
+        <Definition xmi:id="_j3r1BaPcEeSRSYiLXoxisg" Variable="pFlu_Monthly_PostVax_External" Value="pFlu_Monthly_postVax_External_QIV"/>
+        <Node xmi:id="_j3r1BqPcEeSRSYiLXoxisg" NameID="Node7" Label="Markov" NodeType="MarkovNode">
+          <Prob xmi:id="_j3r1B6PcEeSRSYiLYnxisg" Value="pGetVaccine"/>
+          <Node xmi:id="_j3r1CKPcEeSRSYiLYnxisg" NameID="Node10" Label="Well - unvaccinated" NodeType="ChanceNode">
+            <Prob xmi:id="_j3r1CaPcEeSRSYiLYnxisg" Value="1"/>
+            <MarkovData xsi:type="tree:MarkovNonAbsorbingStateData" xmi:id="_j3r1CqPcEeSRSYiLYnxisg">
+              <StateReward xmi:id="_j3r1C6PcEeSRSYiLYnxisg" Set="3">
+                <Init xmi:id="_j3r1DKPcEeSRSYiLZmxisg" Value="0"/>
+                <Incr xmi:id="_j3r1DaPcEeSRSYiLZmxisg" Value="0"/>
+                <Final xmi:id="_j3r1DqPcEeSRSYiLZmxisg" Value="0"/>
+              </StateReward>
+            </MarkovData>
+            <Node xmi:id="_j3r1D6PcEeSRSYiLZmxisg" NameID="Node21" Label="Gets Flu" NodeType="ChanceNode">
+              <Prob xmi:id="_j3r1EKPcEeSRSYiLZmxisg" Value="pFlu_Monthly"/>
+              <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3r1EaPcEeSRSYiLalxisg">
+                <TransitionReward xmi:id="_j3r1EqPcEeSRSYiLalxisg" Set="3" Value="1"/>
+              </MarkovData>
+              <Node xmi:id="_j3r1E6PcEeSRSYiLalxisg" NameID="Node30" Label="All cases" NodeType="ChanceNode">
+                <Prob xmi:id="_j3r1FKPcEeSRSYiLalxisg" Value="#"/>
+                <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3r1FaPcEeSRSYiLalxisg">
+                  <TransitionReward xmi:id="_j3r1FqPcEeSRSYiLbkxisg" Set="1" Value="cFluTotal / (1+dr)^(_stage * cyclen)"/>
+                  <TransitionReward xmi:id="_j3r1F6PcEeSRSYiLbkxisg" Set="2" Value="- duFlu  / (1+dr)^(_stage * cyclen)"/>
+                </MarkovData>
+                <Node xmi:id="_j3r1GKPcEeSRSYiLbkxisg" NameID="Node37" Label="Die" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3r1GaPcEeSRSYiLbkxisg" Value="pDie_Flu"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3r1GqPcEeSRSYiLbkxisg" MarkovJumpState="Dead">
+                    <TransitionReward xmi:id="_j3r1G6PcEeSRSYiLcjxisg" Set="2" Value="- duDeath"/>
+                    <TransitionReward xmi:id="_j3r1HKPcEeSRSYiLcjxisg" Set="1" Value="cHosp_Flu / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3r1HaPcEeSRSYiLcjxisg" Set="4" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3r1HqPcEeSRSYiLcjxisg" NameID="Node32" Label="Hospitalization" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3r1H6PcEeSRSYiLcjxisg" Value="pHosp_Flu"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3r1IKPcEeSRSYiLdixisg" MarkovJumpState="Post Flu">
+                    <TransitionReward xmi:id="_j3r1IaPcEeSRSYiLdixisg" Set="1" Value="cHosp_Flu / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3r1IqPcEeSRSYiLdixisg" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3r1I6PcEeSRSYiLdixisg" Set="5" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3r1JKPcEeSRSYiLdixisg" NameID="Node31" Label="Neither" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3r1JaPcEeSRSYiLehxisg" Value="#"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3r1JqPcEeSRSYiLehxisg" MarkovJumpState="Post Flu"/>
+                </Node>
+              </Node>
+              <Node xmi:id="_j3r1J6PcEeSRSYiLehxisg" NameID="Node29" Label="LRI" NodeType="ChanceNode">
+                <Prob xmi:id="_j3r1KKPcEeSRSYiLehxisg" Value="pFlu_LRI / pFluTotal"/>
+                <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3r1KaPcEeSRSYiLehxisg">
+                  <TransitionReward xmi:id="_j3r1KqPcEeSRSYiLfgxisg" Set="1" Value="(cFluTotal + cLRI_Total) / (1+dr)^(_stage * cyclen)"/>
+                  <TransitionReward xmi:id="_j3r1K6PcEeSRSYiLfgxisg" Set="2" Value="- duLRI  / (1+dr)^(_stage * cyclen)"/>
+                </MarkovData>
+                <Node xmi:id="_j3r1LKPcEeSRSYiLfgxisg" NameID="Node44" Label="Die" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3r1LaPcEeSRSYiLfgxisg" Value="pDie_Flu_LRI"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3r1LqPcEeSRSYiLfgxisg" MarkovJumpState="Dead">
+                    <TransitionReward xmi:id="_j3r1L6PcEeSRSYiLgfxisg" Set="2" Value="- duDeath"/>
+                    <TransitionReward xmi:id="_j3r1MKPcEeSRSYiLgfxisg" Set="1" Value="cHosp_LRI / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sboKPcEeSRSYiLgfxisg" Set="4" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sboaPcEeSRSYiLgfxisg" NameID="Node43" Label="Hospitalization" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sboqPcEeSRSYiLgfxisg" Value="pHosp_LRI"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sbo6PcEeSRSYiLhexisg" MarkovJumpState="Post Flu">
+                    <TransitionReward xmi:id="_j3sbpKPcEeSRSYiLhexisg" Set="1" Value="cHosp_LRI / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sbpaPcEeSRSYiLhexisg" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sbpqPcEeSRSYiLhexisg" Set="5" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sbp6PcEeSRSYiLhexisg" NameID="Node42" Label="Neither" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sbqKPcEeSRSYiLidxisg" Value="#"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sbqaPcEeSRSYiLidxisg" MarkovJumpState="Post Flu"/>
+                </Node>
+              </Node>
+            </Node>
+            <Node xmi:id="_j3sbqqPcEeSRSYiLidxisg" NameID="Node20" Label="Stays well" NodeType="ChanceNode">
+              <Prob xmi:id="_j3sbq6PcEeSRSYiLidxisg" Value="#"/>
+              <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3sbrKPcEeSRSYiLidxisg"/>
+              <Node xmi:id="_j3sbraPcEeSRSYiLjcxisg" NameID="Node12" Label="Gets Vaccine" NodeType="ChanceNode">
+                <Prob xmi:id="_j3sbrqPcEeSRSYiLjcxisg" Value="pVaccinated_Monthly"/>
+                <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3sbr6PcEeSRSYiLjcxisg">
+                  <TransitionReward xmi:id="_j3sbsKPcEeSRSYiLjcxisg" Set="1" Value="cVaccineTotal / (1+dr)^(_stage*cyclen)"/>
+                </MarkovData>
+                <Node xmi:id="_j3sbsaPcEeSRSYiLjcxisg" NameID="Node70" Label="Wheezing Adverse event" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sbsqPcEeSRSYiLkbxisg" Value="pAE_Wheeze"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sbs6PcEeSRSYiLkbxisg" MarkovJumpState="Well - vaccinated">
+                    <TransitionReward xmi:id="_j3sbtKPcEeSRSYiLkbxisg" Set="1" Value="cTotalAdvEvent_Wheeze / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sbtaPcEeSRSYiLkbxisg" Set="2" Value="-duAE_Wheeze / (1+dr)^(_stage*cyclen)"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sbtqPcEeSRSYiLkbxisg" NameID="Node53" Label="All Adverse Events" NodeType="TerminalNode" Node="">
+                  <Prob xmi:id="_j3sbt6PcEeSRSYiLlaxisg" Value="pAE_noWheeze"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sbuKPcEeSRSYiLlaxisg" MarkovJumpState="Well - vaccinated">
+                    <TransitionReward xmi:id="_j3sbuaPcEeSRSYiLlaxisg" Set="2" Value="- duAE_Other / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sbuqPcEeSRSYiLlaxisg" Set="1" Value="cAdvEvent_Other / (1+dr)^(_stage*cyclen)"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sbu6PcEeSRSYiLlaxisg" NameID="Node50" Label="No" NodeType="TerminalNode" Node="">
+                  <Prob xmi:id="_j3sbvKPcEeSRSYiLmZxisg" Value="#"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sbvaPcEeSRSYiLmZxisg" MarkovJumpState="Well - vaccinated"/>
+                </Node>
+              </Node>
+              <Node xmi:id="_j3sbvqPcEeSRSYiLmZxisg" NameID="Node14" Label="No" NodeType="TerminalNode">
+                <Prob xmi:id="_j3sbv6PcEeSRSYiLmZxisg" Value="#"/>
+                <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sbwKPcEeSRSYiLmZxisg" MarkovJumpState="Well - unvaccinated"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node xmi:id="_j3sbwaPcEeSRSYiLnYxisg" NameID="Node17" Label="Well - vaccinated" NodeType="ChanceNode">
+            <Prob xmi:id="_j3sbwqPcEeSRSYiLnYxisg" Value="0"/>
+            <MarkovData xsi:type="tree:MarkovNonAbsorbingStateData" xmi:id="_j3sbw6PcEeSRSYiLnYxisg"/>
+            <Node xmi:id="_j3sbxKPcEeSRSYiLnYxisg" NameID="Node57" Label="Gets Flu" NodeType="ChanceNode">
+              <Prob xmi:id="_j3sbxaPcEeSRSYiLnYxisg" Value="pFlu_Monthly_postVax"/>
+              <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3sbxqPcEeSRSYiLoXxisg">
+                <TransitionReward xmi:id="_j3sbx6PcEeSRSYiLoXxisg" Set="3" Value="1"/>
+              </MarkovData>
+              <Node xmi:id="_j3sbyKPcEeSRSYiLoXxisg" NameID="Node66" Label="All cases" NodeType="ChanceNode">
+                <Prob xmi:id="_j3sbyaPcEeSRSYiLoXxisg" Value="#"/>
+                <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3sbyqPcEeSRSYiLoXxisg">
+                  <TransitionReward xmi:id="_j3sby6PcEeSRSYiLpWxisg" Set="1" Value="cFluTotal / (1+dr)^(_stage * cyclen)"/>
+                  <TransitionReward xmi:id="_j3sbzKPcEeSRSYiLpWxisg" Set="2" Value="- duFlu  / (1+dr)^(_stage * cyclen)"/>
+                </MarkovData>
+                <Node xmi:id="_j3sbzaPcEeSRSYiLpWxisg" NameID="Node67" Label="Die" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sbzqPcEeSRSYiLpWxisg" Value="pDie_Flu_postVax"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sbz6PcEeSRSYiLpWxisg" MarkovJumpState="Dead">
+                    <TransitionReward xmi:id="_j3sb0KPcEeSRSYiLqVxisg" Set="2" Value="- duDeath"/>
+                    <TransitionReward xmi:id="_j3sb0aPcEeSRSYiLqVxisg" Set="1" Value="cHosp_Flu / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sb0qPcEeSRSYiLqVxisg" Set="4" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sb06PcEeSRSYiLqVxisg" NameID="Node68" Label="Hospitalization" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sb1KPcEeSRSYiLqVxisg" Value="pHosp_Flu_postVax"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sb1aPcEeSRSYiLrUxisg" MarkovJumpState="Post Flu">
+                    <TransitionReward xmi:id="_j3sb1qPcEeSRSYiLrUxisg" Set="1" Value="cHosp_Flu / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sb16PcEeSRSYiLrUxisg" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sb2KPcEeSRSYiLrUxisg" Set="5" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sb2aPcEeSRSYiLrUxisg" NameID="Node69" Label="Neither" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sb2qPcEeSRSYiLsTxisg" Value="#"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sb26PcEeSRSYiLsTxisg" MarkovJumpState="Post Flu"/>
+                </Node>
+              </Node>
+              <Node xmi:id="_j3sb3KPcEeSRSYiLsTxisg" NameID="Node62" Label="LRI" NodeType="ChanceNode">
+                <Prob xmi:id="_j3sb3aPcEeSRSYiLsTxisg" Value="pFlu_LRI_postVax / pFluTotal_postVax"/>
+                <MarkovData xsi:type="tree:MarkovTransitionData" xmi:id="_j3sb3qPcEeSRSYiLsTxisg">
+                  <TransitionReward xmi:id="_j3sb36PcEeSRSYiLtSxisg" Set="1" Value="(cFluTotal + cLRI_Total) / (1+dr)^(_stage * cyclen)"/>
+                  <TransitionReward xmi:id="_j3sb4KPcEeSRSYiLtSxisg" Set="2" Value="- duLRI  / (1+dr)^(_stage * cyclen)"/>
+                </MarkovData>
+                <Node xmi:id="_j3sb4aPcEeSRSYiLtSxisg" NameID="Node63" Label="Die" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sb4qPcEeSRSYiLtSxisg" Value="pDie_Flu_LRI_postVax"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sb46PcEeSRSYiLtSxisg" MarkovJumpState="Dead">
+                    <TransitionReward xmi:id="_j3sb5KPcEeSRSYiLuRxisg" Set="2" Value="- duDeath"/>
+                    <TransitionReward xmi:id="_j3sb5aPcEeSRSYiLuRxisg" Set="1" Value="cHosp_LRI / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sb5qPcEeSRSYiLuRxisg" Set="4" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sb56PcEeSRSYiLuRxisg" NameID="Node64" Label="Hospitalization" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sb6KPcEeSRSYiLuRxisg" Value="pHosp_LRI_postVax"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sb6aPcEeSRSYiLvQxisg" MarkovJumpState="Post Flu">
+                    <TransitionReward xmi:id="_j3sb6qPcEeSRSYiLvQxisg" Set="1" Value="cHosp_LRI / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sb66PcEeSRSYiLvQxisg" Set="2" Value="-duHosp / (1+dr)^(_stage*cyclen)"/>
+                    <TransitionReward xmi:id="_j3sb7KPcEeSRSYiLvQxisg" Set="5" Value="1"/>
+                  </MarkovData>
+                </Node>
+                <Node xmi:id="_j3sb7aPcEeSRSYiLvQxisg" NameID="Node65" Label="Neither" NodeType="TerminalNode">
+                  <Prob xmi:id="_j3sb7qPcEeSRSYiLwPxisg" Value="#"/>
+                  <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sb76PcEeSRSYiLwPxisg" MarkovJumpState="Post Flu"/>
+                </Node>
+              </Node>
+            </Node>
+            <Node xmi:id="_j3sb8KPcEeSRSYiLwPxisg" NameID="Node56" Label="Stays well" NodeType="TerminalNode">
+              <Prob xmi:id="_j3sb8aPcEeSRSYiLwPxisg" Value="#"/>
+              <MarkovData xsi:type="tree:MarkovJumpTransitionData" xmi:id="_j3sb8qPcEeSRSYiLwPxisg" MarkovJumpState="Well - vaccinated"/>
+            </Node>
+          </Node>
+          <Node xmi:id="_j3sb86PcEeSRSYiLxOxisg" NameID="Node19" Label="Post Flu" NodeType="TerminalNode">
+            <Prob xmi:id="_j3sb9KPcEeSRSYiLxOxisg" Value="0"/>
+            <MarkovData xsi:type="tree:MarkovStateData" xmi:id="_j3sb9aPcEeSRSYiLxOxisg"/>
+          </Node>
+          <Node xmi:id="_j3sb9qPcEeSRSYiLxOxisg" NameID="Node8" Label="Dead" NodeType="TerminalNode">
+            <Prob xmi:id="_j3sb96PcEeSRSYiLxOxisg" Value="0"/>
+            <MarkovData xsi:type="tree:MarkovStateData" xmi:id="_j3sb-KPcEeSRSYiLyNxisg"/>
+          </Node>
+          <Termination xmi:id="_j3sb-aPcEeSRSYiLyNxisg" Set="1" Value="_STAGE = 120" Comment="Default condition must be modified to correct rule for model."/>
+          <Termination xmi:id="_j3sb-qPcEeSRSYiLyNxisg" Value="_STAGE > 10" Comment="Default condition must be modified to correct rule for model."/>
+          <Termination xmi:id="_j3sb-6PcEeSRSYiLyNxisg" Set="3" Value="_STAGE > 10" Comment="Default condition must be modified to correct rule for model."/>
+          <Termination xmi:id="_j3sb_KPcEeSRSYiLyNxisg" Set="4" Value="_STAGE > 10" Comment="Default condition must be modified to correct rule for model."/>
+          <Termination xmi:id="_j3sb_aPcEeSRSYiLzMxisg" Set="5" Value="_STAGE = 120" Comment="Default condition must be modified to correct rule for model."/>
+        </Node>
+      </Node>
+      <Node xmi:id="_j3scEKPcEeSRSYiL2Jxisg" NameID="Node2" Label="TIV" NodeType="LabelNode" AttachToCloneMaster="3">
+        <Definition xmi:id="_j3scEqPcEeSRSYiL3Ixisg" Variable="pDie_Flu_LRI_postVax" Value="pDie_Flu_LRI_TIV" Comment=""/>
+        <Definition xmi:id="_j3scE6PcEeSRSYiL3Ixisg" Variable="pDie_Flu_postVax" Value="pDie_Flu_TIV" Comment=""/>
+        <Definition xmi:id="_j3scFaPcEeSRSYiL3Ixisg" Variable="pFlu_LRI_postVax" Value="pFlu_LRI_TIV" Comment=""/>
+        <Definition xmi:id="_j3scFqPcEeSRSYiL4Hxisg" Variable="pFlu_postVax" Value="pFlu_TIV" Comment=""/>
+        <Definition xmi:id="_j3scGKPcEeSRSYiL4Hxisg" Variable="pHosp_Flu_postVax" Value="pHosp_Flu_TIV" Comment=""/>
+        <Definition xmi:id="_j3scGaPcEeSRSYiL4Hxisg" Variable="pHosp_LRI_postVax" Value="pHosp_LRI_TIV" Comment=""/>
+        <Definition xmi:id="_j3scGqPcEeSRSYiL4Hxisg" Variable="pAE_noWheeze" Value="pAE_noWheeze_TIV" Comment=""/>
+        <Definition xmi:id="_j3scG6PcEeSRSYiL5Gxisg" Variable="pAE_Wheeze" Value="pAE_Wheeze_TIV" Comment=""/>
+        <Definition xmi:id="_j3scHKPcEeSRSYiL5Gxisg" Variable="pHosp_Wheeze" Value="pHosp_Wheeze_TIV" Comment=""/>
+        <Definition xmi:id="_j3scHaPcEeSRSYiL5Gxisg" Variable="cVaccineTotal" Value="cTIV + cVaccine_Admin" Comment=""/>
+        <Definition xmi:id="_j3scHqPcEeSRSYiL5Gxisg" Variable="pFlu_Monthly_External" Value="pFlu_Monthly_External_TIV"/>
+        <Definition xmi:id="_j3scH6PcEeSRSYiL5Gxisg" Variable="pVaccinated_Monthly_External" Value="pVaccinated_Monthly_External_TIV"/>
+        <Definition xmi:id="_j3scIKPcEeSRSYiL6Fxisg" Variable="pFlu_Monthly_PostVax_External" Value="pFlu_Monthly_postVax_External_TIV"/>
+      </Node>
+      <Node xmi:id="_TF7asKP0EeS5LuUdA_o7Gg" NameID="Node71" Label="High dose TIV" NodeType="LabelNode" AttachToCloneMaster="3">
+        <Definition xmi:id="_bUcUQ6P0EeS5LuUdE7o7Gg" Variable="pFlu_LRI_postVax" Value="pFlu_LRI_TIV" Comment=""/>
+        <Definition xmi:id="_bUcURKP0EeS5LuUdE7o7Gg" Variable="pFlu_Monthly_External" Value="pFlu_Monthly_External_TIV" Comment=""/>
+        <Definition xmi:id="_bUcURaP0EeS5LuUdE7o7Gg" Variable="pFlu_Monthly_PostVax_External" Value="pFlu_Monthly_postVax_External_TIV" Comment=""/>
+        <Definition xmi:id="_bUc7UKP0EeS5LuUdE7o7Gg" Variable="pFlu_postVax" Value="pFlu_TIV_Hi" Comment=""/>
+        <Definition xmi:id="_bUc7UaP0EeS5LuUdF6o7Gg" Variable="pHosp_Flu_postVax" Value="pHosp_Flu_TIV_Hi" Comment=""/>
+        <Definition xmi:id="_bUc7UqP0EeS5LuUdF6o7Gg" Variable="pHosp_LRI_postVax" Value="pHosp_LRI_TIV" Comment=""/>
+        <Definition xmi:id="_bUc7U6P0EeS5LuUdF6o7Gg" Variable="pHosp_Wheeze" Value="pHosp_Wheeze_TIV" Comment=""/>
+        <Definition xmi:id="_bUdiYKP0EeS5LuUdF6o7Gg" Variable="pVaccinated_Monthly_External" Value="pVaccinated_Monthly_External_TIV" Comment=""/>
+        <Definition xmi:id="_-IW3wKP3EeS5LuUdF6o7Gg" Variable="cVaccineTotal" Value="cTIV_Hi + cVaccine_Admin" Comment=""/>
+        <Definition xmi:id="_LxCT8KP4EeS5LuUdG5o7Gg" Variable="pAE_noWheeze" Value="pAE_noWheeze_TIV_Hi" Comment=""/>
+        <Definition xmi:id="_sppIsKP4EeS5LuUdH4o7Gg" Variable="pAE_Wheeze" Value="pAE_Wheeze_TIV_Hi" Comment=""/>
+        <Definition xmi:id="_63ThQKP4EeS5LuUdH4o7Gg" Variable="pDie_Flu_LRI_postVax" Value="pDie_Flu_LRI_TIV_Hi" Comment=""/>
+        <Definition xmi:id="_GBrvAKP5EeS5LuUdI3o7Gg" Variable="pDie_Flu_postVax" Value="pDie_Flu_TIV_Hi" Comment=""/>
+      </Node>
+    </Node>
+    <Distribution xmi:id="_j3scIaPcEeSRSYiL6Fxisg" NameID="distRR_AOM_QIVvsTIV" Label="" Comment="" Index="1" Type="LogNormal">
+      <Parameter xmi:id="_j3scIqPcEeSRSYiL6Fxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scI6PcEeSRSYiL6Fxisg" Name="umeanoflogs" Value="ln(0.46)"/>
+      <Parameter xmi:id="_j3scJKPcEeSRSYiL6Fxisg" Name="sigmastddevoflogs" Value="sqrt(ln((0.47)/(0.46))*2)"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scJaPcEeSRSYiL7Exisg" NameID="dist_cAdEventOther" Label="" Comment="" Index="2" Type="Gamma">
+      <Parameter xmi:id="_j3scJqPcEeSRSYiL7Exisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scJ6PcEeSRSYiL7Exisg" Name="alpha" Value="((1.81)^2)/((0.6)^2)"/>
+      <Parameter xmi:id="_j3scKKPcEeSRSYiL7Exisg" Name="lambda" Value="(1.81)/((0.6)^2)"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scKaPcEeSRSYiL7Exisg" NameID="dist_duAEother" Label="" Comment="" Index="3" Type="Beta">
+      <Parameter xmi:id="_j3scKqPcEeSRSYiL8Dxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3scK6PcEeSRSYiL8Dxisg" Name="alpha" Value="(((0.00001)^2)*(1-(0.00001))/((0.001)^2)-(0.00001))"/>
+      <Parameter xmi:id="_j3scLKPcEeSRSYiL8Dxisg" Name="beta" Value="((1-(0.00001))*(((1-(0.00001))*(0.00001))/((0.001)^2)-1))"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scLaPcEeSRSYiL8Dxisg" NameID="dist_numVisits_Flu" Label="" Comment="" Index="4" Type="Poisson">
+      <Parameter xmi:id="_j3scLqPcEeSRSYiL8Dxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scL6PcEeSRSYiL9Cxisg" Name="lambda" Value="1"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scMKPcEeSRSYiL9Cxisg" NameID="dist_numVisits_AOM" Label="" Comment="" Index="5" Type="Poisson">
+      <Parameter xmi:id="_j3scMaPcEeSRSYiL9Cxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scMqPcEeSRSYiL9Cxisg" Name="lambda" Value="1"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scM6PcEeSRSYiL9Cxisg" NameID="dist_pAE_noWheeze_QIV" Label="" Comment="" Index="6" Type="Beta">
+      <Parameter xmi:id="_j3scNKPcEeSRSYiL-Bxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3scNaPcEeSRSYiL-Bxisg" Name="alpha" Value="(((0.778)^2)*(1-(0.778))/((0.12)^2)-(0.778))"/>
+      <Parameter xmi:id="_j3scNqPcEeSRSYiL-Bxisg" Name="beta" Value="((1-(0.778))*(((1-(0.778))*(0.778))/((0.12)^2)-1))"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scN6PcEeSRSYiL-Bxisg" NameID="dist_cLRI_meds" Label="" Comment="" Index="7" Type="Gamma">
+      <Parameter xmi:id="_j3scOKPcEeSRSYiL-Bxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scOaPcEeSRSYiL_Axisg" Name="alpha" Value="((30)^2)/((7.5)^2)"/>
+      <Parameter xmi:id="_j3scOqPcEeSRSYiL_Axisg" Name="lambda" Value="(30)/((7.5)^2)"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scO6PcEeSRSYiL_Axisg" NameID="dist_numVisits_LRI" Label="" Comment="" Index="9" Type="Poisson">
+      <Parameter xmi:id="_j3scPKPcEeSRSYiL_Axisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scPaPcEeSRSYiL_Axisg" Name="lambda" Value="1"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scPqPcEeSRSYiLA_xisg" NameID="dist_pVisitMD_AOM" Label="" Comment="" Index="10" Type="Beta">
+      <Parameter xmi:id="_j3scP6PcEeSRSYiLA_xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scQKPcEeSRSYiLA_xisg" Name="n" Value="1500"/>
+      <Parameter xmi:id="_j3scQaPcEeSRSYiLA_xisg" Name="r" Value="1499"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scQqPcEeSRSYiLA_xisg" NameID="dist_pVisitMD_LRI" Label="" Comment="" Index="11" Type="Beta">
+      <Parameter xmi:id="_j3scQ6PcEeSRSYiLB-xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scRKPcEeSRSYiLB-xisg" Name="n" Value="1500"/>
+      <Parameter xmi:id="_j3scRaPcEeSRSYiLB-xisg" Name="r" Value="1499"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scRqPcEeSRSYiLB-xisg" NameID="dist_pAE_NoWheeze_TIV" Label="" Comment="" Index="12" Type="Beta">
+      <Parameter xmi:id="_j3scR6PcEeSRSYiLB-xisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3scSKPcEeSRSYiLC9xisg" Name="alpha" Value="(((0.412 + 0.338)^2)*(1-(0.412 + 0.338))/((0.12)^2)-(0.412 + 0.338))"/>
+      <Parameter xmi:id="_j3scSaPcEeSRSYiLC9xisg" Name="beta" Value="((1-(0.412 + 0.338))*(((1-(0.412 + 0.338))*(0.412 + 0.338))/((0.12)^2)-1))"/>
+    </Distribution>
+    <Distribution xmi:id="_j3scSqPcEeSRSYiLC9xisg" NameID="dist_cAdvEvent_Wheeze" Label="" Comment="" Index="13" Type="Gamma">
+      <Parameter xmi:id="_j3scS6PcEeSRSYiLC9xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3scTKPcEeSRSYiLC9xisg" Name="alpha" Value="14.5415111111111"/>
+      <Parameter xmi:id="_j3scTaPcEeSRSYiLD8xisg" Name="lambda" Value="0.231111111111111"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCsKPcEeSRSYiLD8xisg" NameID="dist_cFluRx" Label="" Comment="" Index="14" Type="Gamma">
+      <Parameter xmi:id="_j3tCsaPcEeSRSYiLD8xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCsqPcEeSRSYiLD8xisg" Name="alpha" Value="16"/>
+      <Parameter xmi:id="_j3tCs6PcEeSRSYiLD8xisg" Name="lambda" Value="0.155339805825243"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCtKPcEeSRSYiLE7xisg" NameID="dist_cFlu_MD" Label="" Index="15" Type="Gamma">
+      <Parameter xmi:id="_j3tCtaPcEeSRSYiLE7xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCtqPcEeSRSYiLE7xisg" Name="alpha" Value="64.4932544378698"/>
+      <Parameter xmi:id="_j3tCt6PcEeSRSYiLE7xisg" Name="lambda" Value="0.882502113271344"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCuKPcEeSRSYiLE7xisg" NameID="dist_cHosp_Flu_Daily" Label="" Index="16" Type="Gamma">
+      <Parameter xmi:id="_j3tCuaPcEeSRSYiLF6xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCuqPcEeSRSYiLF6xisg" Name="alpha" Value="119.210745522699"/>
+      <Parameter xmi:id="_j3tCu6PcEeSRSYiLF6xisg" Name="lambda" Value="5.57059558517284E-02"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCvKPcEeSRSYiLF6xisg" NameID="dist_cHosp_Wheeze" Label="" Index="17" Type="Gamma">
+      <Parameter xmi:id="_j3tCvaPcEeSRSYiLF6xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCvqPcEeSRSYiLG5xisg" Name="alpha" Value="2001.63031684028"/>
+      <Parameter xmi:id="_j3tCv6PcEeSRSYiLG5xisg" Name="lambda" Value="0.466037326388889"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCwKPcEeSRSYiLG5xisg" NameID="dist_cNonMed_Daily" Label="" Comment="" Index="18" Type="Gamma">
+      <Parameter xmi:id="_j3tCwaPcEeSRSYiLG5xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCwqPcEeSRSYiLG5xisg" Name="alpha" Value="16"/>
+      <Parameter xmi:id="_j3tCw6PcEeSRSYiLH4xisg" Name="lambda" Value="9.87654320987654E-02"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCxKPcEeSRSYiLH4xisg" NameID="dist_cQIV" Label="" Comment="" Index="19" Type="Gamma">
+      <Parameter xmi:id="_j3tCxaPcEeSRSYiLH4xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCxqPcEeSRSYiLH4xisg" Name="alpha" Value="16"/>
+      <Parameter xmi:id="_j3tCx6PcEeSRSYiLH4xisg" Name="lambda" Value="0.704845814977974"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCyKPcEeSRSYiLI3xisg" NameID="dist_cTIV" Label="" Comment="" Index="20" Type="Gamma">
+      <Parameter xmi:id="_j3tCyaPcEeSRSYiLI3xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCyqPcEeSRSYiLI3xisg" Name="alpha" Value="16"/>
+      <Parameter xmi:id="_j3tCy6PcEeSRSYiLI3xisg" Name="lambda" Value="1.49672591206735"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tCzKPcEeSRSYiLI3xisg" NameID="dist_cVaccine_Admin" Label="" Comment="" Index="21" Type="Gamma">
+      <Parameter xmi:id="_j3tCzaPcEeSRSYiLJ2xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tCzqPcEeSRSYiLJ2xisg" Name="alpha" Value="47.9996337108146"/>
+      <Parameter xmi:id="_j3tCz6PcEeSRSYiLJ2xisg" Name="lambda" Value="1.91386099325417"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC0KPcEeSRSYiLJ2xisg" NameID="dist_daysAOM" Label="" Comment="" Index="22" Type="Gamma">
+      <Parameter xmi:id="_j3tC0aPcEeSRSYiLJ2xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC0qPcEeSRSYiLK1xisg" Name="alpha" Value="2.56"/>
+      <Parameter xmi:id="_j3tC06PcEeSRSYiLK1xisg" Name="lambda" Value="0.727272727272727"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC1KPcEeSRSYiLK1xisg" NameID="dist_daysFlu" Label="" Index="23" Type="Gamma">
+      <Parameter xmi:id="_j3tC1aPcEeSRSYiLK1xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC1qPcEeSRSYiLK1xisg" Name="alpha" Value="1.33136094674556"/>
+      <Parameter xmi:id="_j3tC16PcEeSRSYiLL0xisg" Name="lambda" Value="0.443786982248521"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC2KPcEeSRSYiLL0xisg" NameID="dist_daysHosp_Flu" Label="" Comment="" Index="24" Type="Gamma">
+      <Parameter xmi:id="_j3tC2aPcEeSRSYiLL0xisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC2qPcEeSRSYiLL0xisg" Name="alpha" Value="0.840277777777778"/>
+      <Parameter xmi:id="_j3tC26PcEeSRSYiLL0xisg" Name="lambda" Value="0.381944444444444"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC3KPcEeSRSYiLMzxisg" NameID="dist_daysHosp_LRI" Label="" Index="25" Type="Gamma">
+      <Parameter xmi:id="_j3tC3aPcEeSRSYiLMzxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC3qPcEeSRSYiLMzxisg" Name="alpha" Value="1"/>
+      <Parameter xmi:id="_j3tC36PcEeSRSYiLMzxisg" Name="lambda" Value="0.357142857142857"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC4KPcEeSRSYiLMzxisg" NameID="dist_daysLRI" Label="" Comment="" Index="26" Type="Gamma">
+      <Parameter xmi:id="_j3tC4aPcEeSRSYiLNyxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC4qPcEeSRSYiLNyxisg" Name="alpha" Value="1.774224"/>
+      <Parameter xmi:id="_j3tC46PcEeSRSYiLNyxisg" Name="lambda" Value="0.5328"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC5KPcEeSRSYiLNyxisg" NameID="dist_daysWheeze" Label="" Index="27" Type="Gamma">
+      <Parameter xmi:id="_j3tC5aPcEeSRSYiLNyxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC5qPcEeSRSYiLOxxisg" Name="alpha" Value="16"/>
+      <Parameter xmi:id="_j3tC56PcEeSRSYiLOxxisg" Name="lambda" Value="1.25195618153365"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC6KPcEeSRSYiLOxxisg" NameID="dist_duDeath" Label="" Index="28" Type="Gamma">
+      <Parameter xmi:id="_j3tC6aPcEeSRSYiLOxxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC6qPcEeSRSYiLOxxisg" Name="alpha" Value="148.84"/>
+      <Parameter xmi:id="_j3tC66PcEeSRSYiLPwxisg" Name="lambda" Value="4.88"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC7KPcEeSRSYiLPwxisg" NameID="dist_duHosp" Label="" Comment="" Index="29" Type="Gamma">
+      <Parameter xmi:id="_j3tC7aPcEeSRSYiLPwxisg" Name="subtype" Value="1"/>
+      <Parameter xmi:id="_j3tC7qPcEeSRSYiLPwxisg" Name="alpha" Value="1.20097579283168"/>
+      <Parameter xmi:id="_j3tC76PcEeSRSYiLPwxisg" Name="lambda" Value="156.555772994129"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC8KPcEeSRSYiLQvxisg" NameID="dist_eff_QIV" Label="" Comment="" Index="30" Type="Beta">
+      <Parameter xmi:id="_j3tC8aPcEeSRSYiLQvxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tC8qPcEeSRSYiLQvxisg" Name="alpha" Value="((((0.83))^2)*(1-((0.83)))/((0.14)^2)-((0.83)))"/>
+      <Parameter xmi:id="_j3tC86PcEeSRSYiLQvxisg" Name="beta" Value="((1-((0.83)))*(((1-((0.83)))*((0.83)))/((0.14)^2)-1))"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC9KPcEeSRSYiLQvxisg" NameID="dist_eff_TIV" Label="" Comment="" Index="31" Type="Beta">
+      <Parameter xmi:id="_j3tC9aPcEeSRSYiLRuxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tC9qPcEeSRSYiLRuxisg" Name="alpha" Value="11.7711"/>
+      <Parameter xmi:id="_j3tC96PcEeSRSYiLRuxisg" Name="beta" Value="6.6212"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC-KPcEeSRSYiLRuxisg" NameID="dist_pAE_Wheeze_QIV" Label="" Index="32" Type="Beta">
+      <Parameter xmi:id="_j3tC-aPcEeSRSYiLRuxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tC-qPcEeSRSYiLStxisg" Name="alpha" Value="15.6345"/>
+      <Parameter xmi:id="_j3tC-6PcEeSRSYiLStxisg" Name="beta" Value="711.551546511628"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tC_KPcEeSRSYiLStxisg" NameID="dist_pAE_Wheeze_TIV" Label="" Index="33" Type="Beta">
+      <Parameter xmi:id="_j3tC_aPcEeSRSYiLStxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tC_qPcEeSRSYiLStxisg" Name="alpha" Value="15.5665"/>
+      <Parameter xmi:id="_j3tC_6PcEeSRSYiLTsxisg" Name="beta" Value="594.884480392157"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDAKPcEeSRSYiLTsxisg" NameID="dist_pDie_Flu" Label="" Index="34" Type="Beta">
+      <Parameter xmi:id="_j3tDAaPcEeSRSYiLTsxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDAqPcEeSRSYiLTsxisg" Name="alpha" Value="15.9998878"/>
+      <Parameter xmi:id="_j3tDA6PcEeSRSYiLTsxisg" Name="beta" Value="2424209.42435462"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDBKPcEeSRSYiLUrxisg" NameID="dist_pDie_Flu_AOM" Label="" Index="35" Type="Beta">
+      <Parameter xmi:id="_j3tDBaPcEeSRSYiLUrxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDBqPcEeSRSYiLUrxisg" Name="alpha" Value="15.9998878"/>
+      <Parameter xmi:id="_j3tDB6PcEeSRSYiLUrxisg" Name="beta" Value="2424209.42435462"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDCKPcEeSRSYiLUrxisg" NameID="dist_pDie_Flu_LRI" Label="" Index="36" Type="Beta">
+      <Parameter xmi:id="_j3tDCaPcEeSRSYiLVqxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDCqPcEeSRSYiLVqxisg" Name="alpha" Value="16.1509702846414"/>
+      <Parameter xmi:id="_j3tDC6PcEeSRSYiLVqxisg" Name="beta" Value="96350.0201791268"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDDKPcEeSRSYiLVqxisg" NameID="dist_Percent_AOM" Label="" Index="37" Type="Beta">
+      <Parameter xmi:id="_j3tDDaPcEeSRSYiLVqxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDDqPcEeSRSYiLWpxisg" Name="alpha" Value="4.90651397977394"/>
+      <Parameter xmi:id="_j3tDD6PcEeSRSYiLWpxisg" Name="beta" Value="27.803579218719"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDEKPcEeSRSYiLWpxisg" NameID="dist_Percent_AOM_TIV" Label="" Index="38" Type="Beta">
+      <Parameter xmi:id="_j3tDEaPcEeSRSYiLWpxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDEqPcEeSRSYiLWpxisg" Name="alpha" Value="14.674"/>
+      <Parameter xmi:id="_j3tDE6PcEeSRSYiLXoxisg" Name="beta" Value="173.454205128205"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDFKPcEeSRSYiLXoxisg" NameID="dist_Percent_LRI" Label="" Index="39" Type="Beta">
+      <Parameter xmi:id="_j3tDFaPcEeSRSYiLXoxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDFqPcEeSRSYiLXoxisg" Name="alpha" Value="14.708"/>
+      <Parameter xmi:id="_j3tDF6PcEeSRSYiLXoxisg" Name="beta" Value="178.818315789474"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDGKPcEeSRSYiLYnxisg" NameID="dist_pFlu" Label="" Index="40" Type="Beta">
+      <Parameter xmi:id="_j3tDGaPcEeSRSYiLYnxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDGqPcEeSRSYiLYnxisg" Name="alpha" Value="27.5955555555556"/>
+      <Parameter xmi:id="_j3tDG6PcEeSRSYiLYnxisg" Name="beta" Value="70.9600000000001"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDHKPcEeSRSYiLYnxisg" NameID="dist_pHosp_AOM" Label="" Index="41" Type="Beta">
+      <Parameter xmi:id="_j3tDHaPcEeSRSYiLZmxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDHqPcEeSRSYiLZmxisg" Name="alpha" Value="15.9932"/>
+      <Parameter xmi:id="_j3tDH6PcEeSRSYiLZmxisg" Name="beta" Value="39967.0068"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDIKPcEeSRSYiLZmxisg" NameID="dist_pHosp_AOM_QIV" Label="" Index="42" Type="Beta">
+      <Parameter xmi:id="_j3tDIaPcEeSRSYiLZmxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDIqPcEeSRSYiLalxisg" Name="alpha" Value="15.9966"/>
+      <Parameter xmi:id="_j3tDI6PcEeSRSYiLalxisg" Name="beta" Value="79967.0034000001"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDJKPcEeSRSYiLalxisg" NameID="dist_pHosp_AOM_TIV" Label="" Index="43" Type="Beta">
+      <Parameter xmi:id="_j3tDJaPcEeSRSYiLalxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDJqPcEeSRSYiLalxisg" Name="alpha" Value="15.9932"/>
+      <Parameter xmi:id="_j3tDJ6PcEeSRSYiLbkxisg" Name="beta" Value="39967.0068"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDKKPcEeSRSYiLbkxisg" NameID="dist_pHosp_Flu" Label="" Index="44" Type="Beta">
+      <Parameter xmi:id="_j3tDKaPcEeSRSYiLbkxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDKqPcEeSRSYiLbkxisg" Name="alpha" Value="15.9932"/>
+      <Parameter xmi:id="_j3tDK6PcEeSRSYiLbkxisg" Name="beta" Value="39967.0068"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDLKPcEeSRSYiLcjxisg" NameID="dist_pHosp_Flu_QIV" Label="" Index="45" Type="Beta">
+      <Parameter xmi:id="_j3tDLaPcEeSRSYiLcjxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDLqPcEeSRSYiLcjxisg" Name="alpha" Value="15.9966"/>
+      <Parameter xmi:id="_j3tDL6PcEeSRSYiLcjxisg" Name="beta" Value="79967.0034000001"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDMKPcEeSRSYiLcjxisg" NameID="dist_pHosp_Flu_TIV" Label="" Index="46" Type="Beta">
+      <Parameter xmi:id="_j3tDMaPcEeSRSYiLdixisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDMqPcEeSRSYiLdixisg" Name="alpha" Value="15.9932"/>
+      <Parameter xmi:id="_j3tDM6PcEeSRSYiLdixisg" Name="beta" Value="39967.0068"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDNKPcEeSRSYiLdixisg" NameID="dist_pHosp_LRI" Label="" Index="47" Type="Beta">
+      <Parameter xmi:id="_j3tDNaPcEeSRSYiLdixisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDNqPcEeSRSYiLehxisg" Name="alpha" Value="15.98912"/>
+      <Parameter xmi:id="_j3tDN6PcEeSRSYiLehxisg" Name="beta" Value="24967.01088"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDOKPcEeSRSYiLehxisg" NameID="dist_pHosp_LRI_QIV" Label="" Comment="" Index="48" Type="Beta">
+      <Parameter xmi:id="_j3tDOaPcEeSRSYiLehxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDOqPcEeSRSYiLehxisg" Name="alpha" Value="0.009899"/>
+      <Parameter xmi:id="_j3tDO6PcEeSRSYiLfgxisg" Name="beta" Value="98.980101"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDPKPcEeSRSYiLfgxisg" NameID="dist_pHosp_LRI_TIV" Label="" Index="49" Type="Beta">
+      <Parameter xmi:id="_j3tDPaPcEeSRSYiLfgxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDPqPcEeSRSYiLfgxisg" Name="alpha" Value="15.9983"/>
+      <Parameter xmi:id="_j3tDP6PcEeSRSYiLfgxisg" Name="beta" Value="159967.0017"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDQKPcEeSRSYiLgfxisg" NameID="dist_pHosp_Wheeze_QIV" Label="" Index="50" Type="Beta">
+      <Parameter xmi:id="_j3tDQaPcEeSRSYiLgfxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDQqPcEeSRSYiLgfxisg" Name="alpha" Value="15.9847"/>
+      <Parameter xmi:id="_j3tDQ6PcEeSRSYiLgfxisg" Name="beta" Value="17744.7930777778"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDRKPcEeSRSYiLgfxisg" NameID="dist_pHosp_Wheeze_TIV" Label="" Index="51" Type="Beta">
+      <Parameter xmi:id="_j3tDRaPcEeSRSYiLhexisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDRqPcEeSRSYiLhexisg" Name="alpha" Value="15.9694"/>
+      <Parameter xmi:id="_j3tDR6PcEeSRSYiLhexisg" Name="beta" Value="8855.91948888888"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDSKPcEeSRSYiLhexisg" NameID="dist_pQIV_contraindication" Label="" Index="52" Type="Beta">
+      <Parameter xmi:id="_j3tDSaPcEeSRSYiLhexisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDSqPcEeSRSYiLidxisg" Name="alpha" Value="1338.64168533333"/>
+      <Parameter xmi:id="_j3tDS6PcEeSRSYiLidxisg" Name="beta" Value="10122.331648"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDTKPcEeSRSYiLidxisg" NameID="dist_pVisitMD_Flu" Label="" Comment="" Index="53" Type="Beta">
+      <Parameter xmi:id="_j3tDTaPcEeSRSYiLidxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tDTqPcEeSRSYiLidxisg" Name="alpha" Value="38"/>
+      <Parameter xmi:id="_j3tDT6PcEeSRSYiLjcxisg" Name="beta" Value="57"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tDUKPcEeSRSYiLjcxisg" NameID="dist_uFlu" Label="" Index="54" Type="Beta">
+      <Parameter xmi:id="_j3tDUaPcEeSRSYiLjcxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tpwKPcEeSRSYiLjcxisg" Name="alpha" Value="7.58536615384615"/>
+      <Parameter xmi:id="_j3tpwaPcEeSRSYiLjcxisg" Name="beta" Value="6.00848"/>
+    </Distribution>
+    <Distribution xmi:id="_j3tpwqPcEeSRSYiLkbxisg" NameID="dist_uWheeze" Label="" Index="55" Type="Beta">
+      <Parameter xmi:id="_j3tpw6PcEeSRSYiLkbxisg" Name="subtype" Value="2"/>
+      <Parameter xmi:id="_j3tpxKPcEeSRSYiLkbxisg" Name="alpha" Value="29.1228747222222"/>
+      <Parameter xmi:id="_j3tpxaPcEeSRSYiLkbxisg" Name="beta" Value="5.09906972222222"/>
+    </Distribution>
+    <Variable xmi:id="_j3tpyqPcEeSRSYiLlaxisg" NameID="pFlu" Label="Probability of contracting flu given vax-" Comment="SA based on R0 of 1.2 to 2.0 (base 1.6)" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_ZFMs8KPdEeSRSYiLA_xisg" LowValue="0.17" HighValue="0.37" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tpy6PcEeSRSYiLlaxisg" LowValue="0.17" HighValue="0.37" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tpzKPcEeSRSYiLmZxisg" LowValue="0.17" HighValue="0.37" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tpzaPcEeSRSYiLmZxisg" LowValue="0.17" HighValue="0.37"/>
+    </Variable>
+    <Variable xmi:id="_j3tpzqPcEeSRSYiLmZxisg" NameID="pFlu_postVax" Label="Probability of flu given vax+" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tpz6PcEeSRSYiLmZxisg" HighValue="0.0476" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp0KPcEeSRSYiLmZxisg" HighValue="0.04760000000000002"/>
+    </Variable>
+    <Variable xmi:id="_j3tp0aPcEeSRSYiLnYxisg" NameID="pVaccinated_Monthly" Label="Probability of vaccination by month" Comment="" Category="#_j3vfIaPcEeSRSYiLI3xisg">
+      <SensitivityRange xmi:id="_j3tp0qPcEeSRSYiLnYxisg"/>
+    </Variable>
+    <Variable xmi:id="_j3tp06PcEeSRSYiLnYxisg" NameID="cyclen" Label="Length of Markov cycle" Comment="*** NOT VARIED ***" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tp1KPcEeSRSYiLnYxisg" HighValue="0.083333" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp1aPcEeSRSYiLnYxisg" HighValue="0.083333" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp1qPcEeSRSYiLoXxisg" HighValue="0.083333" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp16PcEeSRSYiLoXxisg" HighValue="0.08333333333333333"/>
+    </Variable>
+    <Variable xmi:id="_j3tp2KPcEeSRSYiLoXxisg" NameID="cFluTotal" Label="Total of all flu costs" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tp2aPcEeSRSYiLoXxisg" HighValue="618.232" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp2qPcEeSRSYiLoXxisg" HighValue="618.232" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp26PcEeSRSYiLpWxisg" HighValue="618.232"/>
+    </Variable>
+    <Variable xmi:id="_j3tp3KPcEeSRSYiLpWxisg" NameID="dr" Label="Discount rate" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tp3aPcEeSRSYiLpWxisg" HighValue="0.03" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp3qPcEeSRSYiLpWxisg" HighValue="0.03" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp36PcEeSRSYiLpWxisg" HighValue="0.03"/>
+    </Variable>
+    <Variable xmi:id="_j3tp4KPcEeSRSYiLqVxisg" NameID="duFlu" Label="Disutility of flu" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tp4aPcEeSRSYiLqVxisg" HighValue="0.003633" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp4qPcEeSRSYiLqVxisg" HighValue="0.003633" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp46PcEeSRSYiLqVxisg" HighValue="0.0036328767123287664"/>
+    </Variable>
+    <Variable xmi:id="_j3tp5KPcEeSRSYiLqVxisg" NameID="cLRI_Total" Label="Cost total of lower respiratory infection" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tp5aPcEeSRSYiLrUxisg" HighValue="818.62" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp5qPcEeSRSYiLrUxisg" HighValue="818.62" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp56PcEeSRSYiLrUxisg" HighValue="818.62"/>
+    </Variable>
+    <Variable xmi:id="_j3tp7KPcEeSRSYiLsTxisg" NameID="duLRI" Label="Disutility of lower respiratory infection (Luce)" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tp7aPcEeSRSYiLsTxisg" HighValue="0.004032" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp7qPcEeSRSYiLsTxisg" HighValue="0.004032" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp76PcEeSRSYiLtSxisg" HighValue="0.004032493150684931"/>
+    </Variable>
+    <Variable xmi:id="_j3tp9KPcEeSRSYiLuRxisg" NameID="cVaccineTotal" Label="Total of all vaccination costs" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tp9aPcEeSRSYiLuRxisg" HighValue="32.6" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp9qPcEeSRSYiLuRxisg" HighValue="32.6" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp96PcEeSRSYiLuRxisg" HighValue="32.6"/>
+    </Variable>
+    <Variable xmi:id="_j3tp_KPcEeSRSYiLvQxisg" NameID="pFlu_LRI" Label="Probability of lower respiratory infection given vax- and flu+" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tp_aPcEeSRSYiLvQxisg" HighValue="0.02128" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp_qPcEeSRSYiLwPxisg" HighValue="0.02128" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tp_6PcEeSRSYiLwPxisg" HighValue="0.02128"/>
+    </Variable>
+    <Variable xmi:id="_j3tqAKPcEeSRSYiLwPxisg" NameID="cQIV" Label="Cost of QIV dose  (Fluzone Quad - 2014 CDC Adult Influenza Price List, private sector cost)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_bUDngKVZEeSrfeWyA_QQWA" LowValue="11.35" HighValue="34.05" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqAaPcEeSRSYiLwPxisg" LowValue="11.35" HighValue="34.05" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqAqPcEeSRSYiLwPxisg" LowValue="11.35" HighValue="34.05" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqA6PcEeSRSYiLxOxisg" LowValue="11.35" HighValue="34.05"/>
+    </Variable>
+    <Variable xmi:id="_j3tqBKPcEeSRSYiLxOxisg" NameID="cTIV" Label="Cost of TIV dose (Fluzone - 2014 CDC Adult Influenza Price List, private sector cost)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_bVcuoKVZEeSrfeWyB-QQWA" LowValue="5.345" HighValue="16.035" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqBaPcEeSRSYiLxOxisg" LowValue="5.345" HighValue="16.035" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqBqPcEeSRSYiLxOxisg" LowValue="5.345" HighValue="16.035" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqB6PcEeSRSYiLxOxisg" LowValue="5.345" HighValue="16.035"/>
+    </Variable>
+    <Variable xmi:id="_j3tqCKPcEeSRSYiLyNxisg" NameID="pAE_Wheeze_QIV" Label="ASSUMING ZERO" Comment="SA 50%-150% of base" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_QzxtYKVeEeSrfeWyB-QQWA" LowValue="0.01075" HighValue="0.03225" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqCaPcEeSRSYiLyNxisg" LowValue="0.01075" HighValue="0.03225" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqCqPcEeSRSYiLyNxisg" LowValue="0.01075" HighValue="0.03225" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqC6PcEeSRSYiLyNxisg" LowValue="0.01075" HighValue="0.03225"/>
+    </Variable>
+    <Variable xmi:id="_j3tqDKPcEeSRSYiLyNxisg" NameID="pAE_Wheeze_TIV" Label="ASSUMING ZERO" Comment="SA 50%-150% of base" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_Q1asIKVeEeSrfeWyB-QQWA" LowValue="0.01275" HighValue="0.03825" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqDaPcEeSRSYiLzMxisg" LowValue="0.01275" HighValue="0.03825" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqDqPcEeSRSYiLzMxisg" LowValue="0.01275" HighValue="0.03825" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqD6PcEeSRSYiLzMxisg" LowValue="0.01275" HighValue="0.03825"/>
+    </Variable>
+    <Variable xmi:id="_j3tqEKPcEeSRSYiLzMxisg" NameID="pDie_Flu" Label="Probability of death from flu (Lee MED CARE 2015 ePub)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tqEaPcEeSRSYiLzMxisg" LowValue="3.3E-6" HighValue="9.9E-6"/>
+    </Variable>
+    <Variable xmi:id="_j3tqEqPcEeSRSYiL0Lxisg" NameID="pDie_Flu_LRI" Label="Probability of death from LRI and flu given vax- (CDC 2010)" Comment="Centers for Disease, C., Prevention, &amp; Thompson MG&#xa0; Zhou H, Bridges CB, Cheng PY, Burns E, S. D. K. (2010). Estimates of deaths associated with seasonal influenza --- United States, 1976-2007. MMWR Morb Mortal Wkly Rep, 59(33), 1057&#x2013;1062. doi:mm5933a1 [pii]&#xD; ***SA 50-150% of base&#xD;&#xA;&#xD;&#xD;&#xA;Luce, B. R., Nichol, K. L., Belshe, R. B., Frick, K. D., Li, S. X., Boscoe, A., &#x2026; Mahadevia, P. J. (2008). Cost-effectiveness of live attenuated influenza vaccine versus inactivated influenza vaccine among children aged 24-59 months in the United States. Vaccine, 26(23), 2841&#x2013;8. doi:10.1016/j.vaccine.2008.03.046&#xD;&#xD;&#xA;" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tqE6PcEeSRSYiL0Lxisg" LowValue="8.4E-5" HighValue="2.51E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqFKPcEeSRSYiL0Lxisg" LowValue="8.4E-5" HighValue="2.51E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqFaPcEeSRSYiL0Lxisg" LowValue="8.4E-5" HighValue="2.51E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3tqFqPcEeSRSYiL0Lxisg" NameID="pDie_Flu_LRI_QIV" Label="Probability of death from LRI and flu given QIV+ (Assumed from Luce)" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tqF6PcEeSRSYiL1Kxisg" HighValue="1.68E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqGKPcEeSRSYiL1Kxisg" HighValue="1.68E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqGaPcEeSRSYiL1Kxisg" HighValue="1.676E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3tqGqPcEeSRSYiL1Kxisg" NameID="pDie_Flu_LRI_TIV" Label="Probability of death from LRI and flu given TIV+ (Assumed from Luce)" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tqG6PcEeSRSYiL1Kxisg" HighValue="1.68E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqHKPcEeSRSYiL2Jxisg" HighValue="1.68E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqHaPcEeSRSYiL2Jxisg" HighValue="1.676E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3tqJqPcEeSRSYiL4Hxisg" NameID="pFlu_QIV" Label="Probability of flu+ given QIV+ (Luce)" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tqJ6PcEeSRSYiL4Hxisg" HighValue="0.0476" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqKKPcEeSRSYiL4Hxisg" HighValue="0.0476" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqKaPcEeSRSYiL4Hxisg" HighValue="0.04760000000000002"/>
+    </Variable>
+    <Variable xmi:id="_j3tqKqPcEeSRSYiL4Hxisg" NameID="pFlu_TIV" Label="Probability of flu given TIV+" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tqK6PcEeSRSYiL5Gxisg" HighValue="0.1008" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqLKPcEeSRSYiL5Gxisg" HighValue="0.1008" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqLaPcEeSRSYiL5Gxisg" HighValue="0.1008"/>
+    </Variable>
+    <Variable xmi:id="_j3tqLqPcEeSRSYiL5Gxisg" NameID="pHosp_Flu" Label="Probability of hospitalization given flu for ALL FLU &amp; ALL VAX (Lee MED CARE 2015 ePub)assumed same as Luce/TIV)" Comment="SA 50%-150% of base" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_erudMKV1EeSrfeWyD8QQWA" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_SGW4IKV1EeSrfeWyC9QQWA" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqL6PcEeSRSYiL5Gxisg" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqMKPcEeSRSYiL6Fxisg" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqMaPcEeSRSYiL6Fxisg" LowValue="2.0E-4" HighValue="6.0E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3tqMqPcEeSRSYiL6Fxisg" NameID="pHosp_LRI" Label="Probability of hospitalization for LRI and flu given vax- (Lavelle 2009 J Peds)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3tqM6PcEeSRSYiL6Fxisg" LowValue="3.2E-4" HighValue="9.6E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqNKPcEeSRSYiL6Fxisg" LowValue="3.2E-4" HighValue="9.6E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqNaPcEeSRSYiL7Exisg" LowValue="3.2E-4" HighValue="9.6E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3tqPKPcEeSRSYiL8Dxisg" NameID="pFlu_Monthly" Label="Probability of flu per Markov cycle given vax-" Comment="" Category="#_j3vfIaPcEeSRSYiLI3xisg">
+      <SensitivityRange xmi:id="_j3tqPaPcEeSRSYiL8Dxisg"/>
+    </Variable>
+    <Variable xmi:id="_j3tqPqPcEeSRSYiL8Dxisg" NameID="pFluTotal" Label="Probability sum of all flu partial probabilities given vax-" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tqP6PcEeSRSYiL9Cxisg" HighValue="0.34328" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqQKPcEeSRSYiL9Cxisg" HighValue="0.34328" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqQaPcEeSRSYiL9Cxisg" HighValue="0.34328000000000003"/>
+    </Variable>
+    <Variable xmi:id="_j3tqQqPcEeSRSYiL9Cxisg" NameID="pFlu_Monthly_postVax" Label="Probability of flu per Markov cycle given vax+" Comment="" Category="#_j3vfIaPcEeSRSYiLI3xisg">
+      <SensitivityRange xmi:id="_j3tqQ6PcEeSRSYiL9Cxisg"/>
+    </Variable>
+    <Variable xmi:id="_j3tqRKPcEeSRSYiL-Bxisg" NameID="pFlu_LRI_postVax" Label="Probability of lower respiratory infection given vax+ and flu+" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tqRaPcEeSRSYiL-Bxisg" HighValue="0.003618" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqRqPcEeSRSYiL-Bxisg" HighValue="0.003618" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3tqR6PcEeSRSYiL-Bxisg" HighValue="0.003617600000000001"/>
+    </Variable>
+    <Variable xmi:id="_j3tqSKPcEeSRSYiL-Bxisg" NameID="pFluTotal_postVax" Label="Probability sum of all flu partial probabilities given vax+" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tqSaPcEeSRSYiL_Axisg"/>
+    </Variable>
+    <Variable xmi:id="_j3tqTqPcEeSRSYiLA_xisg" NameID="pDie_Flu_postVax" Label="Probability of death from flu given vax+" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3tqT6PcEeSRSYiLA_xisg" HighValue="6.6E-6"/>
+    </Variable>
+    <Variable xmi:id="_j3tqUKPcEeSRSYiLA_xisg" NameID="pHosp_Flu_postVax" Label="Probability of hospitalization given vax+ and flu+ and no complications" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3uQ0KPcEeSRSYiLA_xisg" HighValue="2.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ0aPcEeSRSYiLA_xisg" HighValue="2.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ0qPcEeSRSYiLB-xisg" HighValue="2.0E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ06PcEeSRSYiLB-xisg" NameID="pDie_Flu_LRI_postVax" Label="Probability of death from LRI and flu given vax+" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3uQ1KPcEeSRSYiLB-xisg" HighValue="1.68E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ1aPcEeSRSYiLB-xisg" HighValue="1.68E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ1qPcEeSRSYiLB-xisg" HighValue="1.676E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ16PcEeSRSYiLC9xisg" NameID="pHosp_LRI_postVax" Label="Probability of hospitalization given vax+ and flu+ and lower respiratory infection" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3uQ2KPcEeSRSYiLC9xisg"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ36PcEeSRSYiLD8xisg" NameID="duDeath" Label="Disutility of death" Comment="+/- 5 years - Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uQ4KPcEeSRSYiLD8xisg" LowValue="25.5" HighValue="35.5" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ4aPcEeSRSYiLE7xisg" LowValue="25.5" HighValue="35.5" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ4qPcEeSRSYiLE7xisg" LowValue="25.5" HighValue="35.5"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ46PcEeSRSYiLE7xisg" NameID="duHosp" Label="Disutility of hospitalization" Comment="" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uQ5KPcEeSRSYiLE7xisg" LowValue="0.00274" HighValue="0.027397" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ5aPcEeSRSYiLE7xisg" LowValue="0.00274" HighValue="0.027397" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ5qPcEeSRSYiLF6xisg" LowValue="0.00274" HighValue="0.027397"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ56PcEeSRSYiLF6xisg" NameID="cFlu_MD" Label="Cost of MD office visit for flu (99213 - 2014)" Comment="SA - min &amp; max regional value" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uQ6KPcEeSRSYiLF6xisg" LowValue="60.22" HighValue="92.78" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ6aPcEeSRSYiLF6xisg" LowValue="60.22" HighValue="92.78" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ6qPcEeSRSYiLF6xisg" LowValue="60.22" HighValue="92.78"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ66PcEeSRSYiLG5xisg" NameID="cNonMed_Daily" Label="Cost of daily direct nonmedical (daily wages from Bureau of Labor Statistics)" Comment="BLS July 2012 - see Parameters spreadsheet tab" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uQ7KPcEeSRSYiLG5xisg" LowValue="81.0" HighValue="243.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ7aPcEeSRSYiLG5xisg" LowValue="81.0" HighValue="243.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ7qPcEeSRSYiLG5xisg" LowValue="81.0" HighValue="243.0"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ76PcEeSRSYiLG5xisg" NameID="cFluRx" Label="Cost of flu medication  (avg wholesale price - 2010)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uQ8KPcEeSRSYiLH4xisg" LowValue="51.5" HighValue="154.5" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ8aPcEeSRSYiLH4xisg" LowValue="51.5" HighValue="154.5" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ8qPcEeSRSYiLH4xisg" LowValue="51.5" HighValue="154.5"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ86PcEeSRSYiLH4xisg" NameID="duAE_Other" Label="Disutility of adverse event other than wheezing (Luce - no disutility)" Comment="Upper range = loss of 1 day" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uQ9KPcEeSRSYiLH4xisg" HighValue="0.00274" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ9aPcEeSRSYiLI3xisg" HighValue="0.00274" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ9qPcEeSRSYiLI3xisg" HighValue="0.00274"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ96PcEeSRSYiLI3xisg" NameID="cAdvEvent_Other" Label="Cost of non-hospitalized other adverse events: not wheezing (Luce)" Comment="SA 50%-200% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uQ-KPcEeSRSYiLI3xisg" LowValue="0.905" HighValue="3.62" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ-aPcEeSRSYiLI3xisg" LowValue="0.905" HighValue="3.62" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ-qPcEeSRSYiLJ2xisg" LowValue="0.905" HighValue="3.62"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ-6PcEeSRSYiLJ2xisg" NameID="pAE_noWheeze" Label="Probability of adverse event other than wheezing" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3uQ_KPcEeSRSYiLJ2xisg" HighValue="0.778" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ_aPcEeSRSYiLJ2xisg" HighValue="0.778" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uQ_qPcEeSRSYiLJ2xisg" HighValue="0.778"/>
+    </Variable>
+    <Variable xmi:id="_j3uQ_6PcEeSRSYiLK1xisg" NameID="pFlu_LRI_QIV" Label="Probability of lower respiratory infection and flu given QIV+ (Luce)" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRAKPcEeSRSYiLK1xisg" HighValue="0.003618" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRAaPcEeSRSYiLK1xisg" HighValue="0.003618" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRAqPcEeSRSYiLK1xisg" HighValue="0.003617600000000001"/>
+    </Variable>
+    <Variable xmi:id="_j3uRA6PcEeSRSYiLK1xisg" NameID="pFlu_LRI_TIV" Label="Probability of lower respiratory infection and flu given TIV+  (Luce)" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRBKPcEeSRSYiLL0xisg" HighValue="0.007661" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRBaPcEeSRSYiLL0xisg" HighValue="0.007661" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRBqPcEeSRSYiLL0xisg" HighValue="0.0076608"/>
+    </Variable>
+    <Variable xmi:id="_j3uRB6PcEeSRSYiLL0xisg" NameID="pDie_Flu_QIV" Label="Probability of death from flu given QIV+ (Assumed from Luce)" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRCKPcEeSRSYiLL0xisg" HighValue="6.6E-6"/>
+    </Variable>
+    <Variable xmi:id="_j3uRCaPcEeSRSYiLMzxisg" NameID="pDie_Flu_TIV" Label="Probability of death from flu given TIV+ (Assumed from Luce)" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRCqPcEeSRSYiLMzxisg" HighValue="6.6E-6"/>
+    </Variable>
+    <Variable xmi:id="_j3uRC6PcEeSRSYiLMzxisg" NameID="pHosp_Flu_QIV" Label="Probability of hospitalization for flu given QIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_SH0QsKV1EeSrfeWyD8QQWA" LowValue="1.0E-4" HighValue="3.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRDKPcEeSRSYiLMzxisg" LowValue="1.0E-4" HighValue="3.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRDaPcEeSRSYiLMzxisg" LowValue="1.0E-4" HighValue="3.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRDqPcEeSRSYiLNyxisg" LowValue="1.0E-4" HighValue="3.0E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3uRD6PcEeSRSYiLNyxisg" NameID="pHosp_Flu_TIV" Label="Probability of hospitalization for flu given TIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_SJWhwKV1EeSrfeWyD8QQWA" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uREKPcEeSRSYiLNyxisg" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uREaPcEeSRSYiLNyxisg" LowValue="2.0E-4" HighValue="6.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uREqPcEeSRSYiLNyxisg" LowValue="2.0E-4" HighValue="6.0E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3uRE6PcEeSRSYiLOxxisg" NameID="pHosp_LRI_QIV" Label="Probability of hospitalization for LRI and flu given QIV+ (Luce)" Comment="Upper range = base probability for flu hosp given QIV" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRFKPcEeSRSYiLOxxisg" HighValue="1.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRFaPcEeSRSYiLOxxisg" HighValue="1.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRFqPcEeSRSYiLOxxisg" HighValue="1.0E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3uRF6PcEeSRSYiLOxxisg" NameID="pHosp_LRI_TIV" Label="Probability of hospitalization for LRI and flu given TIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRGKPcEeSRSYiLPwxisg" LowValue="5.0E-5" HighValue="1.5E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRGaPcEeSRSYiLPwxisg" LowValue="5.0E-5" HighValue="1.5E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRGqPcEeSRSYiLPwxisg" LowValue="5.0E-5" HighValue="1.5E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3uRJ6PcEeSRSYiLStxisg" NameID="pAE_Wheeze" Label="Probability of the adverse event wheezing" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3uRKKPcEeSRSYiLStxisg" HighValue="0.0215" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRKaPcEeSRSYiLStxisg" HighValue="0.0215" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRKqPcEeSRSYiLStxisg" HighValue="0.0215"/>
+    </Variable>
+    <Variable xmi:id="_j3uRK6PcEeSRSYiLStxisg" NameID="cAdvEvent_Wheeze" Label="Cost of non-hospitalized adverse event: wheezing (Luce)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRLKPcEeSRSYiLTsxisg" LowValue="31.46" HighValue="94.38" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRLaPcEeSRSYiLTsxisg" LowValue="31.46" HighValue="94.38" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRLqPcEeSRSYiLTsxisg" LowValue="31.46" HighValue="94.38"/>
+    </Variable>
+    <Variable xmi:id="_j3uRL6PcEeSRSYiLTsxisg" NameID="duAE_Wheeze" Label="Disutility of adverse event wheezing (Luce)" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRMKPcEeSRSYiLTsxisg" HighValue="0.005217" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRMaPcEeSRSYiLUrxisg" HighValue="0.005217" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRMqPcEeSRSYiLUrxisg" HighValue="0.0052170410958904114"/>
+    </Variable>
+    <Variable xmi:id="_j3uRM6PcEeSRSYiLUrxisg" NameID="pHosp_Wheeze" Label="Probability of hospitalization for wheezing" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3uRNKPcEeSRSYiLUrxisg" HighValue="9.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRNaPcEeSRSYiLUrxisg" HighValue="9.0E-4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRNqPcEeSRSYiLVqxisg" HighValue="9.0E-4"/>
+    </Variable>
+    <Variable xmi:id="_j3uRN6PcEeSRSYiLVqxisg" NameID="pHosp_Wheeze_QIV" Label="Probability of hospitalization for wheezing given QIV+ (Luce)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uROKPcEeSRSYiLVqxisg" LowValue="4.5E-4" HighValue="0.00135" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uROaPcEeSRSYiLVqxisg" LowValue="4.5E-4" HighValue="0.00135" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uROqPcEeSRSYiLVqxisg" LowValue="4.5E-4" HighValue="0.00135"/>
+    </Variable>
+    <Variable xmi:id="_j3uRO6PcEeSRSYiLWpxisg" NameID="pHosp_Wheeze_TIV" Label="Probability of hospitalization for wheezing given TIV+(Luce)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRPKPcEeSRSYiLWpxisg" LowValue="9.0E-4" HighValue="0.0027" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRPaPcEeSRSYiLWpxisg" LowValue="9.0E-4" HighValue="0.0027" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRPqPcEeSRSYiLWpxisg" LowValue="9.0E-4" HighValue="0.0027"/>
+    </Variable>
+    <Variable xmi:id="_j3uRP6PcEeSRSYiLWpxisg" NameID="pAE_noWheeze_QIV" Label="Probability of other adverse events from QIV" Comment="Assumed" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_6TeeUKVfEeSrfeWyB-QQWA" LowValue="0.5" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRQKPcEeSRSYiLXoxisg" LowValue="0.5" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRQaPcEeSRSYiLXoxisg" LowValue="0.5" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRQqPcEeSRSYiLXoxisg" LowValue="0.5" HighValue="0.95"/>
+    </Variable>
+    <Variable xmi:id="_j3uRQ6PcEeSRSYiLXoxisg" NameID="pAE_noWheeze_TIV" Label="Probability of other adverse events from TIV (DiazGanados NEJM 2014)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_ErrLwKVhEeSrfeWyC9QQWA" LowValue="0.5" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_6VlXIKVfEeSrfeWyB-QQWA" LowValue="0.5" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRRKPcEeSRSYiLXoxisg" LowValue="0.5" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRRaPcEeSRSYiLYnxisg" LowValue="0.5" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRRqPcEeSRSYiLYnxisg" LowValue="0.5" HighValue="0.95"/>
+    </Variable>
+    <Variable xmi:id="_j3uRR6PcEeSRSYiLYnxisg" NameID="uWheeze" Label="Utility of adverse event: wheezing (Luce)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRSKPcEeSRSYiLYnxisg" LowValue="0.7" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRSaPcEeSRSYiLYnxisg" LowValue="0.7" HighValue="0.95" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRSqPcEeSRSYiLZmxisg" LowValue="0.7" HighValue="0.95"/>
+    </Variable>
+    <Variable xmi:id="_j3uRS6PcEeSRSYiLZmxisg" NameID="daysWheeze" Label="Number of days wheezing+ (Luce)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRTKPcEeSRSYiLZmxisg" LowValue="6.39" HighValue="19.17" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRTaPcEeSRSYiLZmxisg" LowValue="6.39" HighValue="19.17" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3uRTqPcEeSRSYiLZmxisg" LowValue="6.39" HighValue="19.17"/>
+    </Variable>
+    <Variable xmi:id="_j3uRT6PcEeSRSYiLalxisg" NameID="daysFlu" Label="Number of days Flu+ (Luce)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3uRUKPcEeSRSYiLalxisg" LowValue="1.0" HighValue="10.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u34KPcEeSRSYiLalxisg" LowValue="1.0" HighValue="10.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u34aPcEeSRSYiLalxisg" LowValue="1.0" HighValue="10.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u34qPcEeSRSYiLalxisg" NameID="uFlu" Label="Utility of flu+ (Luce)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u346PcEeSRSYiLbkxisg" LowValue="0.3" HighValue="0.8" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u35KPcEeSRSYiLbkxisg" LowValue="0.3" HighValue="0.8" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u35aPcEeSRSYiLbkxisg" LowValue="0.3" HighValue="0.8"/>
+    </Variable>
+    <Variable xmi:id="_j3u36qPcEeSRSYiLcjxisg" NameID="daysLRI" Label="Number of days LRI+ (Luce)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u366PcEeSRSYiLcjxisg" LowValue="1.0" HighValue="10.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u37KPcEeSRSYiLcjxisg" LowValue="1.0" HighValue="10.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u37aPcEeSRSYiLdixisg" LowValue="1.0" HighValue="10.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u37qPcEeSRSYiLdixisg" NameID="cHosp_Wheeze" Label="Cost of hospitalization for wheezing (HCUP)" Comment="HCUP - CCS asthma, mean cost, age 5-9 - SA +/- SE" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u376PcEeSRSYiLdixisg" LowValue="4103.0" HighValue="4487.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u38KPcEeSRSYiLdixisg" LowValue="4103.0" HighValue="4487.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u38aPcEeSRSYiLdixisg" LowValue="4103.0" HighValue="4487.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u38qPcEeSRSYiLehxisg" NameID="cHosp_Flu" Label="Cost of hospitalization including non-medical indirect costs for expected stay due to flu" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg">
+      <SensitivityRange xmi:id="_j3u386PcEeSRSYiLehxisg" HighValue="5064.4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u39KPcEeSRSYiLehxisg" HighValue="5064.4" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u39aPcEeSRSYiLehxisg" HighValue="5064.400000000001"/>
+    </Variable>
+    <Variable xmi:id="_j3u39qPcEeSRSYiLehxisg" NameID="daysHosp_Flu" Label="Number of days of hospitalization for Flu (HCUP 2012 CCS 123 Influenza)" Comment="" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u396PcEeSRSYiLfgxisg" LowValue="1.0" HighValue="7.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u3-KPcEeSRSYiLfgxisg" LowValue="1.0" HighValue="7.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u3-aPcEeSRSYiLfgxisg" LowValue="1.0" HighValue="7.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u3-qPcEeSRSYiLfgxisg" NameID="cHosp_Flu_Daily" Label="Daily cost of flu hospitalization (from HCUP 2012 - CCS 123 Influenza)" Comment="SA +/- SE" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_etsEsKV4EeSrfeWyH4QQWA" LowValue="1748.0" HighValue="2532.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u3-6PcEeSRSYiLfgxisg" LowValue="1748.0" HighValue="2532.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u3_KPcEeSRSYiLgfxisg" LowValue="1748.0" HighValue="2532.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u3_aPcEeSRSYiLgfxisg" LowValue="1748.0" HighValue="2532.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u4AqPcEeSRSYiLhexisg" NameID="cHosp_LRI" Label="Cost of hospitalization including non-medical indirect costs for expected stay due to flu and LRI" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4A6PcEeSRSYiLhexisg" HighValue="6445.6" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4BKPcEeSRSYiLhexisg" HighValue="6445.6" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4BaPcEeSRSYiLhexisg" HighValue="6445.599999999999"/>
+    </Variable>
+    <Variable xmi:id="_j3u4BqPcEeSRSYiLidxisg" NameID="daysHosp_LRI" Label="Number of days of hospitalization for LRI (Luce)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4B6PcEeSRSYiLidxisg" LowValue="1.0" HighValue="10.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4CKPcEeSRSYiLidxisg" LowValue="1.0" HighValue="10.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4CaPcEeSRSYiLidxisg" LowValue="1.0" HighValue="10.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u4CqPcEeSRSYiLidxisg" NameID="cVaccine_Admin" Label="Cost of vaccine administration (CMS 90471 &amp; 90473)" Comment="SA - min and max regional cost" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4C6PcEeSRSYiLjcxisg" LowValue="19.08" HighValue="32.32" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4DKPcEeSRSYiLjcxisg" LowValue="19.08" HighValue="32.32" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4DaPcEeSRSYiLjcxisg" LowValue="19.08" HighValue="32.32"/>
+    </Variable>
+    <Variable xmi:id="_j3u4DqPcEeSRSYiLjcxisg" NameID="numVisits_Flu" Label="Number of MD visits with uncomplicated flu (assumed)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4D6PcEeSRSYiLjcxisg" LowValue="1.0" HighValue="3.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4EKPcEeSRSYiLkbxisg" LowValue="1.0" HighValue="3.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4EaPcEeSRSYiLkbxisg" LowValue="1.0" HighValue="3.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u4EqPcEeSRSYiLkbxisg" NameID="pVisitMD_Flu" Label="Probability of seeking care with uncomplicated flu (Rose et al 2014)" Comment="used data for ages 2-6, SA range assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4E6PcEeSRSYiLkbxisg" LowValue="0.3" HighValue="0.5" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4FKPcEeSRSYiLkbxisg" LowValue="0.3" HighValue="0.5" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4FaPcEeSRSYiLlaxisg" LowValue="0.3" HighValue="0.5"/>
+    </Variable>
+    <Variable xmi:id="_j3u4FqPcEeSRSYiLlaxisg" NameID="pGetFlu_Rx" Label="Probability of receiving antivirals for flu (assumed)" Comment="Assumed" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4F6PcEeSRSYiLlaxisg" LowValue="0.5" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4GKPcEeSRSYiLlaxisg" LowValue="0.5" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4GaPcEeSRSYiLlaxisg" LowValue="0.5" HighValue="1.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u4GqPcEeSRSYiLmZxisg" NameID="pVisitMD_LRI" Label="Probability of an MD visit with LRI (assumed)" Comment="Assumed" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4G6PcEeSRSYiLmZxisg" LowValue="0.7" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4HKPcEeSRSYiLmZxisg" LowValue="0.7" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4HaPcEeSRSYiLmZxisg" LowValue="0.7" HighValue="1.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u4HqPcEeSRSYiLmZxisg" NameID="numVisits_LRI" Label="Number of MD visits with LRI (assumed)" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4H6PcEeSRSYiLnYxisg" LowValue="1.0" HighValue="3.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4IKPcEeSRSYiLnYxisg" LowValue="1.0" HighValue="3.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4IaPcEeSRSYiLnYxisg" LowValue="1.0" HighValue="3.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u4KqPcEeSRSYiLpWxisg" NameID="eff_QIV" Label="QIV efficacy against flu (ASSUMED)" Comment="SA range from Excel" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_pTACAKYyEeSoQbKvA_wTNw" LowValue="0.5" HighValue="0.7" Intervals="20"/>
+    </Variable>
+    <Variable xmi:id="_j3u4LaPcEeSRSYiLpWxisg" NameID="eff_TIV" Label="TIV efficacy against flu  (DiazGanados NEJM 2014 - discussion point)" Comment="SA range from Excel" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_Enuf4KVhEeSrfeWyC9QQWA" LowValue="0.34" HighValue="0.81" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4LqPcEeSRSYiLqVxisg" LowValue="0.34" HighValue="0.81" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4L6PcEeSRSYiLqVxisg" LowValue="0.34" HighValue="0.81"/>
+    </Variable>
+    <Variable xmi:id="_j3u4PKPcEeSRSYiLsTxisg" NameID="Percent_LRI" Label="Percentage of flu cases with LRI (ASSUMED ZERO-CLOSING DOWN LRI BRANCHES)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_Zp_TkKVzEeSrfeWyC9QQWA" LowValue="0.038" HighValue="0.114" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4PaPcEeSRSYiLtSxisg" LowValue="0.038" HighValue="0.114" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4PqPcEeSRSYiLtSxisg" LowValue="0.038" HighValue="0.114" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4P6PcEeSRSYiLtSxisg" LowValue="0.038" HighValue="0.114"/>
+    </Variable>
+    <Variable xmi:id="_j3u4RKPcEeSRSYiLuRxisg" NameID="pGetVax" Label="Probability of getting a vaccine during the flu season" Comment="Assumed" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4RaPcEeSRSYiLuRxisg" LowValue="0.5" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4RqPcEeSRSYiLuRxisg" LowValue="0.5" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4R6PcEeSRSYiLvQxisg" LowValue="0.5" HighValue="1.0" Intervals="5"/>
+    </Variable>
+    <Variable xmi:id="_j3u4SKPcEeSRSYiLvQxisg" NameID="cTotalAdvEvent_Wheeze" Label="Total cost of wheezing" Comment="" Category="#_j3vfHqPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4SaPcEeSRSYiLvQxisg"/>
+    </Variable>
+    <Variable xmi:id="_j3u4SqPcEeSRSYiLvQxisg" NameID="cLRI_meds" Label="Cost of medication (Table 3. http://onlinelibrary.wiley.com/doi/10.1002/lary.24190/pdf)" Comment="SA 50%-150% of base" Category="#_j3vfG6PcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_j3u4S6PcEeSRSYiLvQxisg" LowValue="15.0" HighValue="45.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4TKPcEeSRSYiLwPxisg" LowValue="15.0" HighValue="45.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4TaPcEeSRSYiLwPxisg" LowValue="15.0" HighValue="45.0"/>
+    </Variable>
+    <Variable xmi:id="_j3u4UaPcEeSRSYiLxOxisg" NameID="_chMC" Label="point estimate = 0, distribution = 1" Comment="" Category="#_j3vfIaPcEeSRSYiLI3xisg">
+      <SensitivityRange xmi:id="_j3u4UqPcEeSRSYiLxOxisg" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4U6PcEeSRSYiLxOxisg" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4VKPcEeSRSYiLxOxisg" HighValue="1.0" Intervals="1"/>
+    </Variable>
+    <Variable xmi:id="_j3u4VaPcEeSRSYiLxOxisg" NameID="_chInput" Label="Select input data: {0 : Defaults; 1 : Externally populated tables}" Comment="" Category="#_j3vfIaPcEeSRSYiLI3xisg">
+      <SensitivityRange xmi:id="_j3u4VqPcEeSRSYiLyNxisg" HighValue="1.0" Intervals="0"/>
+      <SensitivityRange xmi:id="_j3u4V6PcEeSRSYiLyNxisg" HighValue="1.0" Intervals="1"/>
+    </Variable>
+    <Variable xmi:id="_j3u4WKPcEeSRSYiLyNxisg" NameID="pFlu_Monthly_External" Label="" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg"/>
+    <Variable xmi:id="_j3u4WaPcEeSRSYiLyNxisg" NameID="pFlu_Monthly_External_TIV" Label="" Comment="" Category="#_j3vfIKPcEeSRSYiLI3xisg"/>
+    <Variable xmi:id="_j3u4WqPcEeSRSYiLyNxisg" NameID="pFlu_Monthly_External_QIV" Label="" Comment="" Category="#_j3vfIKPcEeSRSYiLI3xisg"/>
+    <Variable xmi:id="_j3u4W6PcEeSRSYiLzMxisg" NameID="pVaccinated_Monthly_External" Label="" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg"/>
+    <Variable xmi:id="_j3u4XKPcEeSRSYiLzMxisg" NameID="pVaccinated_Monthly_External_QIV" Label="" Comment="" Category="#_j3vfIKPcEeSRSYiLI3xisg"/>
+    <Variable xmi:id="_j3u4XaPcEeSRSYiLzMxisg" NameID="pVaccinated_Monthly_External_TIV" Label="" Comment="" Category="#_j3vfIKPcEeSRSYiLI3xisg"/>
+    <Variable xmi:id="_j3u4XqPcEeSRSYiLzMxisg" NameID="pFlu_Monthly_PostVax_External" Label="" Comment="" Category="#_j3vfGKPcEeSRSYiLG5xisg"/>
+    <Variable xmi:id="_j3u4X6PcEeSRSYiLzMxisg" NameID="pFlu_Monthly_postVax_External_TIV" Label="" Comment="" Category="#_j3vfIKPcEeSRSYiLI3xisg"/>
+    <Variable xmi:id="_j3u4YKPcEeSRSYiL0Lxisg" NameID="pFlu_Monthly_postVax_External_QIV" Label="" Comment="" Category="#_j3vfIKPcEeSRSYiLI3xisg"/>
+    <Variable xmi:id="_Ab5nsKP4EeS5LuUdG5o7Gg" NameID="cTIV_Hi" Label="Cost of TIV-Hi dose (Fluzone TIV cost + ASSUMED DIFFERENTIAL COST)" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg">
+      <SensitivityRange xmi:id="_3hFUcKb6EeS-AORuD8067g" LowValue="20.0" HighValue="40.0" Intervals="20"/>
+    </Variable>
+    <Variable xmi:id="_Rg0hQKP4EeS5LuUdG5o7Gg" NameID="pAE_noWheeze_TIV_Hi" Label="QIV, TIV, AND TIV_HI ASSUMED SAME" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg"/>
+    <Variable xmi:id="_xvirgKP4EeS5LuUdH4o7Gg" NameID="pAE_Wheeze_TIV_Hi" Label="ASSUMING ZERO" Comment="" Category="#_j3vfHaPcEeSRSYiLH4xisg"/>
+    <Variable xmi:id="_ArEPoKP5EeS5LuUdH4o7Gg" NameID="pDie_Flu_LRI_TIV_Hi" Label="" Comment=""/>
+    <Variable xmi:id="_LQR60KP5EeS5LuUdI3o7Gg" NameID="pDie_Flu_TIV_Hi" Label="" Comment=""/>
+    <Variable xmi:id="_dK-l0KP5EeS5LuUdI3o7Gg" NameID="eff_TIV_Hi" Label="TIV-Hi efficacy against flu  (DiazGanados NEJM 2014 - discussion point - 0.5 *1.242)" Comment=""/>
+    <Variable xmi:id="_qp-hkKP5EeS5LuUdJ2o7Gg" NameID="pFlu_TIV_Hi" Label="" Comment=""/>
+    <Variable xmi:id="_IgpI0KV6EeSrfeWyH4QQWA" NameID="pHosp_Flu_TIV_Hi" Label="" Comment=""/>
+    <Variable xmi:id="_1P4cQKWZEeSrfeWyI3QQWA" NameID="uElderly" Label="" Comment=""/>
+    <Variable xmi:id="_FZPIYKY9EeSoQbKvB-wTNw" NameID="prop_Flu_B_uncov" Label="" Comment="">
+      <SensitivityRange xmi:id="_3gllMKb6EeS-AORuD8067g" HighValue="0.2" Intervals="20"/>
+    </Variable>
+    <Variable xmi:id="_RZ6cAKbtEeS-AORuA_067g" NameID="daysHosp_Lost_prod" Label="Lost productivity days with hospitalization (Molinari Vaccine 2007)" Comment=""/>
+    <Variable xmi:id="_b2MYMKbuEeS-AORuA_067g" NameID="daysFlu_noOfiiceVisit_Lost_prod" Label="Days of lost productivity, influenza not medically attended (Molinari Vaccine 2007)" Comment=""/>
+    <Variable xmi:id="_p1NQwKbuEeS-AORuB-067g" NameID="daysFlu_OfficeVisit_Lost_prod" Label="Days of lost productivity, influenza requiring outpt visit (Molinari Vaccine 2007)" Comment=""/>
+    <Variable xmi:id="_5iiaYKbwEeS-AORuB-067g" NameID="RelEff_TIV_Hi" Label="Relative Efficacy TIV_Hi vs TIV (DiazGranados NEJM 2014)" Comment=""/>
+    <Table xmi:id="_j3u4YaPcEeSRSYiL0Lxisg" NameID="ATTACK_MONTHLY" Label="" Comment="" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider">
+      <DataProviderOptions xmi:id="_j3u4YqPcEeSRSYiL0Lxisg" key="null_values" value="error"/>
+      <DataProviderOptions xmi:id="_j3u4Y6PcEeSRSYiL0Lxisg" key="update" value="manually"/>
+      <DataProviderOptions xmi:id="_j3u4ZKPcEeSRSYiL0Lxisg" key="idx" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3u4ZaPcEeSRSYiL1Kxisg" key="inc" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3u4ZqPcEeSRSYiL1Kxisg" key="gen_idx" value="false"/>
+      <DataProviderOptions xmi:id="_j3u4Z6PcEeSRSYiL1Kxisg" key="query" value="select * from my_table_name"/>
+      <DataProviderOptions xmi:id="_j3u4aKPcEeSRSYiL1Kxisg" key="substitute_expression" value=""/>
+      <DataProviderOptions xmi:id="_j3u4aaPcEeSRSYiL1Kxisg" key="save_passsword" value="false"/>
+      <DataProviderOptions xmi:id="_j3u4aqPcEeSRSYiL2Jxisg" key="warn_to_substituting" value="false"/>
+      <DataProviderOptions xmi:id="_j3u4a6PcEeSRSYiL2Jxisg" key="user" value=""/>
+      <DataProviderOptions xmi:id="_j3u4bKPcEeSRSYiL2Jxisg" key="database" value=""/>
+      <DataProviderOptions xmi:id="_j3u4baPcEeSRSYiL2Jxisg" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+      <Row xmi:id="_j3u4bqPcEeSRSYiL2Jxisg" Index="0.0" Values="0.0"/>
+      <Row xmi:id="_j3u4b6PcEeSRSYiL3Ixisg" Index="1.0" Values="0.045814027"/>
+      <Row xmi:id="_j3u4cKPcEeSRSYiL3Ixisg" Index="2.0" Values="0.096171835"/>
+      <Row xmi:id="_j3u4caPcEeSRSYiL3Ixisg" Index="3.0" Values="0.151657437"/>
+      <Row xmi:id="_j3u4cqPcEeSRSYiL3Ixisg" Index="4.0" Values="0.24823101"/>
+      <Row xmi:id="_j3u4c6PcEeSRSYiL3Ixisg" Index="5.0" Values="0.389328823"/>
+      <Row xmi:id="_j3u4dKPcEeSRSYiL4Hxisg" Index="6.0" Values="0.571069123"/>
+      <Row xmi:id="_j3u4daPcEeSRSYiL4Hxisg" Index="7.0" Values="0.728404828"/>
+      <Row xmi:id="_j3u4dqPcEeSRSYiL4Hxisg" Index="8.0" Values="0.872201787"/>
+      <Row xmi:id="_j3u4d6PcEeSRSYiL4Hxisg" Index="9.0" Values="0.946325494"/>
+      <Row xmi:id="_j3u4eKPcEeSRSYiL4Hxisg" Index="10.0" Values="1.0"/>
+      <ColumnLabel>Values</ColumnLabel>
+      <ColumnLabel>Value 2</ColumnLabel>
+    </Table>
+    <Table xmi:id="_j3u4eaPcEeSRSYiL5Gxisg" NameID="VAX_MONTHLY" Label="" Comment="" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider">
+      <DataProviderOptions xmi:id="_j3u4eqPcEeSRSYiL5Gxisg" key="null_values" value="error"/>
+      <DataProviderOptions xmi:id="_j3u4e6PcEeSRSYiL5Gxisg" key="update" value="manually"/>
+      <DataProviderOptions xmi:id="_j3u4fKPcEeSRSYiL5Gxisg" key="idx" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3u4faPcEeSRSYiL5Gxisg" key="inc" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3u4fqPcEeSRSYiL6Fxisg" key="gen_idx" value="false"/>
+      <DataProviderOptions xmi:id="_j3u4f6PcEeSRSYiL6Fxisg" key="query" value="select * from my_table_name"/>
+      <DataProviderOptions xmi:id="_j3u4gKPcEeSRSYiL6Fxisg" key="substitute_expression" value=""/>
+      <DataProviderOptions xmi:id="_j3u4gaPcEeSRSYiL6Fxisg" key="save_passsword" value="false"/>
+      <DataProviderOptions xmi:id="_j3u4gqPcEeSRSYiL6Fxisg" key="warn_to_substituting" value="false"/>
+      <DataProviderOptions xmi:id="_j3u4g6PcEeSRSYiL7Exisg" key="user" value=""/>
+      <DataProviderOptions xmi:id="_j3u4hKPcEeSRSYiL7Exisg" key="database" value=""/>
+      <DataProviderOptions xmi:id="_j3u4haPcEeSRSYiL7Exisg" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+      <Row xmi:id="_j3u4hqPcEeSRSYiL7Exisg" Index="0.0" Values="0.0"/>
+      <Row xmi:id="_j3u4h6PcEeSRSYiL7Exisg" Index="1.0" Values="0.093119266"/>
+      <Row xmi:id="_j3u4iKPcEeSRSYiL8Dxisg" Index="2.0" Values="0.263302752"/>
+      <Row xmi:id="_j3u4iaPcEeSRSYiL8Dxisg" Index="3.0" Values="0.591743119"/>
+      <Row xmi:id="_j3u4iqPcEeSRSYiL8Dxisg" Index="4.0" Values="0.797706422"/>
+      <Row xmi:id="_j3u4i6PcEeSRSYiL8Dxisg" Index="5.0" Values="0.879816514"/>
+      <Row xmi:id="_j3u4jKPcEeSRSYiL8Dxisg" Index="6.0" Values="0.938990826"/>
+      <Row xmi:id="_j3u4jaPcEeSRSYiL9Cxisg" Index="7.0" Values="0.966972477"/>
+      <Row xmi:id="_j3u4jqPcEeSRSYiL9Cxisg" Index="8.0" Values="0.985321101"/>
+      <Row xmi:id="_j3u4j6PcEeSRSYiL9Cxisg" Index="9.0" Values="0.994954128"/>
+      <Row xmi:id="_j3u4kKPcEeSRSYiL9Cxisg" Index="10.0" Values="1.0"/>
+      <ColumnLabel>Value 1</ColumnLabel>
+      <ColumnLabel>Value 2</ColumnLabel>
+    </Table>
+    <Table xmi:id="_j3u4kaPcEeSRSYiL9Cxisg" NameID="EXTERNAL_QIV" Label="" Comment="" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider" ColumnsCount="3">
+      <DataProviderOptions xmi:id="_j3u4kqPcEeSRSYiL-Bxisg" key="null_values" value="error"/>
+      <DataProviderOptions xmi:id="_j3u4k6PcEeSRSYiL-Bxisg" key="update" value="manually"/>
+      <DataProviderOptions xmi:id="_j3ve8KPcEeSRSYiL-Bxisg" key="idx" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3ve8aPcEeSRSYiL-Bxisg" key="inc" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3ve8qPcEeSRSYiL-Bxisg" key="gen_idx" value="false"/>
+      <DataProviderOptions xmi:id="_j3ve86PcEeSRSYiL_Axisg" key="query" value="select * from my_table_name"/>
+      <DataProviderOptions xmi:id="_j3ve9KPcEeSRSYiL_Axisg" key="substitute_expression" value=""/>
+      <DataProviderOptions xmi:id="_j3ve9aPcEeSRSYiL_Axisg" key="save_passsword" value="false"/>
+      <DataProviderOptions xmi:id="_j3ve9qPcEeSRSYiL_Axisg" key="warn_to_substituting" value="false"/>
+      <DataProviderOptions xmi:id="_j3ve96PcEeSRSYiL_Axisg" key="user" value=""/>
+      <DataProviderOptions xmi:id="_j3ve-KPcEeSRSYiLA_xisg" key="database" value=""/>
+      <DataProviderOptions xmi:id="_j3ve-aPcEeSRSYiLA_xisg" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+      <Row xmi:id="_j3ve-qPcEeSRSYiLA_xisg" Index="1.0" Values="0.0 0.0 0.0"/>
+      <Row xmi:id="_j3ve-6PcEeSRSYiLA_xisg" Index="2.0" Values="7.0E-4 0.0 0.1627"/>
+      <Row xmi:id="_j3ve_KPcEeSRSYiLA_xisg" Index="3.0" Values="0.005003502 4.0E-4 0.212707512"/>
+      <Row xmi:id="_j3ve_aPcEeSRSYiLB-xisg" Index="4.0" Values="0.019108921 0.00280112 0.186438107"/>
+      <Row xmi:id="_j3ve_qPcEeSRSYiLB-xisg" Index="5.0" Values="0.037629447 0.008326645 0.106843185"/>
+      <Row xmi:id="_j3ve_6PcEeSRSYiLB-xisg" Index="6.0" Values="0.034839122 0.010824482 0.088308977"/>
+      <Row xmi:id="_j3vfAKPcEeSRSYiLB-xisg" Index="7.0" Values="0.015233469 0.006136224 0.052209755"/>
+      <Row xmi:id="_j3vfAaPcEeSRSYiLB-xisg" Index="8.0" Values="0.0 0.0 0.0"/>
+      <ColumnLabel>Inf Unvax</ColumnLabel>
+      <ColumnLabel>Inf Vax</ColumnLabel>
+      <ColumnLabel>Coverage</ColumnLabel>
+      <ColumnLabel>Value 4</ColumnLabel>
+    </Table>
+    <Table xmi:id="_j3vfAqPcEeSRSYiLC9xisg" NameID="EXTERNAL_TIV" Label="" Comment="" LookupMethod="RowColInterpolate" DataProvider="com.treeage.treeagepro.tables.sql.TableProvider" ColumnsCount="3">
+      <DataProviderOptions xmi:id="_j3vfA6PcEeSRSYiLC9xisg" key="null_values" value="error"/>
+      <DataProviderOptions xmi:id="_j3vfBKPcEeSRSYiLC9xisg" key="update" value="manually"/>
+      <DataProviderOptions xmi:id="_j3vfBaPcEeSRSYiLC9xisg" key="idx" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3vfBqPcEeSRSYiLC9xisg" key="inc" value="1.0"/>
+      <DataProviderOptions xmi:id="_j3vfB6PcEeSRSYiLD8xisg" key="gen_idx" value="false"/>
+      <DataProviderOptions xmi:id="_j3vfCKPcEeSRSYiLD8xisg" key="query" value="select * from my_table_name"/>
+      <DataProviderOptions xmi:id="_j3vfCaPcEeSRSYiLD8xisg" key="substitute_expression" value=""/>
+      <DataProviderOptions xmi:id="_j3vfCqPcEeSRSYiLD8xisg" key="save_passsword" value="false"/>
+      <DataProviderOptions xmi:id="_j3vfC6PcEeSRSYiLD8xisg" key="warn_to_substituting" value="false"/>
+      <DataProviderOptions xmi:id="_j3vfDKPcEeSRSYiLE7xisg" key="user" value=""/>
+      <DataProviderOptions xmi:id="_j3vfDaPcEeSRSYiLE7xisg" key="database" value=""/>
+      <DataProviderOptions xmi:id="_j3vfDqPcEeSRSYiLE7xisg" key="datasource" value="sun.jdbc.odbc.JdbcOdbcDriver"/>
+      <Row xmi:id="_j3vfD6PcEeSRSYiLE7xisg" Index="1.0" Values="0.0 0.0 0.0"/>
+      <Row xmi:id="_j3vfEKPcEeSRSYiLE7xisg" Index="2.0" Values="7.0E-4 0.0 0.1625"/>
+      <Row xmi:id="_j3vfEaPcEeSRSYiLF6xisg" Index="3.0" Values="0.005403783 9.0E-4 0.211940299"/>
+      <Row xmi:id="_j3vfEqPcEeSRSYiLF6xisg" Index="4.0" Values="0.023040547 0.007206486 0.187121212"/>
+      <Row xmi:id="_j3vfE6PcEeSRSYiLF6xisg" Index="5.0" Values="0.046755922 0.021776389 0.102889096"/>
+      <Row xmi:id="_j3vfFKPcEeSRSYiLF6xisg" Index="6.0" Values="0.039866033 0.025456045 0.081238313"/>
+      <Row xmi:id="_j3vfFaPcEeSRSYiLF6xisg" Index="7.0" Values="0.015415776 0.012690355 0.04703754"/>
+      <Row xmi:id="_j3vfFqPcEeSRSYiLG5xisg" Index="8.0" Values="0.0 0.0 0.0"/>
+      <ColumnLabel>Inf Unvax</ColumnLabel>
+      <ColumnLabel>Inf Vax</ColumnLabel>
+      <ColumnLabel>Coverage</ColumnLabel>
+      <ColumnLabel>Value 4</ColumnLabel>
+    </Table>
+    <CategoriesRoot xmi:id="_j3vfF6PcEeSRSYiLG5xisg">
+      <Category xmi:id="_j3vfGKPcEeSRSYiLG5xisg" Name="ModelTransforms"/>
+      <Category xmi:id="_j3vfGaPcEeSRSYiLG5xisg" Name="Parameters">
+        <Category xmi:id="_j3vfGqPcEeSRSYiLG5xisg" Name="NeedReview"/>
+        <Category xmi:id="_j3vfG6PcEeSRSYiLH4xisg" Name="Good"/>
+        <Category xmi:id="_j3vfHKPcEeSRSYiLH4xisg" Name="Missing"/>
+        <Category xmi:id="_j3vfHaPcEeSRSYiLH4xisg" Name="Assumptions"/>
+        <Category xmi:id="_j3vfHqPcEeSRSYiLH4xisg" Name="Calculated"/>
+      </Category>
+      <Category xmi:id="_j3vfH6PcEeSRSYiLH4xisg" Name="Data Source Selectors">
+        <Category xmi:id="_j3vfIKPcEeSRSYiLI3xisg" Name="External Table Lookups"/>
+        <Category xmi:id="_j3vfIaPcEeSRSYiLI3xisg" Name="Selectors"/>
+      </Category>
+    </CategoriesRoot>
+    <PreferenceSet xmi:id="_j3vfIqPcEeSRSYiLI3xisg" NameID="Pref. set 1">
+      <Preference xmi:id="_j3vfI6PcEeSRSYiLI3xisg" Name="locale" Value="en_US"/>
+      <Preference xmi:id="_j3vfJKPcEeSRSYiLI3xisg" Name="useCustomRegionalNumericSettings" Value="false"/>
+      <Preference xmi:id="_j3vfJaPcEeSRSYiLJ2xisg" Name="calcType" Value="ct_costEff"/>
+      <Preference xmi:id="_j3vfJqPcEeSRSYiLJ2xisg" Name="defaultBranchesPerNode" Value="2"/>
+      <Preference xmi:id="_j3vfJ6PcEeSRSYiLJ2xisg" Name="addBranchesAt" Value="vTop"/>
+      <Preference xmi:id="_j3vfKKPcEeSRSYiLJ2xisg" Name="keyboardNavigation" Value="vTopBranch"/>
+      <Preference xmi:id="_j3vfKaPcEeSRSYiLJ2xisg" Name="minimizeEmptySpace" Value="false"/>
+      <Preference xmi:id="_j3vfKqPcEeSRSYiLK1xisg" Name="alignEndNodes" Value="true"/>
+      <Preference xmi:id="_j3vfK6PcEeSRSYiLK1xisg" Name="branchesLinesAt" Value="false"/>
+      <Preference xmi:id="_j3vfLKPcEeSRSYiLK1xisg" Name="hideSuppressCloneCopies" Value="true"/>
+      <Preference xmi:id="_j3vfLaPcEeSRSYiLK1xisg" Name="skeletonTreeDisplay" Value="false"/>
+      <Preference xmi:id="_j3vfLqPcEeSRSYiLK1xisg" Name="minimumGenerationWidth" Value="100"/>
+      <Preference xmi:id="_j3vfL6PcEeSRSYiLL0xisg" Name="horizontalGenerationSpacing" Value="100"/>
+      <Preference xmi:id="_j3vfMKPcEeSRSYiLL0xisg" Name="forPayoff1evDecPlaces" Value="2"/>
+      <Preference xmi:id="_j3vfMaPcEeSRSYiLL0xisg" Name="forPayoff1evDecTrailZeros" Value="true"/>
+      <Preference xmi:id="_j3vfMqPcEeSRSYiLL0xisg" Name="forPayoff1thousandsSep" Value="false"/>
+      <Preference xmi:id="_j3vfM6PcEeSRSYiLL0xisg" Name="forPayoff1chopOffKMBPercent" Value="showExactly"/>
+      <Preference xmi:id="_j3vfNKPcEeSRSYiLMzxisg" Name="forPayoff1unitsType" Value="unitsType_none"/>
+      <Preference xmi:id="_j3vfNaPcEeSRSYiLMzxisg" Name="forPayoff1unitsText" Value=""/>
+      <Preference xmi:id="_j3vfNqPcEeSRSYiLMzxisg" Name="forPayoff2evDecPlaces" Value="5"/>
+      <Preference xmi:id="_j3vfN6PcEeSRSYiLMzxisg" Name="forPayoff2evDecTrailZeros" Value="true"/>
+      <Preference xmi:id="_j3vfOKPcEeSRSYiLMzxisg" Name="forPayoff2thousandsSep" Value="false"/>
+      <Preference xmi:id="_j3vfOaPcEeSRSYiLNyxisg" Name="forPayoff2chopOffKMBPercent" Value="showExactly"/>
+      <Preference xmi:id="_j3vfOqPcEeSRSYiLNyxisg" Name="forPayoff2unitsType" Value="unitsType_none"/>
+      <Preference xmi:id="_j3vfO6PcEeSRSYiLNyxisg" Name="forPayoff2unitsText" Value=""/>
+      <Preference xmi:id="_j3vfPKPcEeSRSYiLNyxisg" Name="forCostEffectivenessevDecPlaces" Value="2"/>
+      <Preference xmi:id="_j3vfPaPcEeSRSYiLNyxisg" Name="forCostEffectivenessevDecTrailZeros" Value="true"/>
+      <Preference xmi:id="_j3vfPqPcEeSRSYiLOxxisg" Name="forCostEffectivenessthousandsSep" Value="false"/>
+      <Preference xmi:id="_j3vfP6PcEeSRSYiLOxxisg" Name="forCostEffectivenesschopOffKMBPercent" Value="showExactly"/>
+      <Preference xmi:id="_j3vfQKPcEeSRSYiLOxxisg" Name="forCostEffectivenessunitsType" Value="unitsType_none"/>
+      <Preference xmi:id="_j3vfQaPcEeSRSYiLOxxisg" Name="forCostEffectivenessunitsText" Value=""/>
+      <Preference xmi:id="_j3vfQqPcEeSRSYiLOxxisg" Name="printingZoomFactor" Value="50"/>
+      <Preference xmi:id="_rthcQKb5EeS-AORuC9067g" Name="1saWay0" Value="cTIV_Hi"/>
+      <Preference xmi:id="_j3vfRKPcEeSRSYiLPwxisg" Name="mainPayoff" Value="4"/>
+      <Preference xmi:id="_j3vfRaPcEeSRSYiLPwxisg" Name="optType3" Value="opt_low"/>
+      <Preference xmi:id="_j3vfRqPcEeSRSYiLPwxisg" Name="ceCostPayoff" Value="1"/>
+      <Preference xmi:id="_j3vfR6PcEeSRSYiLPwxisg" Name="ceEffPayoff" Value="2"/>
+      <Preference xmi:id="_j3vfSKPcEeSRSYiLQvxisg" Name="useCustomPayoffNames" Value="true"/>
+      <Preference xmi:id="_j3vfSaPcEeSRSYiLQvxisg" Name="customPayoffName3" Value="Influenza likelihood"/>
+      <Preference xmi:id="_h5oD0Kb6EeS-AORuD8067g" Name="2saWay0" Value="prop_Flu_B_uncov"/>
+      <Preference xmi:id="_h6EvwKb6EeS-AORuD8067g" Name="2saWay1" Value="cTIV_Hi"/>
+      <Preference xmi:id="_j3vfTKPcEeSRSYiLQvxisg" Name="optType4" Value="opt_low"/>
+      <Preference xmi:id="_j3vfTaPcEeSRSYiLRuxisg" Name="customPayoffName4" Value="Influenza death"/>
+      <Preference xmi:id="_j3vfTqPcEeSRSYiLRuxisg" Name="optType5" Value="opt_low"/>
+      <Preference xmi:id="_j3vfT6PcEeSRSYiLRuxisg" Name="forPayoff4evDecPlaces" Value="4"/>
+      <Preference xmi:id="_j3vfUKPcEeSRSYiLRuxisg" Name="forPayoff4evDecTrailZeros" Value="true"/>
+      <Preference xmi:id="_j3vfUaPcEeSRSYiLRuxisg" Name="forPayoff4thousandsSep" Value="false"/>
+      <Preference xmi:id="_j3vfUqPcEeSRSYiLStxisg" Name="forPayoff4chopOffKMBPercent" Value="showExactly"/>
+      <Preference xmi:id="_j3vfU6PcEeSRSYiLStxisg" Name="forPayoff4unitsType" Value="unitsType_none"/>
+      <Preference xmi:id="_j3vfVKPcEeSRSYiLStxisg" Name="forPayoff4unitsText" Value=""/>
+      <Preference xmi:id="_j3vfVaPcEeSRSYiLStxisg" Name="OverrideCalcMethodBranchProbs" Value="false"/>
+      <Preference xmi:id="_j3vfVqPcEeSRSYiLStxisg" Name="OverrideCalcMethodPathProbs" Value="false"/>
+      <Preference xmi:id="_j3vfV6PcEeSRSYiLTsxisg" Name="SciNotationBranchProb" Value="false"/>
+      <Preference xmi:id="_j3vfWKPcEeSRSYiLTsxisg" Name="SciNotationPathProb" Value="false"/>
+      <Preference xmi:id="_j3vfWaPcEeSRSYiLTsxisg" Name="IncreaseDecPlacesBranchProb" Value="false"/>
+      <Preference xmi:id="_j3vfWqPcEeSRSYiLTsxisg" Name="IncreaseDecPlacesPathProb" Value="false"/>
+      <Preference xmi:id="_j3vfW6PcEeSRSYiLTsxisg" Name="probDecTrailZeros" Value="true"/>
+      <Preference xmi:id="_j3vfXKPcEeSRSYiLUrxisg" Name="DecPlacesProb" Value="3"/>
+      <Preference xmi:id="_j3vfXaPcEeSRSYiLUrxisg" Name="DecPlacesBranchProb" Value="3"/>
+      <Preference xmi:id="_j3vfXqPcEeSRSYiLUrxisg" Name="DecPlacesPathProb" Value="3"/>
+      <Preference xmi:id="_j3vfX6PcEeSRSYiLUrxisg" Name="sens3WayVariable3" Value="pLAIV_contraindication,pFlu,pFlu_postVax,cyclen,cFluTotal,dr,duFlu,cLRI_Total,cAOM_Total,duLRI,duAOM,cVaccineTotal,pFlu_AOM,pFlu_LRI,cLAIV,cTIV,pAE_Wheeze_LAIV,pAE_Wheeze_TIV,pDie_Flu,pDie_Flu_LRI,pDie_Flu_LRI_LAIV,pDie_Flu_LRI_TIV,pFlu_AOM_LAIV,pFlu_AOM_TIV"/>
+      <Preference xmi:id="_j3vfYKPcEeSRSYiLUrxisg" Name="analysisComment" Value="None"/>
+      <Preference xmi:id="_j3vfYaPcEeSRSYiLVqxisg" Name="monteIdentifyingVrs" Value="[_chMC]"/>
+      <Preference xmi:id="_j3vfYqPcEeSRSYiLVqxisg" Name="outputReports_enabled" Value="false"/>
+      <Preference xmi:id="_j3vfY6PcEeSRSYiLVqxisg" Name="hideCohortReports_enabled" Value="true"/>
+      <Preference xmi:id="_j3vfZKPcEeSRSYiLVqxisg" Name="outputReports_MonteCarlo" Value="montecarlo-identifiers-text,montecarlo-all-stats-union-text,montecarlo-main-text-simple,montecarlo-trackers-text,montecarlo-extras-text,montecarlo-all-values-union-text,montecarlo-all-evs-union-text,montecarlo-all-extra-payoffs-text,montecarlo-distsamplers-text,montecarlo-all-dists-text,montecarlo-all-trackers-text,montecarlo-EVPI-summary-text,montecarlo-strategy-chart,montecarlo-probdist,montecarlo-cost-effect-chart,montecarlo-cost-effect-chart-inv,montecarlo-cost-effect-txt,montecarlo-CEAC-chart,montecarlo-CE-strategy-chart,montecarlo-CE-scatter-chart,montecarlo-ICE-scatter-chart,montecarlo-nmb-vs-wtp,montecarlo-inmb-vs-wtp"/>
+      <Preference xmi:id="_j3vfZaPcEeSRSYiLVqxisg" Name="com.treeage.treeagepro.validation.processors.EndNodesProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfZqPcEeSRSYiLWpxisg" Name="com.treeage.treeagepro.validation.processors.MissingProbabilityProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfZ6PcEeSRSYiLWpxisg" Name="com.treeage.treeagepro.validation.processors.MissingPayoffsProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfaKPcEeSRSYiLWpxisg" Name="com.treeage.treeagepro.validation.processors.MissingJumpStateProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfaaPcEeSRSYiLWpxisg" Name="com.treeage.treeagepro.validation.processors.TrackerModificationProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfaqPcEeSRSYiLWpxisg" Name="com.treeage.treeagepro.validation.processors.UnusedVariablesProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfa6PcEeSRSYiLXoxisg" Name="com.treeage.treeagepro.validation.processors.FileCompatibilityProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfbKPcEeSRSYiLXoxisg" Name="com.treeage.treeagepro.validation.processors.UnusedDistributionsProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfbaPcEeSRSYiLXoxisg" Name="com.treeage.treeagepro.validation.processors.UnusedTablesProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfbqPcEeSRSYiLXoxisg" Name="com.treeage.treeagepro.validation.processors.HalfCycleCorrectionProcessor" Value="true"/>
+      <Preference xmi:id="_j3vfb6PcEeSRSYiLXoxisg" Name="reportFilters_Num" Value="0"/>
+      <Preference xmi:id="_j3vfcKPcEeSRSYiLYnxisg" Name="reportFilter_Active" Value="-1"/>
+      <Preference xmi:id="_j3vfcaPcEeSRSYiLYnxisg" Name="3saWay0" Value="eff_LAIV"/>
+      <Preference xmi:id="_j3vfcqPcEeSRSYiLYnxisg" Name="3saWay1" Value="eff_TIV"/>
+      <Preference xmi:id="_j3vfc6PcEeSRSYiLYnxisg" Name="3saWay2" Value="pGetVax"/>
+      <Preference xmi:id="_j3vfdKPcEeSRSYiLYnxisg" Name="monteNumVOISamples" Value="0"/>
+      <Preference xmi:id="_j3vfdaPcEeSRSYiLZmxisg" Name="monteNumSamples" Value="5000"/>
+      <Preference xmi:id="_j3vfdqPcEeSRSYiLZmxisg" Name="monteNumTrials" Value="0"/>
+      <Preference xmi:id="_j3vfd6PcEeSRSYiLZmxisg" Name="customPayoffName5" Value="Influenza hospitalization"/>
+      <Preference xmi:id="_j3vfeKPcEeSRSYiLZmxisg" Name="fontNode_1_0_0" Value="Calibri,12,1,0,0,0"/>
+      <Preference xmi:id="_j3vfeaPcEeSRSYiLZmxisg" Name="fontProbability_1_0_0" Value="Calibri,12,1,0,0,0"/>
+      <Preference xmi:id="_j3vfeqPcEeSRSYiLalxisg" Name="fontEV_1_0_0" Value="Calibri,12,1,0,0,0"/>
+      <Preference xmi:id="_j3vfe6PcEeSRSYiLalxisg" Name="fontVariable_1_0_0" Value="Calibri,10,0,0,0,0"/>
+      <Preference xmi:id="_j3vffKPcEeSRSYiLalxisg" Name="fontComment_1_0_0" Value="Calibri Light,10,0,0,0,0"/>
+      <Preference xmi:id="_j3vffaPcEeSRSYiLalxisg" Name="fontNote_1_0_0" Value="Calibri Light,10,0,0,0,0"/>
+    </PreferenceSet>
+  </tree:Tree>
+  <notation:Diagram xmi:id="_j3vffqPcEeSRSYiLalxisg" type="TreeDocument" element="#_j3rNgKPcEeSRSYiLA_xisg" measurementUnit="Himetric">
+    <children xmi:id="_j3vff6PcEeSRSYiLbkxisg" type="TreeDocument_Tree">
+      <children xmi:id="_j3vfgKPcEeSRSYiLbkxisg" type="DecisionNode" element="#_j3r0kKPcEeSRSYiLA_xisg">
+        <children xmi:id="_j3vfgaPcEeSRSYiLbkxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfgqPcEeSRSYiLbkxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfg6PcEeSRSYiLbkxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vfhKPcEeSRSYiLcjxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfhaPcEeSRSYiLcjxisg" fontName="Segoe UI" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfhqPcEeSRSYiLcjxisg" type="LabelNode" element="#_j3scEKPcEeSRSYiL2Jxisg">
+        <children xmi:id="_j3vfh6PcEeSRSYiLcjxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfiKPcEeSRSYiLcjxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfiaPcEeSRSYiLdixisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfiqPcEeSRSYiLdixisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vflqPcEeSRSYiLfgxisg" type="LabelNode" element="#_j3r09KPcEeSRSYiLUrxisg">
+        <children xmi:id="_j3vfl6PcEeSRSYiLfgxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfmKPcEeSRSYiLgfxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfmaPcEeSRSYiLgfxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vfmqPcEeSRSYiLgfxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfm6PcEeSRSYiLgfxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfnaPcEeSRSYiLhexisg" type="MarkovNode" element="#_j3r1BqPcEeSRSYiLXoxisg">
+        <children xmi:id="_j3vfnqPcEeSRSYiLhexisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfn6PcEeSRSYiLhexisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfoKPcEeSRSYiLhexisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vfoaPcEeSRSYiLhexisg" visible="false" type="TreeNode_Collapser"/>
+        <children xsi:type="notation:Shape" xmi:id="_j3vfoqPcEeSRSYiLidxisg" type="Note" description="10 monthly cycles - August to May" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3vfo6PcEeSRSYiLidxisg" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3vfpKPcEeSRSYiLidxisg" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xsi:type="notation:TextStyle" xmi:id="_j3vfpaPcEeSRSYiLidxisg"/>
+          <styles xsi:type="notation:LineTypeStyle" xmi:id="_j3vfpqPcEeSRSYiLidxisg"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3vfp6PcEeSRSYiLjcxisg" x="46988" y="2678"/>
+        </children>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfqKPcEeSRSYiLjcxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfqaPcEeSRSYiLjcxisg" type="TerminalNode" element="#_j3sb9qPcEeSRSYiLxOxisg">
+        <children xmi:id="_j3vfqqPcEeSRSYiLjcxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfq6PcEeSRSYiLjcxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfrKPcEeSRSYiLkbxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfraPcEeSRSYiLkbxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfrqPcEeSRSYiLkbxisg" type="ChanceNode" element="#_j3r1CKPcEeSRSYiLYnxisg">
+        <children xmi:id="_j3vfr6PcEeSRSYiLkbxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfsKPcEeSRSYiLkbxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfsaPcEeSRSYiLlaxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vfsqPcEeSRSYiLlaxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfs6PcEeSRSYiLlaxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vftKPcEeSRSYiLlaxisg" type="ChanceNode" element="#_j3sbraPcEeSRSYiLjcxisg">
+        <children xmi:id="_j3vftaPcEeSRSYiLlaxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vftqPcEeSRSYiLmZxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vft6PcEeSRSYiLmZxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vfuKPcEeSRSYiLmZxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfuaPcEeSRSYiLmZxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfuqPcEeSRSYiLmZxisg" type="TerminalNode" element="#_j3sbvqPcEeSRSYiLmZxisg">
+        <children xmi:id="_j3vfu6PcEeSRSYiLnYxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfvKPcEeSRSYiLnYxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfvaPcEeSRSYiLnYxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfvqPcEeSRSYiLnYxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfv6PcEeSRSYiLnYxisg" type="ChanceNode" element="#_j3sbwaPcEeSRSYiLnYxisg">
+        <children xmi:id="_j3vfwKPcEeSRSYiLoXxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfwaPcEeSRSYiLoXxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfwqPcEeSRSYiLoXxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vfw6PcEeSRSYiLoXxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfxKPcEeSRSYiLoXxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfxaPcEeSRSYiLpWxisg" type="TerminalNode" element="#_j3sb86PcEeSRSYiLxOxisg">
+        <children xmi:id="_j3vfxqPcEeSRSYiLpWxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfx6PcEeSRSYiLpWxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfyKPcEeSRSYiLpWxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfyaPcEeSRSYiLpWxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vfyqPcEeSRSYiLqVxisg" type="ChanceNode" element="#_j3sbqqPcEeSRSYiLidxisg">
+        <children xmi:id="_j3vfy6PcEeSRSYiLqVxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vfzKPcEeSRSYiLqVxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vfzaPcEeSRSYiLqVxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vfzqPcEeSRSYiLqVxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vfz6PcEeSRSYiLrUxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vf0KPcEeSRSYiLrUxisg" type="ChanceNode" element="#_j3r1D6PcEeSRSYiLZmxisg">
+        <children xmi:id="_j3vf0aPcEeSRSYiLrUxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vf0qPcEeSRSYiLrUxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vf06PcEeSRSYiLrUxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vf1KPcEeSRSYiLsTxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vf1aPcEeSRSYiLsTxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vf16PcEeSRSYiLsTxisg" type="ChanceNode" element="#_j3r1J6PcEeSRSYiLehxisg">
+        <children xmi:id="_j3vf2KPcEeSRSYiLsTxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vf2aPcEeSRSYiLtSxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vf2qPcEeSRSYiLtSxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vf26PcEeSRSYiLtSxisg" visible="false" type="TreeNode_Collapser"/>
+        <children xsi:type="notation:Shape" xmi:id="_upDnIKV2EeSrfeWyG5QQWA" type="Note" description="CLOSED" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <children xsi:type="notation:BasicDecorationNode" xmi:id="_upDnIaV2EeSrfeWyG5QQWA" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xsi:type="notation:BasicDecorationNode" xmi:id="_upDnIqV2EeSrfeWyG5QQWA" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xsi:type="notation:TextStyle" xmi:id="_upDnI6V2EeSrfeWyG5QQWA"/>
+          <styles xsi:type="notation:LineTypeStyle" xmi:id="_upDnJKV2EeSrfeWyH4QQWA"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_upDnJaV2EeSrfeWyH4QQWA" x="60006" y="26299"/>
+        </children>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vf3KPcEeSRSYiLtSxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vf3aPcEeSRSYiLtSxisg" type="ChanceNode" element="#_j3r1E6PcEeSRSYiLalxisg">
+        <children xmi:id="_j3vf3qPcEeSRSYiLuRxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vf36PcEeSRSYiLuRxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vf4KPcEeSRSYiLuRxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3vf4aPcEeSRSYiLuRxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vf4qPcEeSRSYiLuRxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vf46PcEeSRSYiLvQxisg" type="TerminalNode" element="#_j3r1JKPcEeSRSYiLdixisg">
+        <children xmi:id="_j3vf5KPcEeSRSYiLvQxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vf5aPcEeSRSYiLvQxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vf5qPcEeSRSYiLvQxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vf56PcEeSRSYiLvQxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vf6KPcEeSRSYiLwPxisg" type="TerminalNode" element="#_j3r1HqPcEeSRSYiLcjxisg">
+        <children xmi:id="_j3vf6aPcEeSRSYiLwPxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vf6qPcEeSRSYiLwPxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vf66PcEeSRSYiLwPxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vf7KPcEeSRSYiLwPxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vf7aPcEeSRSYiLxOxisg" type="TerminalNode" element="#_j3r1GKPcEeSRSYiLbkxisg">
+        <children xmi:id="_j3vf7qPcEeSRSYiLxOxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3vf76PcEeSRSYiLxOxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3vf8KPcEeSRSYiLxOxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3vf8aPcEeSRSYiLxOxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3vf8qPcEeSRSYiLyNxisg" type="TerminalNode" element="#_j3sbp6PcEeSRSYiLhexisg">
+        <children xmi:id="_j3vf86PcEeSRSYiLyNxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGAKPcEeSRSYiLyNxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGAaPcEeSRSYiLyNxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGAqPcEeSRSYiLyNxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGA6PcEeSRSYiLzMxisg" type="TerminalNode" element="#_j3sboaPcEeSRSYiLgfxisg">
+        <children xmi:id="_j3wGBKPcEeSRSYiLzMxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGBaPcEeSRSYiLzMxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGBqPcEeSRSYiLzMxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGB6PcEeSRSYiLzMxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGCKPcEeSRSYiL0Lxisg" type="TerminalNode" element="#_j3r1LKPcEeSRSYiLfgxisg">
+        <children xmi:id="_j3wGCaPcEeSRSYiL0Lxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGCqPcEeSRSYiL0Lxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGC6PcEeSRSYiL0Lxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGDKPcEeSRSYiL0Lxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGDaPcEeSRSYiL1Kxisg" type="TerminalNode" element="#_j3sbu6PcEeSRSYiLlaxisg">
+        <children xmi:id="_j3wGDqPcEeSRSYiL1Kxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGD6PcEeSRSYiL1Kxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGEKPcEeSRSYiL1Kxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGEaPcEeSRSYiL1Kxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGEqPcEeSRSYiL2Jxisg" type="TerminalNode" element="#_j3sbtqPcEeSRSYiLkbxisg">
+        <children xmi:id="_j3wGE6PcEeSRSYiL2Jxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGFKPcEeSRSYiL2Jxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGFaPcEeSRSYiL2Jxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3wGFqPcEeSRSYiL2Jxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGF6PcEeSRSYiL3Ixisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGGKPcEeSRSYiL3Ixisg" type="TerminalNode" element="#_j3sb8KPcEeSRSYiLwPxisg">
+        <children xmi:id="_j3wGGaPcEeSRSYiL3Ixisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGGqPcEeSRSYiL3Ixisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGG6PcEeSRSYiL3Ixisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGHKPcEeSRSYiL4Hxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGHaPcEeSRSYiL4Hxisg" type="ChanceNode" element="#_j3sbxKPcEeSRSYiLnYxisg">
+        <children xmi:id="_j3wGHqPcEeSRSYiL4Hxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGH6PcEeSRSYiL4Hxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGIKPcEeSRSYiL4Hxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3wGIaPcEeSRSYiL5Gxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGIqPcEeSRSYiL5Gxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGI6PcEeSRSYiL5Gxisg" type="ChanceNode" element="#_j3sb3KPcEeSRSYiLsTxisg">
+        <children xmi:id="_j3wGJKPcEeSRSYiL5Gxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGJaPcEeSRSYiL5Gxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGJqPcEeSRSYiL6Fxisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3wGJ6PcEeSRSYiL6Fxisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGKKPcEeSRSYiL6Fxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGKaPcEeSRSYiL6Fxisg" type="ChanceNode" element="#_j3sbyKPcEeSRSYiLoXxisg">
+        <children xmi:id="_j3wGKqPcEeSRSYiL6Fxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGK6PcEeSRSYiL7Exisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGLKPcEeSRSYiL7Exisg" type="TreeNode_Variables"/>
+        <children xmi:id="_j3wGLaPcEeSRSYiL7Exisg" visible="false" type="TreeNode_Collapser"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGLqPcEeSRSYiL7Exisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGL6PcEeSRSYiL7Exisg" type="TerminalNode" element="#_j3sb2aPcEeSRSYiLrUxisg">
+        <children xmi:id="_j3wGMKPcEeSRSYiL8Dxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGMaPcEeSRSYiL8Dxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGMqPcEeSRSYiL8Dxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGM6PcEeSRSYiL8Dxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGNKPcEeSRSYiL8Dxisg" type="TerminalNode" element="#_j3sb06PcEeSRSYiLqVxisg">
+        <children xmi:id="_j3wGNaPcEeSRSYiL9Cxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGNqPcEeSRSYiL9Cxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGN6PcEeSRSYiL9Cxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGOKPcEeSRSYiL9Cxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGOaPcEeSRSYiL9Cxisg" type="TerminalNode" element="#_j3sbzaPcEeSRSYiLpWxisg">
+        <children xmi:id="_j3wGOqPcEeSRSYiL-Bxisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGO6PcEeSRSYiL-Bxisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGPKPcEeSRSYiL-Bxisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGPaPcEeSRSYiL-Bxisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGPqPcEeSRSYiL-Bxisg" type="TerminalNode" element="#_j3sb7aPcEeSRSYiLvQxisg">
+        <children xmi:id="_j3wGP6PcEeSRSYiL_Axisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGQKPcEeSRSYiL_Axisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGQaPcEeSRSYiL_Axisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGQqPcEeSRSYiL_Axisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGQ6PcEeSRSYiL_Axisg" type="TerminalNode" element="#_j3sb56PcEeSRSYiLuRxisg">
+        <children xmi:id="_j3wGRKPcEeSRSYiLA_xisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGRaPcEeSRSYiLA_xisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGRqPcEeSRSYiLA_xisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGR6PcEeSRSYiLA_xisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGSKPcEeSRSYiLA_xisg" type="TerminalNode" element="#_j3sb4aPcEeSRSYiLtSxisg">
+        <children xmi:id="_j3wGSaPcEeSRSYiLB-xisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGSqPcEeSRSYiLB-xisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGS6PcEeSRSYiLB-xisg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGTKPcEeSRSYiLB-xisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_j3wGTaPcEeSRSYiLB-xisg" type="TerminalNode" element="#_j3sbsaPcEeSRSYiLjcxisg">
+        <children xmi:id="_j3wGTqPcEeSRSYiLC9xisg" type="TreeNode_Label"/>
+        <children xmi:id="_j3wGT6PcEeSRSYiLC9xisg" type="TreeNode_Probability"/>
+        <children xmi:id="_j3wGUKPcEeSRSYiLC9xisg" type="TreeNode_Variables"/>
+        <children xsi:type="notation:Shape" xmi:id="_QpYuYKV2EeSrfeWyF6QQWA" type="Note" description="CLOSED" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <children xsi:type="notation:BasicDecorationNode" xmi:id="_QpYuYaV2EeSrfeWyF6QQWA" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xsi:type="notation:BasicDecorationNode" xmi:id="_QpYuYqV2EeSrfeWyF6QQWA" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xsi:type="notation:TextStyle" xmi:id="_QpYuY6V2EeSrfeWyF6QQWA"/>
+          <styles xsi:type="notation:LineTypeStyle" xmi:id="_QpYuZKV2EeSrfeWyF6QQWA"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_QpYuZaV2EeSrfeWyG5QQWA" x="70536" y="14947"/>
+        </children>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGUaPcEeSRSYiLC9xisg" lineColor="0"/>
+      </children>
+      <children xmi:id="_TGSnEKP0EeS5LuUdA_o7Gg" type="LabelNode" element="#_TF7asKP0EeS5LuUdA_o7Gg">
+        <children xmi:id="_TGT1MKP0EeS5LuUdB-o7Gg" type="TreeNode_Label"/>
+        <children xmi:id="_TGT1MaP0EeS5LuUdB-o7Gg" type="TreeNode_Probability"/>
+        <children xmi:id="_TGT1MqP0EeS5LuUdB-o7Gg" type="TreeNode_Variables"/>
+        <styles xsi:type="notation:ShapeStyle" xmi:id="_TGSnEaP0EeS5LuUdB-o7Gg" fontName="Segoe UI" lineColor="0"/>
+      </children>
+      <styles xsi:type="notation:ShapeStyle" xmi:id="_j3wGUqPcEeSRSYiLC9xisg" fontName="Segoe UI" lineColor="0"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGU6PcEeSRSYiLD8xisg"/>
+    </children>
+    <children xmi:id="_j3wGVKPcEeSRSYiLD8xisg" type="TreeExpectedValues">
+      <children xsi:type="notation:Shape" xmi:id="_j3wGVaPcEeSRSYiLD8xisg" type="ExpectedValue" element="#_j3vfgKPcEeSRSYiLbkxisg" fontName="Segoe UI" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGVqPcEeSRSYiLD8xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGV6PcEeSRSYiLD8xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGWKPcEeSRSYiLE7xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGWaPcEeSRSYiLE7xisg" type="ExpectedValue" element="#_j3vfhqPcEeSRSYiLcjxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGWqPcEeSRSYiLE7xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGW6PcEeSRSYiLE7xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGXKPcEeSRSYiLE7xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGZaPcEeSRSYiLG5xisg" type="ExpectedValue" element="#_j3vflqPcEeSRSYiLfgxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGZqPcEeSRSYiLG5xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGZ6PcEeSRSYiLH4xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGaKPcEeSRSYiLH4xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGaaPcEeSRSYiLH4xisg" type="ExpectedValue" element="#_j3vfnaPcEeSRSYiLhexisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGaqPcEeSRSYiLH4xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGa6PcEeSRSYiLH4xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGbKPcEeSRSYiLI3xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGbaPcEeSRSYiLI3xisg" type="ExpectedValue" element="#_j3vfqaPcEeSRSYiLjcxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGbqPcEeSRSYiLI3xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGb6PcEeSRSYiLI3xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGcKPcEeSRSYiLI3xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGcaPcEeSRSYiLJ2xisg" type="ExpectedValue" element="#_j3vfrqPcEeSRSYiLkbxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGcqPcEeSRSYiLJ2xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGc6PcEeSRSYiLJ2xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGdKPcEeSRSYiLJ2xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGdaPcEeSRSYiLJ2xisg" type="ExpectedValue" element="#_j3vftKPcEeSRSYiLlaxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGdqPcEeSRSYiLK1xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGd6PcEeSRSYiLK1xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGeKPcEeSRSYiLK1xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGeaPcEeSRSYiLK1xisg" type="ExpectedValue" element="#_j3vfuqPcEeSRSYiLmZxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGeqPcEeSRSYiLK1xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGe6PcEeSRSYiLL0xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGfKPcEeSRSYiLL0xisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGfaPcEeSRSYiLL0xisg" type="ExpectedValue" element="#_j3vfv6PcEeSRSYiLnYxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGfqPcEeSRSYiLL0xisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGf6PcEeSRSYiLL0xisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGgKPcEeSRSYiLMzxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGgaPcEeSRSYiLMzxisg" type="ExpectedValue" element="#_j3vfxaPcEeSRSYiLpWxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGgqPcEeSRSYiLMzxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGg6PcEeSRSYiLMzxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGhKPcEeSRSYiLMzxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGhaPcEeSRSYiLNyxisg" type="ExpectedValue" element="#_j3vfyqPcEeSRSYiLqVxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGhqPcEeSRSYiLNyxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGh6PcEeSRSYiLNyxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGiKPcEeSRSYiLNyxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGiaPcEeSRSYiLNyxisg" type="ExpectedValue" element="#_j3vf0KPcEeSRSYiLrUxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGiqPcEeSRSYiLOxxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGi6PcEeSRSYiLOxxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGjKPcEeSRSYiLOxxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGjaPcEeSRSYiLOxxisg" type="ExpectedValue" element="#_j3vf16PcEeSRSYiLsTxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGjqPcEeSRSYiLOxxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGj6PcEeSRSYiLPwxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGkKPcEeSRSYiLPwxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGkaPcEeSRSYiLPwxisg" type="ExpectedValue" element="#_j3vf3aPcEeSRSYiLtSxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGkqPcEeSRSYiLPwxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGk6PcEeSRSYiLPwxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGlKPcEeSRSYiLQvxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGlaPcEeSRSYiLQvxisg" type="ExpectedValue" element="#_j3vf46PcEeSRSYiLvQxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGlqPcEeSRSYiLQvxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGl6PcEeSRSYiLQvxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGmKPcEeSRSYiLQvxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGmaPcEeSRSYiLRuxisg" type="ExpectedValue" element="#_j3vf6KPcEeSRSYiLwPxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGmqPcEeSRSYiLRuxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGm6PcEeSRSYiLRuxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGnKPcEeSRSYiLRuxisg" x="133" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGnaPcEeSRSYiLRuxisg" type="ExpectedValue" element="#_j3vf7aPcEeSRSYiLxOxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGnqPcEeSRSYiLStxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGn6PcEeSRSYiLStxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGoKPcEeSRSYiLStxisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGoaPcEeSRSYiLStxisg" type="ExpectedValue" element="#_j3wGCKPcEeSRSYiL0Lxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGoqPcEeSRSYiLStxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGo6PcEeSRSYiLTsxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGpKPcEeSRSYiLTsxisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGpaPcEeSRSYiLTsxisg" type="ExpectedValue" element="#_j3wGA6PcEeSRSYiLzMxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGpqPcEeSRSYiLTsxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGp6PcEeSRSYiLTsxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGqKPcEeSRSYiLUrxisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGqaPcEeSRSYiLUrxisg" type="ExpectedValue" element="#_j3vf8qPcEeSRSYiLyNxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGqqPcEeSRSYiLUrxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGq6PcEeSRSYiLUrxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGrKPcEeSRSYiLUrxisg" x="132" y="-186"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGraPcEeSRSYiLVqxisg" type="ExpectedValue" element="#_j3wGDaPcEeSRSYiL1Kxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGrqPcEeSRSYiLVqxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGr6PcEeSRSYiLVqxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGsKPcEeSRSYiLVqxisg" x="246" y="-337"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGsaPcEeSRSYiLVqxisg" type="ExpectedValue" element="#_j3wGEqPcEeSRSYiL2Jxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGsqPcEeSRSYiLWpxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGs6PcEeSRSYiLWpxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGtKPcEeSRSYiLWpxisg" x="246" y="-337"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGtaPcEeSRSYiLWpxisg" type="ExpectedValue" element="#_j3wGGKPcEeSRSYiL3Ixisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGtqPcEeSRSYiLWpxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGt6PcEeSRSYiLXoxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGuKPcEeSRSYiLXoxisg" x="246" y="-337"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGuaPcEeSRSYiLXoxisg" type="ExpectedValue" element="#_j3wGHaPcEeSRSYiL4Hxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGuqPcEeSRSYiLXoxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGu6PcEeSRSYiLXoxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGvKPcEeSRSYiLYnxisg" x="246" y="-337"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGvaPcEeSRSYiLYnxisg" type="ExpectedValue" element="#_j3wGPqPcEeSRSYiL-Bxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGvqPcEeSRSYiLYnxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGv6PcEeSRSYiLYnxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGwKPcEeSRSYiLYnxisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGwaPcEeSRSYiLZmxisg" type="ExpectedValue" element="#_j3wGL6PcEeSRSYiL7Exisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGwqPcEeSRSYiLZmxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGw6PcEeSRSYiLZmxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGxKPcEeSRSYiLZmxisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGxaPcEeSRSYiLZmxisg" type="ExpectedValue" element="#_j3wGOaPcEeSRSYiL9Cxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGxqPcEeSRSYiLalxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGx6PcEeSRSYiLalxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGyKPcEeSRSYiLalxisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGyaPcEeSRSYiLalxisg" type="ExpectedValue" element="#_j3wGI6PcEeSRSYiL5Gxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGyqPcEeSRSYiLalxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGy6PcEeSRSYiLbkxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wGzKPcEeSRSYiLbkxisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wGzaPcEeSRSYiLbkxisg" type="ExpectedValue" element="#_j3wGNKPcEeSRSYiL8Dxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGzqPcEeSRSYiLbkxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wGz6PcEeSRSYiLbkxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wG0KPcEeSRSYiLcjxisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wG0aPcEeSRSYiLcjxisg" type="ExpectedValue" element="#_j3wGQ6PcEeSRSYiL_Axisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wG0qPcEeSRSYiLcjxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wG06PcEeSRSYiLcjxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wG1KPcEeSRSYiLcjxisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wG1aPcEeSRSYiLdixisg" type="ExpectedValue" element="#_j3wGSKPcEeSRSYiLA_xisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wG1qPcEeSRSYiLdixisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wG16PcEeSRSYiLdixisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wtEKPcEeSRSYiLdixisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wtEaPcEeSRSYiLdixisg" type="ExpectedValue" element="#_j3wGKaPcEeSRSYiL6Fxisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wtEqPcEeSRSYiLehxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wtE6PcEeSRSYiLehxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wtFKPcEeSRSYiLehxisg" x="224" y="-290"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_j3wtFaPcEeSRSYiLehxisg" type="ExpectedValue" element="#_j3wGTaPcEeSRSYiLB-xisg" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wtFqPcEeSRSYiLehxisg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_j3wtF6PcEeSRSYiLfgxisg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_j3wtGKPcEeSRSYiLfgxisg" x="132" y="-185"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_TH8z8KP0EeS5LuUdC9o7Gg" type="ExpectedValue" element="#_TGSnEKP0EeS5LuUdA_o7Gg" fontName="Segoe UI" description="Text" lineColor="0">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_TH9bAKP0EeS5LuUdC9o7Gg" type="DiagramName"/>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_TH9bAaP0EeS5LuUdC9o7Gg" type="Description"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_TH8z8aP0EeS5LuUdC9o7Gg" x="133" y="-185"/>
+      </children>
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:id="_j3wtGaPcEeSRSYiLfgxisg" type="TreeTables">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:id="_j3wtGqPcEeSRSYiLfgxisg" type="TreeDocument_Notes">
+      <children xsi:type="notation:Shape" xmi:id="_4j4uAKV1EeSrfeWyD8QQWA" type="Note" description="CLOSED" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_4j6jMKV1EeSrfeWyE7QQWA" type="DiagramName">
+          <element xsi:nil="true"/>
+        </children>
+        <children xsi:type="notation:BasicDecorationNode" xmi:id="_4j6jMaV1EeSrfeWyE7QQWA" type="Description">
+          <element xsi:nil="true"/>
+        </children>
+        <styles xsi:type="notation:TextStyle" xmi:id="_4j4uAaV1EeSrfeWyD8QQWA"/>
+        <styles xsi:type="notation:LineTypeStyle" xmi:id="_4j4uAqV1EeSrfeWyE7QQWA"/>
+        <element xsi:nil="true"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_4j4uA6V1EeSrfeWyE7QQWA" x="60403" y="34184"/>
+      </children>
+      <element xsi:nil="true"/>
+    </children>
+    <styles xsi:type="notation:DiagramStyle" xmi:id="_j3wtG6PcEeSRSYiLfgxisg">
+      <verticalGuides xmi:id="_j3wtHKPcEeSRSYiLgfxisg" position="638">
+        <nodeMap xmi:id="_j3wtHaPcEeSRSYiLgfxisg" value="Right" key="#_j3vfgKPcEeSRSYiLbkxisg"/>
+      </verticalGuides>
+      <verticalGuides xmi:id="_j3wtHqPcEeSRSYiLgfxisg" position="1111">
+        <nodeMap xmi:id="_703JIKQNEeS5LuUdQvo7Gg" value="Right" key="#_j3vfhqPcEeSRSYiLcjxisg"/>
+        <nodeMap xmi:id="_sEpjQKQOEeS5LuUdQvo7Gg" value="Right" key="#_TGSnEKP0EeS5LuUdA_o7Gg"/>
+        <nodeMap xmi:id="_tlfq8KQOEeS5LuUdRuo7Gg" value="Right" key="#_j3vflqPcEeSRSYiLfgxisg"/>
+      </verticalGuides>
+      <verticalGuides xmi:id="_j3wtIaPcEeSRSYiLhexisg" position="1587">
+        <nodeMap xmi:id="_tlfq8aQOEeS5LuUdRuo7Gg" value="Right" key="#_j3vfnaPcEeSRSYiLhexisg"/>
+      </verticalGuides>
+      <verticalGuides xmi:id="_j3wtJKPcEeSRSYiLhexisg" position="1891">
+        <nodeMap xmi:id="_tlfq8qQOEeS5LuUdRuo7Gg" value="Right" key="#_j3vfrqPcEeSRSYiLkbxisg"/>
+        <nodeMap xmi:id="_tlfrAqQOEeS5LuUdUro7Gg" value="Right" key="#_j3vfv6PcEeSRSYiLnYxisg"/>
+        <nodeMap xmi:id="_tlfrDaQOEeS5LuUdWpo7Gg" value="Right" key="#_j3vfxaPcEeSRSYiLpWxisg"/>
+        <nodeMap xmi:id="_tlfrDqQOEeS5LuUdXoo7Gg" value="Right" key="#_j3vfqaPcEeSRSYiLjcxisg"/>
+      </verticalGuides>
+      <verticalGuides xmi:id="_j3wtJqPcEeSRSYiLidxisg" position="2111">
+        <nodeMap xmi:id="_tlfq86QOEeS5LuUdRuo7Gg" value="Right" key="#_j3vf0KPcEeSRSYiLrUxisg"/>
+        <nodeMap xmi:id="_tlfq_KQOEeS5LuUdTso7Gg" value="Right" key="#_j3vfyqPcEeSRSYiLqVxisg"/>
+        <nodeMap xmi:id="_tlfrA6QOEeS5LuUdUro7Gg" value="Right" key="#_j3wGHaPcEeSRSYiL4Hxisg"/>
+        <nodeMap xmi:id="_tlfrDKQOEeS5LuUdWpo7Gg" value="Right" key="#_j3wGGKPcEeSRSYiL3Ixisg"/>
+      </verticalGuides>
+      <verticalGuides xmi:id="_j3wtK6PcEeSRSYiLjcxisg" position="2331">
+        <nodeMap xmi:id="_tlfq9KQOEeS5LuUdRuo7Gg" value="Right" key="#_j3vf3aPcEeSRSYiLtSxisg"/>
+        <nodeMap xmi:id="_tlfq-KQOEeS5LuUdSto7Gg" value="Right" key="#_j3vf16PcEeSRSYiLsTxisg"/>
+        <nodeMap xmi:id="_tlfq_aQOEeS5LuUdTso7Gg" value="Right" key="#_j3vftKPcEeSRSYiLlaxisg"/>
+        <nodeMap xmi:id="_tlfrAaQOEeS5LuUdUro7Gg" value="Right" key="#_j3vfuqPcEeSRSYiLmZxisg"/>
+        <nodeMap xmi:id="_tlfrBKQOEeS5LuUdVqo7Gg" value="Right" key="#_j3wGKaPcEeSRSYiL6Fxisg"/>
+        <nodeMap xmi:id="_tlfrCKQOEeS5LuUdVqo7Gg" value="Right" key="#_j3wGI6PcEeSRSYiL5Gxisg"/>
+      </verticalGuides>
+      <verticalGuides xmi:id="_j3wtMKPcEeSRSYiLkbxisg" position="2720">
+        <nodeMap xmi:id="_tlfq9aQOEeS5LuUdSto7Gg" value="Right" key="#_j3vf7aPcEeSRSYiLxOxisg"/>
+        <nodeMap xmi:id="_tlfq9qQOEeS5LuUdSto7Gg" value="Right" key="#_j3vf6KPcEeSRSYiLwPxisg"/>
+        <nodeMap xmi:id="_tlfq96QOEeS5LuUdSto7Gg" value="Right" key="#_j3vf46PcEeSRSYiLvQxisg"/>
+        <nodeMap xmi:id="_tlfq-aQOEeS5LuUdSto7Gg" value="Right" key="#_j3wGCKPcEeSRSYiL0Lxisg"/>
+        <nodeMap xmi:id="_tlfq-qQOEeS5LuUdTso7Gg" value="Right" key="#_j3wGA6PcEeSRSYiLzMxisg"/>
+        <nodeMap xmi:id="_tlfq-6QOEeS5LuUdTso7Gg" value="Right" key="#_j3vf8qPcEeSRSYiLyNxisg"/>
+        <nodeMap xmi:id="_tlfq_qQOEeS5LuUdTso7Gg" value="Right" key="#_j3wGTaPcEeSRSYiLB-xisg"/>
+        <nodeMap xmi:id="_tlfq_6QOEeS5LuUdUro7Gg" value="Right" key="#_j3wGEqPcEeSRSYiL2Jxisg"/>
+        <nodeMap xmi:id="_tlfrAKQOEeS5LuUdUro7Gg" value="Right" key="#_j3wGDaPcEeSRSYiL1Kxisg"/>
+        <nodeMap xmi:id="_tlfrBaQOEeS5LuUdVqo7Gg" value="Right" key="#_j3wGOaPcEeSRSYiL9Cxisg"/>
+        <nodeMap xmi:id="_tlfrBqQOEeS5LuUdVqo7Gg" value="Right" key="#_j3wGNKPcEeSRSYiL8Dxisg"/>
+        <nodeMap xmi:id="_tlfrB6QOEeS5LuUdVqo7Gg" value="Right" key="#_j3wGL6PcEeSRSYiL7Exisg"/>
+        <nodeMap xmi:id="_tlfrCaQOEeS5LuUdWpo7Gg" value="Right" key="#_j3wGSKPcEeSRSYiLA_xisg"/>
+        <nodeMap xmi:id="_tlfrCqQOEeS5LuUdWpo7Gg" value="Right" key="#_j3wGQ6PcEeSRSYiL_Axisg"/>
+        <nodeMap xmi:id="_tlfrC6QOEeS5LuUdWpo7Gg" value="Right" key="#_j3wGPqPcEeSRSYiL-Bxisg"/>
+      </verticalGuides>
+    </styles>
+  </notation:Diagram>
+</xmi:XMI>
