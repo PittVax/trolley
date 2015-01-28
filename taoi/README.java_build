@@ -1,0 +1,3 @@
+# simple commands to execute and build java code
+javac -cp java/lib/treeagepro.oi.jar -d java/class java/src/UseObjectInterface.java
+java -cp "java/lib/treeagepro.oi.jar:java/class" UseObjectInterface
