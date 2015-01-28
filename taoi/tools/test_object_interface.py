@@ -9,6 +9,13 @@ import utils.set_classpath
 import com.treeage.treeagepro.oi.AnalysisType;
 import com.treeage.treeagepro.oi.Report;
 import com.treeage.treeagepro.oi.Tree;
-import com.treeage.treeagepro.oi.TreeAgeProApplication;
+from com.treeage.treeagepro.oi import TreeAgeProApplication;
 
-print 'success!'
+
+app = TreeAgeProApplication();
+
+if app.isValid():
+    print('Success!')
+else:
+    print("Cannot find TreeAgePro application running locally.");
+
