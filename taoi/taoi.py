@@ -1,21 +1,70 @@
 #!/usr/bin/env jython
-import java.rmi.RemoteException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
-import utils.set_classpath
+# NOTE 2.7 compatibility is required (jython 2.7+)
 
-import com.treeage.treeagepro.oi.AnalysisType;
-import com.treeage.treeagepro.oi.Report;
-import com.treeage.treeagepro.oi.Tree;
-from com.treeage.treeagepro.oi import TreeAgeProApplication;
+# common java classes should already be in the classpath, so go ahead and
+# import them
+import java.rmi.RemoteException as JavaRemoteException;
+import java.util.Collections as JavaCollections;
+import java.util.HashMap as JavaHashMap;
+import java.util.Map as JavaMap;
+
+try:
+    import utils.set_classpath
+    # import the treeage pro object interface classes
+    from com.treeage.treeagepro.oi import AnalysisType
+    from com.treeage.treeagepro.oi import Report
+    from com.treeage.treeagepro.oi import Tree
+    from com.treeage.treeagepro.oi import TreeAgeProApplication
+except Exception as e:
+    raise
+
+import argparse
 
 
-app = TreeAgeProApplication();
+class TaoiSession(object):
+    def __init__(self, host='localhost', treefilename=None, workingdir=None):
+        if host is not 'localhost':
+            raise Exception('only local execution is supported')
+        self.workingdir = workingdir
+        self.treefilename = treefilename
+    def connect(self):
+        try:
+            self.ta_app = TreeAgeProApplication()
+            if not self.ta_app.isValid():
+                raise Exception('The TreeAge Pro Application is not valid')
+        except Exception as e:
+            print('Unable to connect to TreeAge Pro Application')
+            raise
+    def open_tree(self):
+        try:
+            self.tree = self.ta_app.openTree(self.treefilename)
+        except JavaRemoteException as e:
+            print('Unable to open tree %s' % self.treefilename)
 
-if app.isValid():
-    print('Success!')
-else:
-    print("Cannot find TreeAgePro application running locally.");
+def main():
+
+    parser = argparse.ArgumentParser(description='TreeAge Object Interface Wrapper')
+    
+    parser.add_argument('-d', '--debug', action='store_true')
+    parser.add_argument('-t', '--tree', help='Tree (xml) file')
+
+    args = parser.parse_args()
+    
+    print args
+
+if __name__=="__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
 
