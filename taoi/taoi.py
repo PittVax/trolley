@@ -25,14 +25,14 @@ log = logging.getLogger(__name__)
 
 
 class TaoiSession(object):
-    def __init__(self, host='localhost', treefilename=None, workingdir=None,
+    def __init__(self, host='localhost', treefile=None, workspace=None,
             debug=False, auto=True):
         if host != 'localhost':
             msg = 'only local execution is supported'
             log.error(msg)
             raise Exception(msg)
-        self.workingdir = workingdir
-        self.treefilename = treefilename
+        self.workspace = workspace
+        self.treefile = treefile
         if auto:
             self.connect()
             self.open_tree()
@@ -47,16 +47,17 @@ class TaoiSession(object):
             raise
     def open_tree(self):
         try:
-            self.tree = self.app.getTree(self.treefilename)
+            _treefile = os.path.join(self.workspace, self.treefile)
+            self.tree = self.app.getTree(_treefile)
             if self.tree.isValid():
                 log.info('opened tree: %s' % self.tree.getTreeName())
             else:
                 msg = 'tree %s opened from file %s is not valid' % (
-                        self.tree.getTreeName(), self.treefilename)
+                        self.tree.getTreeName(), _treefile)
                 log.error(msg)
                 raise Exception(msg)
         except JavaRemoteException as e:
-            log.error('Unable to open tree %s' % self.treefilename)
+            log.error('Unable to open tree %s' % _treefile)
 
 def main():
 
@@ -67,8 +68,12 @@ def main():
             help='Tree file (xml)')
     parser.add_argument('-H', '--host', default='localhost',
             help='Host running TreeAgePro')
-    parser.add_argument('-o', '--output_directory', default='output',
+    parser.add_argument('-o', '--outdir', default='output',
             help='Output directory')
+    parser.add_argument('-w', '--workspace',
+            help='Path prefix for workspace (defaults to current working directory)')
+    parser.add_argument('-p', '--prefix',
+            help='Prefix used for all output files (defaults to a timestamp)')
 
     args = parser.parse_args()
 
