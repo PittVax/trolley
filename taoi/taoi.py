@@ -24,7 +24,7 @@ import argparse
 
 class TaoiSession(object):
     def __init__(self, host='localhost', treefilename=None, workingdir=None):
-        if host is not 'localhost':
+        if host != 'localhost':
             raise Exception('only local execution is supported')
         self.workingdir = workingdir
         self.treefilename = treefilename
@@ -47,11 +47,18 @@ def main():
     parser = argparse.ArgumentParser(description='TreeAge Object Interface Wrapper')
     
     parser.add_argument('-d', '--debug', action='store_true')
-    parser.add_argument('-t', '--tree', help='Tree (xml) file')
+    parser.add_argument('-t', '--tree',
+            help='Tree file (xml)')
+    parser.add_argument('-H', '--host', default='localhost',
+            help='Host running TreeAgePro')
+    parser.add_argument('-o', '--output_directory', default='output',
+            help='Output directory')
 
     args = parser.parse_args()
+
+    print(args)
     
-    print args
+    ts = TaoiSession(args.host, args.tree, args.output_directory)
 
 if __name__=="__main__":
     main()
