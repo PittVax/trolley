@@ -20,33 +20,49 @@ except Exception as e:
     raise
 
 import argparse
+import logging
+log = logging.getLogger(__name__)
 
 
 class TaoiSession(object):
-    def __init__(self, host='localhost', treefilename=None, workingdir=None):
+    def __init__(self, host='localhost', treefilename=None, workingdir=None,
+            debug=False, auto=True):
         if host != 'localhost':
-            raise Exception('only local execution is supported')
+            msg = 'only local execution is supported'
+            log.error(msg)
+            raise Exception(msg)
         self.workingdir = workingdir
         self.treefilename = treefilename
+        if auto:
+            self.connect()
+            self.open_tree()
     def connect(self):
         try:
-            self.ta_app = TreeAgeProApplication()
-            if not self.ta_app.isValid():
+            self.app = TreeAgeProApplication()
+            if not self.app.isValid():
                 raise Exception('The TreeAge Pro Application is not valid')
+            log.info(self.app.getWorkspacePath())
         except Exception as e:
-            print('Unable to connect to TreeAge Pro Application')
+            log.error('Unable to connect to TreeAge Pro Application')
             raise
     def open_tree(self):
         try:
-            self.tree = self.ta_app.openTree(self.treefilename)
+            self.tree = self.app.getTree(self.treefilename)
+            if self.tree.isValid():
+                log.info('opened tree: %s' % self.tree.getTreeName())
+            else:
+                msg = 'tree %s opened from file %s is not valid' % (
+                        self.tree.getTreeName(), self.treefilename)
+                log.error(msg)
+                raise Exception(msg)
         except JavaRemoteException as e:
-            print('Unable to open tree %s' % self.treefilename)
+            log.error('Unable to open tree %s' % self.treefilename)
 
 def main():
 
     parser = argparse.ArgumentParser(description='TreeAge Object Interface Wrapper')
     
-    parser.add_argument('-d', '--debug', action='store_true')
+    parser.add_argument('-d', '--debug', action='store_true', default=False)
     parser.add_argument('-t', '--tree',
             help='Tree file (xml)')
     parser.add_argument('-H', '--host', default='localhost',
@@ -56,9 +72,17 @@ def main():
 
     args = parser.parse_args()
 
-    print(args)
+    if args.debug:
+        logging.basicConfig(level=logging.INFO)
+    else:
+        logging.basicConfig(level=logging.DEBUG)
+    global log
+    log = logging.getLogger('taoi_main')
+
+    log.info(args)
     
-    ts = TaoiSession(args.host, args.tree, args.output_directory)
+    ts = TaoiSession(args.host, args.tree, args.output_directory,
+            args.debug, auto=True)
 
 if __name__=="__main__":
     main()

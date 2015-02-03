@@ -1,0 +1,9 @@
+The TreeAge Object Interface exposes no way to set the workspace path to a
+location outside of the treeage application's installed directories.
+
+In order to use the tools provided in this package, either:
+- clone the git project into $HOME/treeage/workspace
+- create symlinks from that location to this package
+- copy the necessary input files (trees, data, etc) into the treeage workspace
+
+All input paths given to taoi modules will be relative to this workspace path 
