@@ -22,7 +22,7 @@ except Exception as e:
 import argparse
 import logging
 log = logging.getLogger(__name__)
-import yaml
+import yaml, json
 import os
 
 class TaoiSession(object):
@@ -32,14 +32,15 @@ class TaoiSession(object):
         self.configfile = config
         self.config_workspace(config, workspace)
 
-#        self.debug = debug
-#        self.auto = auto
-#        
-#        if host != 'localhost':
-#            msg = 'only local execution is supported'
-#            log.error(msg)
-#            raise Exception(msg)
-#        
+        self.setc('debug', debug)
+        self.setc('auto', auto)
+        self.setc('host', host, 'localhost')
+
+        if self.host != 'localhost':
+            msg = 'only local execution is supported'
+            log.error(msg)
+            raise Exception(msg)
+        
 #        self.set_workspace(workspace)
 #        self.set_treefile(treefile)
 #        
@@ -47,35 +48,66 @@ class TaoiSession(object):
 #            self.connect()
 #            self.open_tree()
 
+    @property
+    def host(self):
+        return self.c['host']
+
     def config_workspace(self, config, workspace):
         """ Reads the config and workspace options and sets class members """
+        _workspace = os.getcwd() if workspace is None else workspace
+        self.c = dict()
+        self._c = dict()
         try:
-            self.workspace = os.getcwd() if workspace is None else workspace
-            with open(os.path.join(self.workspace,config)) as f:
-                self.c = yaml.safe_load(f)
+            if config is None:
+                raise Exception('no config file supplied')
+            with open(os.path.join(_workspace,config)) as f:
+                self._c.update(yaml.safe_load(f))
             log.debug('successfully parsed yaml config file')
         except Exception as e:
             if workspace is None:
-                msg = 'No workspace provided and unable to parse supplied' \
-                    ' config file (%s)' % config
-                log.error(msg)
-                e.args += (msg,)
-                raise
+                log.debug('No workspace provided, attempt to use current directory')
             else:
-                self.c = dict(workspace=self.workspace)
                 log.debug('attempting to use supplied workspace without yaml config')
         finally:
-            if not os.access(self.workspace, os.R_OK):
-                msg = 'No read access to workspace path: %s' % self.workspace
+            if not os.access(_workspace, os.R_OK):
+                msg = 'No read access to workspace path: %s' % _workspace
                 log.error(msg)
                 raise Exception(msg)
             if workspace is not None and workspace in self.c:
                 log.warn('workspace specified in config and as argument; '\
                         'using supplied argument: %s' % workspace)
-        print(self.c)
+        # when debugging log the original config dicts
+        log.debug('supplied config = %s' % json.dumps(self._c))
+        # update the workspace param in the master config
+        self.setc('workspace',_workspace)
 
-
-
+    def setc(self, name, value, default=None):
+        assert(hasattr(self,'c'))
+        assert(type(self.c) == dict)
+        assert(hasattr(self,'_c'))
+        assert(type(self._c) == dict)
+        try:
+            if value is not None and json.dumps(self._c[name]) != json.dumps(value):
+                msg = 'config value [ %s ] for [ %s ] overwritten with [ %s ]' % (
+                    self._c[name], name, json.dumps(value))
+                self.c[name] = value
+                log.warn(msg)
+            elif name in self._c:
+                self.c[name] = self._c[name]
+        except KeyError as e:
+            assert(e.args[0]==name)
+            log.debug('[ %s ] not in config, setting [ %s = %s ]' % (
+                e.args[0], name, json.dumps(value)))
+            self.c[name] = value
+        if name not in self.c:
+            if default is not None:
+                self.c[name] = default
+                log.warn('no value available for [ %s ], using default: [ %s ]' % (
+                    name, json.dumps(default)))
+            else:
+                log.warn('no value available for [ %s ] and no default ' \
+                        'supplied; setting to [ None ]' % name)
+                self.c[name] = None
 
     def connect(self):
         try:
@@ -132,7 +164,7 @@ def main():
 
     log.info(args)
     
-    ts = TaoiSession(args.host, args.tree, args.outdir,
+    ts = TaoiSession(args.host, args.tree, args.workspace,
             debug=args.debug, auto=True, config=args.config)
 
 if __name__=="__main__":
