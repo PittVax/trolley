@@ -4,10 +4,12 @@
 
 # common java classes should already be in the classpath, so go ahead and
 # import them
-import java.rmi.RemoteException as JavaRemoteException;
-import java.util.Collections as JavaCollections;
-import java.util.HashMap as JavaHashMap;
-import java.util.Map as JavaMap;
+import java.rmi.RemoteException
+import java.net.ConnectException
+import java.rmi.ConnectException
+import java.util.Collections as JavaCollections
+import java.util.HashMap as JavaHashMap
+import java.util.Map as JavaMap
 
 try:
     import utils.set_classpath
@@ -24,6 +26,7 @@ import logging
 log = logging.getLogger(__name__)
 import yaml, json
 import os
+from xml.etree import ElementTree as et
 
 class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
@@ -67,6 +70,9 @@ class TaoiSession(object):
     @property
     def workspace(self):
         return self.c['workspace']
+    @property
+    def outdir(self):
+        return self.c['outdir']
 
     def config_workspace(self, config, workspace):
         """ Reads the config and workspace options and sets class members """
@@ -132,21 +138,52 @@ class TaoiSession(object):
                 raise Exception('The TreeAge Pro Application is not valid')
             log.info(self.app.getWorkspacePath())
         except Exception as e:
-            log.error('Unable to connect to TreeAge Pro Application')
+            msg = 'Unable to connect to TreeAge Pro Application!'
+            if self.debug:
+                log.error(msg)
+            else:
+                log.info('%s %s' % (msg,
+                    'For a more detailed error message run in debug mode.'))
             raise
+
+
+    def validate_treefile_xml(self, filepath):
+        try:
+            xml_root = et.parse(filepath)
+            namespace = '{http://www.treeage.com/modeldefs/tree}'
+            treetag = 'Tree'
+            if not xml_root.findall(namespace + treetag):
+                msg = 'No %s tag in namespace %s in %s' % (treetag, namespace,
+                        filepath)
+                log.error(msg)
+                raise Exception(msg)
+        except Exception as e:
+            msg = 'Tree xml did not pass basic validation!'
+            if self.debug:
+                log.info(msg)
+            else:
+                log.error(msg)
+            # TODO raise only when not in debug mode after debug mode is
+            # itself debugged; NOTE should always raise on ParseError, need to 
+            # specialize this and other exceptions...
+            raise
+
     def open_tree(self):
         try:
-            _treefile = os.path.join(self.workspace, self.treefile)
-            self.tree = self.app.getTree(_treefile)
+            filepath = os.path.join(self.workspace, self.treefile)
+            self.validate_treefile_xml(filepath)    
+            self.tree = self.app.getTree(filepath)
             if self.tree.isValid():
                 log.info('opened tree: %s' % self.tree.getTreeName())
             else:
                 msg = 'tree %s opened from file %s is not valid' % (
-                        self.tree.getTreeName(), _treefile)
+                        self.tree.getTreeName(), filepath)
                 log.error(msg)
                 raise Exception(msg)
-        except JavaRemoteException as e:
-            log.error('Unable to open tree %s' % _treefile)
+        except Exception as e:
+            log.error('Unable to open tree %s' % filepath)
+            raise
+
     def tree_summary(self):
         pass
 
