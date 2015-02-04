@@ -1,5 +1,5 @@
 workspace: None
-treefile: None
+tree: None
 host: localhost
 debug: False
 auto: True

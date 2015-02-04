@@ -27,30 +27,46 @@ import os
 
 class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
-            debug=None, auto=None, config=None):
+            outdir=None, debug=None, auto=None, config=None):
 
         self.configfile = config
         self.config_workspace(config, workspace)
+        self.setc('outdir', outdir, self.workspace)
 
         self.setc('debug', debug)
         self.setc('auto', auto)
+
         self.setc('host', host, 'localhost')
-
         if self.host != 'localhost':
-            msg = 'only local execution is supported'
-            log.error(msg)
-            raise Exception(msg)
+            self._fail('Only local execution is supported!')
+       
+        self.setc('treefile', treefile)
+        if self.treefile is None:
+            self._fail('A treefile is required to run!')
         
-#        self.set_workspace(workspace)
-#        self.set_treefile(treefile)
-#        
-#        if self.auto:
-#            self.connect()
-#            self.open_tree()
+        if self.auto:
+            self.connect()
+            self.open_tree()
 
+    def _fail(self, msg):
+        log.error(msg)
+        raise Exception(msg)
+
+    @property
+    def auto(self):
+        return self.c['auto']
+    @property
+    def debug(self):
+        return self.c['debug']
     @property
     def host(self):
         return self.c['host']
+    @property
+    def treefile(self):
+        return self.c['treefile']
+    @property
+    def workspace(self):
+        return self.c['workspace']
 
     def config_workspace(self, config, workspace):
         """ Reads the config and workspace options and sets class members """
@@ -138,13 +154,15 @@ def main():
 
     parser = argparse.ArgumentParser(description='TreeAge Object Interface Wrapper')
     
-    parser.add_argument('-d', '--debug', action='store_true', default=False)
-    parser.add_argument('-t', '--tree', default=None,
+    parser.add_argument('-d', '--debug', action='store_true', default=False,
+            help='Enables debugging logic and logging')
+    parser.add_argument('-t', '--treefile', default=None,
             help='Tree file (xml)')
     parser.add_argument('-H', '--host', default='localhost',
             help='Host running TreeAgePro')
     parser.add_argument('-o', '--outdir', default=None,
-            help='Output directory')
+            help='Output directory (defaults to workspace if it is supplied, '\
+                    'current working directory otherwise)')
     parser.add_argument('-w', '--workspace', default=None,
             help='Path prefix for workspace (defaults to current working directory)')
     parser.add_argument('-p', '--prefix', default=None,
@@ -164,7 +182,7 @@ def main():
 
     log.info(args)
     
-    ts = TaoiSession(args.host, args.tree, args.workspace,
+    ts = TaoiSession(host=args.host, treefile=args.treefile, workspace=args.workspace,
             debug=args.debug, auto=True, config=args.config)
 
 if __name__=="__main__":
