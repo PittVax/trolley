@@ -1,0 +1,9 @@
+base:
+    workspace: None
+    treefile: None
+    host: localhost
+    debug: False
+    auto: True
+
+
+
