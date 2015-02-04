@@ -48,8 +48,11 @@ class TaoiSession(object):
             self._fail('A treefile is required to run!')
         
         if self.auto:
-            self.connect()
-            self.open_tree()
+            self.auto_run()
+
+    def _autorun(self):
+        self.connect()
+        self.open_tree()
 
     def _fail(self, msg):
         log.error(msg)
