@@ -8,3 +8,8 @@ In order to use the tools provided in this package, either:
 - use absolute paths
 
 All input paths given to taoi modules will be relative to this workspace path 
+
+
+PyYAML:
+- must be installed with jython
+- recommend using a virtual environment for jython dependencies
