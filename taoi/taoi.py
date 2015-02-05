@@ -21,13 +21,13 @@ except Exception as e:
 import logging
 try:
     __main__
-    import argparse
+
 except NameError as e:
     logging.basicConfig(level=logging.DEBUG)
     log = logging.getLogger(__name__)
-
+import argparse
 import yaml, json
-import os
+import os, sys, csv
 from xml.etree import ElementTree as ET
 
 class TaoiSession(object):
@@ -187,14 +187,52 @@ class TaoiSession(object):
                 raise Exception(msg)
         except Exception as e:
             log.error('Unable to open tree %s' % filepath)
-            raise
+            rais_e
 
-    def print_tree_summary(self):
-        print(self.tree_variables)
+    def print_summary(self):
+        log.info('Printing basic summary as CSV')
+        TaoiSession.csv_key_value_dict(input_dict=self.basic_summary,
+                key_name='item', value_name='value')
+        log.info('Printing variables summary as CSV')
+        TaoiSession.csv_key_value_dict(input_dict=self.variables,
+                key_name='variable_id', value_name='variable_description')
+
+
+    @staticmethod
+    def csv_key_value_dict(input_dict, key_name='key', value_name='value',
+            out=sys.stdout):
+        w = csv.writer(out, delimiter=',', quoting=csv.QUOTE_ALL)
+        w.writerow([key_name, value_name])
+        for k,v in input_dict.iteritems():
+            w.writerow([k,v])
 
     @property
-    def tree_variables(self):
-        return self.tree.getVariables()
+    def variables(self):
+        if not hasattr(self, '_variables'):
+            try:
+                self._variables = {v.getName(): v.getDescription() for v in \
+                    self.tree.getVariables()}
+            except Exception as e:
+                log.error('Unable to read variables from tree') 
+        return self._variables
+
+    @property
+    def basic_summary(self):
+        if not hasattr(self, '_basic_summary'):
+            try:
+                t = self.tree
+                self._basic_summary = {
+                       'file name': t.getFileName(),
+                       'calculation method': t.getCalculationMethod(),
+                       'variable count': len(t.getVariables()),
+                       'trackers count': len(t.getTrackers()),
+                       'tables count': len(t.getTables()),
+                       'distributions count': len(t.getDistributions()),
+                       }
+            except Exception as e:
+                log.error('Unable to generate basic summary')
+        return self._basic_summary
+
 
 def main():
 
@@ -233,7 +271,7 @@ def main():
             debug=args.debug, auto=True, config=args.config)
 
     if args.summary:
-        ts.print_tree_summary()
+        ts.print_summary()
 
 if __name__=="__main__":
     main()
