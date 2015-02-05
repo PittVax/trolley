@@ -107,17 +107,19 @@ class TaoiSession(object):
             log.debug('successfully parsed yaml config file')
         except Exception as e:
             if workspace is None:
-                log.debug('No workspace provided, attempt to use current directory')
+                log.debug(cat('No workspace provided, attempt to use current ',
+                    'directory'))
             else:
-                log.debug('attempting to use supplied workspace without yaml config')
+                log.debug(cat('attempting to use supplied workspace without ',
+                    'yaml config'))
         finally:
             if not os.access(_workspace, os.R_OK):
                 msg = 'No read access to workspace path: %s' % _workspace
                 log.error(msg)
                 raise Exception(msg)
             if workspace is not None and workspace in self.c:
-                log.warn('workspace specified in config and as argument; '\
-                        'using supplied argument: %s' % workspace)
+                log.warn(cat('workspace specified in config and as argument; ',
+                    'using supplied argument: %s') % workspace)
         # when debugging log the original config dicts
         log.debug('supplied config = %s' % json.dumps(self._c))
         # update the workspace param in the master config
