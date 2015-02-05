@@ -28,6 +28,7 @@ except NameError as e:
 import argparse
 import yaml, json
 import os, sys, csv
+import hashlib
 from xml.etree import ElementTree as ET
 
 ###############################################################################
@@ -63,6 +64,8 @@ class TaoiSession(object):
         self.setc('treefile', treefile)
         if self.treefile is None:
             self._fail('A treefile is required to run!')
+        else:
+            self._archive_tree()
         
         if self.auto:
             self._autorun()
@@ -74,6 +77,13 @@ class TaoiSession(object):
     def _fail(self, msg):
         log.error(msg)
         raise Exception(msg)
+
+    def _archive_tree(self):
+        filepath = os.path.join(self.workspace, self.treefile)
+        with open (filepath, 'rb') as f:
+            self._archive['tree_string'] = f.read()
+        self._archive['tree_string_md5'] = hashlib.md5(
+                self._archive['tree_string'])
 
     @property
     def auto(self):
@@ -168,7 +178,6 @@ class TaoiSession(object):
                 log.info('%s %s' % (msg,
                     'For a more detailed error message run in debug mode.'))
             raise
-
 
     def validate_treefile_xml(self, filepath):
         try:
