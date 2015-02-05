@@ -30,6 +30,21 @@ import yaml, json
 import os, sys, csv
 from xml.etree import ElementTree as ET
 
+###############################################################################
+
+def cat(*args):
+    return ''.join([str(i) for i in args])
+
+def csv_key_value_dict(input_dict, key_name='key', value_name='value',
+        out=sys.stdout):
+    w = csv.writer(out, delimiter=',', quoting=csv.QUOTE_ALL)
+    w.writerow([key_name, value_name])
+    for k,v in input_dict.iteritems():
+        w.writerow([k,v])
+
+
+###############################################################################
+
 class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
             outdir=None, debug=None, auto=None, config=None):
@@ -114,9 +129,10 @@ class TaoiSession(object):
         assert(hasattr(self,'_c'))
         assert(type(self._c) == dict)
         try:
-            if value is not None and json.dumps(self._c[name]) != json.dumps(value):
-                msg = 'config value [ %s ] for [ %s ] overwritten with [ %s ]' % (
-                    self._c[name], name, json.dumps(value))
+            if (value is not None 
+                    and json.dumps(self._c[name]) != json.dumps(value)):
+                msg = cat('config value [ %s ] for [ %s ] overwritten with ',
+                        '[ %s ]') % (self._c[name], name, json.dumps(value))
                 self.c[name] = value
                 log.warn(msg)
             elif name in self._c:
@@ -129,11 +145,11 @@ class TaoiSession(object):
         if name not in self.c:
             if default is not None:
                 self.c[name] = default
-                log.warn('no value available for [ %s ], using default: [ %s ]' % (
-                    name, json.dumps(default)))
+                log.warn(cat('no value available for [ %s ], using default: ',
+                    '[ %s ]') % (name, json.dumps(default)))
             else:
-                log.warn('no value available for [ %s ] and no default ' \
-                        'supplied; setting to [ None ]' % name)
+                log.warn(cat('no value available for [ %s ] and no default ',
+                    'supplied; setting to [ None ]') % name)
                 self.c[name] = None
 
     def connect(self):
@@ -191,20 +207,11 @@ class TaoiSession(object):
 
     def print_summary(self):
         log.info('Printing basic summary as CSV')
-        TaoiSession.csv_key_value_dict(input_dict=self.basic_summary,
+        csv_key_value_dict(input_dict=self.basic_summary,
                 key_name='item', value_name='value')
         log.info('Printing variables summary as CSV')
-        TaoiSession.csv_key_value_dict(input_dict=self.variables,
+        csv_key_value_dict(input_dict=self.variables,
                 key_name='variable_id', value_name='variable_description')
-
-
-    @staticmethod
-    def csv_key_value_dict(input_dict, key_name='key', value_name='value',
-            out=sys.stdout):
-        w = csv.writer(out, delimiter=',', quoting=csv.QUOTE_ALL)
-        w.writerow([key_name, value_name])
-        for k,v in input_dict.iteritems():
-            w.writerow([k,v])
 
     @property
     def variables(self):
@@ -233,10 +240,11 @@ class TaoiSession(object):
                 log.error('Unable to generate basic summary')
         return self._basic_summary
 
+###############################################################################
 
 def main():
 
-    parser = argparse.ArgumentParser(description='TreeAge Object Interface Wrapper')
+    parser = argparse.ArgumentParser(description='TreeAge Object Interface')
     
     parser.add_argument('-d', '--debug', action='store_true', default=False,
             help='Enables debugging logic and logging')
@@ -245,10 +253,11 @@ def main():
     parser.add_argument('-H', '--host', default='localhost',
             help='Host running TreeAgePro')
     parser.add_argument('-o', '--outdir', default=None,
-            help='Output directory (defaults to workspace if it is supplied, '\
-                    'current working directory otherwise)')
+            help=cat('Output directory (defaults to workspace if it is ',
+                'supplied, current working directory otherwise)'))
     parser.add_argument('-w', '--workspace', default=None,
-            help='Path prefix for workspace (defaults to current working directory)')
+            help=cat('Path prefix for workspace (defaults to current working ',
+                'directory)'))
     parser.add_argument('-p', '--prefix', default=None,
             help='Prefix used for all output files (defaults to a timestamp)')
     parser.add_argument('-c', '--config', default=None,
