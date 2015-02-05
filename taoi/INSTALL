@@ -13,3 +13,20 @@ All input paths given to taoi modules will be relative to this workspace path
 PyYAML:
 - must be installed with jython
 - recommend using a virtual environment for jython dependencies
+
+TreeAge:
+- it may be necessary to start th TreeAgePro interface once "as administrator"
+  * attempting to install a plugin within treeage prompted privilege escalation
+  * this may be an osx-specific issue
+- it may be beneficial to increase the amount of memory available to treeage
+  * this is done in the TreeAgePro.ini file (or, possibly, within the settings
+    of the application.  On my system the file is:
+    /Applications/TreeAgePro/TreeAgePro.app/Contents/MacOS/TreeAgePro.ini
+  * Original settings were:
+    -XX:MaxPermSize=256m
+    -Xms128m
+    -Xmx1024m
+  * Doubling these gives:
+    -XX:MaxPermSize=512m
+    -Xms256m
+    -Xmx2048m
