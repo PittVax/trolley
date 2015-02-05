@@ -21,9 +21,14 @@ try:
 except Exception as e:
     raise
 
-import argparse
 import logging
-log = logging.getLogger(__name__)
+try:
+    __main__
+    import argparse
+except NameError as e:
+    logging.basicConfig(level=logging.DEBUG)
+    log = logging.getLogger(__name__)
+
 import yaml, json
 import os
 from xml.etree import ElementTree as et
@@ -187,8 +192,12 @@ class TaoiSession(object):
             log.error('Unable to open tree %s' % filepath)
             raise
 
-    def tree_summary(self):
-        pass
+    def print_tree_summary(self):
+        print(self.tree_variables)
+
+    @property
+    def tree_variables(self):
+        return self.tree.getVariables()
 
 def main():
 
@@ -209,7 +218,8 @@ def main():
             help='Prefix used for all output files (defaults to a timestamp)')
     parser.add_argument('-c', '--config', default=None,
             help='YAML-format config file (command line args override config)')
-
+    parser.add_argument('-s', '--summary', action='store_true', default=False,
+            help='prints a summary of tree attributes')
 
     args = parser.parse_args()
 
@@ -224,6 +234,9 @@ def main():
     
     ts = TaoiSession(host=args.host, treefile=args.treefile, workspace=args.workspace,
             debug=args.debug, auto=True, config=args.config)
+
+    if args.summary:
+        ts.print_tree_summary()
 
 if __name__=="__main__":
     main()
