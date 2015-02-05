@@ -13,11 +13,8 @@ import java.util.Map as JavaMap
 
 try:
     import utils.set_classpath
-    # import the treeage pro object interface classes
-    from com.treeage.treeagepro.oi import AnalysisType
-    from com.treeage.treeagepro.oi import Report
-    from com.treeage.treeagepro.oi import Tree
-    from com.treeage.treeagepro.oi import TreeAgeProApplication
+    # import the treeage pro object interface
+    import com.treeage.treeagepro.oi as TA
 except Exception as e:
     raise
 
@@ -31,7 +28,7 @@ except NameError as e:
 
 import yaml, json
 import os
-from xml.etree import ElementTree as et
+from xml.etree import ElementTree as ET
 
 class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
@@ -141,7 +138,7 @@ class TaoiSession(object):
 
     def connect(self):
         try:
-            self.app = TreeAgeProApplication()
+            self.app = TA.TreeAgeProApplication()
             if not self.app.isValid():
                 raise Exception('The TreeAge Pro Application is not valid')
             log.info(self.app.getWorkspacePath())
@@ -157,7 +154,7 @@ class TaoiSession(object):
 
     def validate_treefile_xml(self, filepath):
         try:
-            xml_root = et.parse(filepath)
+            xml_root = ET.parse(filepath)
             namespace = '{http://www.treeage.com/modeldefs/tree}'
             treetag = 'Tree'
             if not xml_root.findall(namespace + treetag):
