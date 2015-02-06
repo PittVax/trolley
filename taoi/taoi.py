@@ -117,6 +117,38 @@ class TaoiVariable(object):
     def name(self, v):
         self.var.setName(v)
 
+    # root definition getters/setters
+    @property
+    def root_set(self):
+        return self.var.isRootDefinitionSet()
+    @property
+    def root_definition(self):
+        if self.root_set:
+            return self.var.getRootDefinition()
+        else:
+            msg = cat('Root definition does not exist! Check the property ',
+                    'TaoiVariable.root_set first!')
+            log.error(msg)
+            raise TaoiVariableError(msg)
+    @root_definition.setter
+    def root_definition(self, v):
+        if isinstance(v, TA.VariableDefinition):
+            self.var.setRootDefinition(v)
+        else:
+            msg = cat('root_definition must be set to an instance of %s, ',
+                    'but an instance of %s was supplied') % (
+                    type(TA.VariableDefinition), type(v))
+            log.error(msg)
+            raise TaoiVariableError(msg)
+    @property
+    def root_value(self):
+        return self.root_definition.getValue()
+    @root_value.setter
+    def root_value(self, v):
+        self.root_definition.setValue(v)
+
+
+    
 
 
     def update_from_dict(self, dictionary):
