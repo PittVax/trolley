@@ -64,7 +64,8 @@ class TaoiVariable(object):
                 log.error(msg)
                 raise Exception(msg)
             else:
-                msg = '"variable" argument type not allowed!'
+                msg = '"variable" argument of type %s not allowed!' % (
+                        type(variable),)
                 log.error(msg)
                 raise Exception(msg)
             self.update(kwargs)
@@ -76,14 +77,22 @@ class TaoiVariable(object):
         """ Overload function operator to return the wrapped TA.Variable """
         return self.var
 
-    #def update(self, d):
+    def properties(self):
+        return [k for k,v in self.__class__.__dict__.items() \
+                if type(v) is property]
 
-
+    def update_from_dict(self, dictionary):
+        props = self.properties()
+        for k,v in dictionary.iteritems():
+            if k in props:
+                pass
     
 
 class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
             outdir=None, debug=None, auto=None, config=None):
+
+        self._archive = dict()
 
         self.configfile = config
         self.config_workspace(config, workspace)
