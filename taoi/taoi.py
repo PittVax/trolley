@@ -44,11 +44,11 @@ def csv_key_value_dict(input_dict, key_name='key', value_name='value',
         w.writerow([k,v])
 
 ###############################################################################
+class TaoiVariableError(Exception):
+    pass
 
 class TaoiVariable(object):
     """ Thin wrapper over TreeAge Variable """
-    class TaoiVariableError(Exception):
-        pass
     def __init__(self, variable=None, **kwargs):
         try:
             if variable is None:
@@ -68,9 +68,9 @@ class TaoiVariable(object):
                         type(variable),)
                 log.error(msg)
                 raise Exception(msg)
-            self.update(kwargs)
+            self.update_from_dict(kwargs)
         except Exception as e:
-            if not isinstance(e, TaoiVariableException):
+            if not isinstance(e, TaoiVariableError):
                 raise
                 
     def __call__(self):
