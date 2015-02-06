@@ -86,21 +86,27 @@ class TaoiSession(object):
 
     @property
     def auto(self):
+        """ Automatically connect to TreeAge and run analyses """
         return self.c['auto']
     @property
     def debug(self):
+        """ More deatiled logging and finer-grained exception handling """
         return self.c['debug']
     @property
     def host(self):
+        """ The host running the TreeAge application server """
         return self.c['host']
     @property
     def treefile(self):
+        """ The relative or absolute path to the XML treefile """
         return self.c['treefile']
     @property
     def workspace(self):
+        """ The directoy containing the input files """
         return self.c['workspace']
     @property
     def outdir(self):
+        """ Where to write output (defaults to same value as workspace """ 
         return self.c['outdir']
 
     def config_workspace(self, config, workspace):
