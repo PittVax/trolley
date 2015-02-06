@@ -104,7 +104,11 @@ class TaoiSession(object):
         return self.c['outdir']
 
     def config_workspace(self, config, workspace):
-        """ Reads the config and workspace options and sets class members """
+        """ Reads the config and workspace options and sets class members
+        
+        Somewhat convoluted logic searches for config file as a path relative
+        to the workspace (if supplied), otherwise ???????????????????????? """
+        # TODO this doesn't support absolute paths !!!!!!!!!!!!!!!!!!!!!!!
         _workspace = os.getcwd() if workspace is None else workspace
         self.c = dict()
         self._c = dict()
@@ -135,6 +139,11 @@ class TaoiSession(object):
         self.setc('workspace',_workspace)
 
     def setc(self, name, value, default=None):
+        """ Utility method that updates internal configuration dictionary
+
+        Logs cases when values from the original config file are overridden by
+        command line arguments or defaults (in the case of missing optional
+        parameters. """
         assert(hasattr(self,'c'))
         assert(type(self.c) == dict)
         assert(hasattr(self,'_c'))
@@ -221,6 +230,7 @@ class TaoiSession(object):
             rais_e
 
     def print_summary(self):
+        """ CSV formatted summaries of Tree properties """
         log.info('Printing basic summary as CSV')
         csv_key_value_dict(input_dict=self.basic_summary,
                 key_name='item', value_name='value')
