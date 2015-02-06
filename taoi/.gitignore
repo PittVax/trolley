@@ -3,3 +3,4 @@
 .*.swn
 *.pyc
 java/class
+*\$py.class

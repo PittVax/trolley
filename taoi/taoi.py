@@ -45,6 +45,42 @@ def csv_key_value_dict(input_dict, key_name='key', value_name='value',
 
 ###############################################################################
 
+class TaoiVariable(object):
+    """ Thin wrapper over TreeAge Variable """
+    class TaoiVariableError(Exception):
+        pass
+    def __init__(self, variable=None, **kwargs):
+        try:
+            if variable is None:
+                log.debug(cat('No instance variable to copy - instantiating ',
+                    'a new one'))
+                self.var = TA.Variable()
+            elif type(variable) == TA.Variable:
+                log.debug('Copying from supplied variable')
+                self.var = variable
+            elif type(variable) == TaoiVariable:
+                msg = cat('Copy-from-instance logic has not been implemented',
+                        ' yet.  Please use an instance of TA.Variable')
+                log.error(msg)
+                raise Exception(msg)
+            else:
+                msg = '"variable" argument type not allowed!'
+                log.error(msg)
+                raise Exception(msg)
+            self.update(kwargs)
+        except Exception as e:
+            if not isinstance(e, TaoiVariableException):
+                raise
+                
+    def __call__(self):
+        """ Overload function operator to return the wrapped TA.Variable """
+        return self.var
+
+    #def update(self, d):
+
+
+    
+
 class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
             outdir=None, debug=None, auto=None, config=None):
@@ -234,7 +270,7 @@ class TaoiSession(object):
                 raise Exception(msg)
         except Exception as e:
             log.error('Unable to open tree %s' % filepath)
-            rais_e
+            raise
 
     @property
     def variables(self):

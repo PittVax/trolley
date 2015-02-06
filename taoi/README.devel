@@ -1,0 +1,5 @@
+The utils directory contains the module "readline" that can be used (if readline
+is installed) to enable tab completion in the jython shell
+
+Use:
+    >>> import utils.readline
