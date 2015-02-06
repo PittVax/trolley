@@ -80,12 +80,57 @@ class TaoiVariable(object):
     def properties(self):
         return [k for k,v in self.__class__.__dict__.items() \
                 if type(v) is property]
+    
+    # variable comment
+    @property
+    def comment(self):
+        return self.var.getComment()
+    @comment.setter
+    def comment(self, v):
+        self.var.setComment(v)
+    # variable description
+    @property
+    def description(self):
+        return self.var.getDescription()
+    @description.setter
+    def description(self, v):
+        self.var.setDescription(v)
+    # variable high value
+    @property
+    def high(self):
+        return self.var.getHighValue()
+    @high.setter
+    def high(self, v):
+        self.var.setHighValue(v)
+    # variable low value
+    @property
+    def low(self):
+        return self.var.getLowValue()
+    @low.setter
+    def low(self, v):
+        self.var.setLowValue()
+    # variable name
+    @property
+    def name(self):
+        return self.var.getName()
+    @name.setter
+    def name(self, v):
+        self.var.setName(v)
 
     def update_from_dict(self, dictionary):
         props = self.properties()
         for k,v in dictionary.iteritems():
             if k in props:
-                pass
+                try:
+                    msg = 'setting [ %s ] to [ %s ]' % (k, v)
+                    v_old = self.__getattribute__(k)
+                    msg += '(originally was [ %s ])' % v_old
+                    self.__setattr__(v)
+                    log.debug('Success ' + msg)
+                except Exception as e:
+                    log.debug('Failure ' + msg)
+                    raise
+
     
 
 class TaoiSession(object):
