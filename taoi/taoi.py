@@ -105,7 +105,7 @@ class TaoiSession(object):
         """ The directoy containing the input files """
         return self.c['workspace']
     @property
-        def outdir(self):
+    def outdir(self):
         """ Where to write output (defaults to same value as workspace """ 
         return self.c['outdir']
 
@@ -242,13 +242,20 @@ class TaoiSession(object):
 
         This is memoized and only populated once (upon first access) unless
         using debug mode. """
-        
-        if self.debug or not hasattr(self, '_variables'):
-            try:
+        try:
+            if (not hasattr(self, '_archive') 
+                    or 'variables' not in self._archive):
+                self._archive['variables'] = {v.getName(): v.getDescription() \
+                        for v in self.tree.getVariables()}
+            if self.debug or not hasattr(self, '_variables'):
                 self._variables = {v.getName(): v.getDescription() for v in \
                     self.tree.getVariables()}
-            except Exception as e:
-                log.error('Unable to read variables from tree') 
+            #if self.debug:
+            #    for d in diff_dicts(self._archive['variables'],
+            #            self._variables):
+            #        log.debug(d)
+        except Exception as e:
+            log.error('Unable to read variables from tree') 
         return self._variables
 
     @property
