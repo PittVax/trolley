@@ -179,6 +179,10 @@ class TaoiSession(object):
             raise
 
     def validate_treefile_xml(self, filepath):
+        """ Basic XML validation
+
+        Checks only that the xml parses and that the Tree tag is found in
+        namespace {http://www.treeage.com/modeldefs/tree} """
         try:
             xml_root = ET.parse(filepath)
             namespace = '{http://www.treeage.com/modeldefs/tree}'
@@ -200,6 +204,7 @@ class TaoiSession(object):
             raise
 
     def open_tree(self):
+        """ Opens Treefile and stores tree object as instance member """
         try:
             filepath = os.path.join(self.workspace, self.treefile)
             self.validate_treefile_xml(filepath)    
