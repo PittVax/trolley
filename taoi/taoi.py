@@ -117,6 +117,8 @@ class TaoiVariable(object):
     def name(self, v):
         self.var.setName(v)
 
+
+
     def update_from_dict(self, dictionary):
         props = self.properties()
         for k,v in dictionary.iteritems():
@@ -124,8 +126,8 @@ class TaoiVariable(object):
                 try:
                     msg = 'setting [ %s ] to [ %s ]' % (k, v)
                     v_old = self.__getattribute__(k)
-                    msg += '(originally was [ %s ])' % v_old
-                    self.__setattr__(v)
+                    msg += ' (originally was [ %s ])' % v_old
+                    self.__setattr__(k, v)
                     log.debug('Success ' + msg)
                 except Exception as e:
                     log.debug('Failure ' + msg)
