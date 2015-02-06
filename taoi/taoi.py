@@ -43,7 +43,6 @@ def csv_key_value_dict(input_dict, key_name='key', value_name='value',
     for k,v in input_dict.iteritems():
         w.writerow([k,v])
 
-
 ###############################################################################
 
 class TaoiSession(object):
@@ -226,7 +225,12 @@ class TaoiSession(object):
 
     @property
     def variables(self):
-        if not hasattr(self, '_variables'):
+        """ A dictionary with key = variable names and value = variable value
+
+        This is memoized and only populated once (upon first access) unless
+        using debug mode. """
+        
+        if self.debug or not hasattr(self, '_variables'):
             try:
                 self._variables = {v.getName(): v.getDescription() for v in \
                     self.tree.getVariables()}
@@ -236,7 +240,12 @@ class TaoiSession(object):
 
     @property
     def basic_summary(self):
-        if not hasattr(self, '_basic_summary'):
+        """ A dictionary with key = item and value = item value
+        
+        `item` contains a variety of summary statistics for the tree.  This is
+        memoized and only populated once (upon first access) unless using 
+        debug mode. """
+        if self.debug or not hasattr(self, '_basic_summary'):
             try:
                 t = self.tree
                 self._basic_summary = {
