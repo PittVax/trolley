@@ -105,7 +105,7 @@ class TaoiSession(object):
         """ The directoy containing the input files """
         return self.c['workspace']
     @property
-    def outdir(self):
+        def outdir(self):
         """ Where to write output (defaults to same value as workspace """ 
         return self.c['outdir']
 
@@ -179,6 +179,7 @@ class TaoiSession(object):
                 self.c[name] = None
 
     def connect(self):
+        """ Attempt to connect to the TreeAgePro application """
         try:
             self.app = TA.TreeAgeProApplication()
             if not self.app.isValid():
@@ -235,15 +236,6 @@ class TaoiSession(object):
             log.error('Unable to open tree %s' % filepath)
             rais_e
 
-    def print_summary(self):
-        """ CSV formatted summaries of Tree properties """
-        log.info('Printing basic summary as CSV')
-        csv_key_value_dict(input_dict=self.basic_summary,
-                key_name='item', value_name='value')
-        log.info('Printing variables summary as CSV')
-        csv_key_value_dict(input_dict=self.variables,
-                key_name='variable_id', value_name='variable_description')
-
     @property
     def variables(self):
         """ A dictionary with key = variable names and value = variable value
@@ -280,6 +272,15 @@ class TaoiSession(object):
             except Exception as e:
                 log.error('Unable to generate basic summary')
         return self._basic_summary
+
+    def print_summary(self):
+        """ CSV formatted summaries of Tree properties """
+        log.info('Printing basic summary as CSV')
+        csv_key_value_dict(input_dict=self.basic_summary,
+                key_name='item', value_name='value')
+        log.info('Printing variables summary as CSV')
+        csv_key_value_dict(input_dict=self.variables,
+                key_name='variable_id', value_name='variable_description')
 
 ###############################################################################
 
