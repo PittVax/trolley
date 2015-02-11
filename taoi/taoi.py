@@ -147,10 +147,6 @@ class TaoiVariable(object):
     def root_value(self, v):
         self.root_definition.setValue(v)
 
-
-    
-
-
     def update_from_dict(self, dictionary):
         props = self.properties()
         for k,v in dictionary.iteritems():
