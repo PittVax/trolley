@@ -47,6 +47,35 @@ def csv_key_value_dict(input_dict, key_name='key', value_name='value',
 class TaoiVariableError(Exception):
     pass
 
+class TaoiTableError(Exception):
+    pass
+
+class TaoiTable(object):
+    """ Thin wrapper over a TreeAge Table """
+    def __init__(self, table=None, **kwargs):
+        try:
+            if table is None:
+                log.debug(cat('No instance table to copy - instantiating ',
+                    'a new one'))
+                self.var = TA.Table()
+            elif type(table) == TA.Table:
+                log.debug('Copying from supplied table')
+                self.var = variable
+            elif type(table) == TaoiTable:
+                msg = cat('Copy-from-instance logic has not been implemented',
+                        ' yet.  Please use an instance of TA.Table')
+                log.error(msg)
+                raise Exception(msg)
+            else:
+                msg = '"table" argument of type %s not allowed!' % (
+                        type(table),)
+                log.error(msg)
+                raise Exception(msg)
+            self.update_from_dict(kwargs)
+        except Exception as e:
+            if not isinstance(e, TaoiTableError):
+                raise
+ 
 class TaoiVariable(object):
     """ Thin wrapper over TreeAge Variable """
     def __init__(self, variable=None, **kwargs):

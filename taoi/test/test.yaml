@@ -11,18 +11,9 @@ experiment:
     variables:
       - name: _chInput
         comment: |-
-          Set to zero for default values, set to 1 to use external data tables 
+          Set to zero for default table set - the data for these will
+          be supplied by the table tags of the arms below
   sweeps:
-    # first sweep
-    - name: default
-      # settings common to all arms in the sweep
-      root:
-        variables:
-          - name: _chInput
-            value: 0
-      # the individual arm in the sweep
-      arms:
-        - name: default
     # second sweep
     - name: external
       root:
