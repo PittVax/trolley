@@ -54,9 +54,18 @@ class TaoiTableError(TaoiError):
     pass
 
 ###############################################################################
+#################################################################### TaoiObject
+
+class TaoiObject(object):
+    """ Base class for wrapper TreeAge object (variable or table) """
+    def properties(self):
+        return [k for k,v in self.__class__.__dict__.items() \
+                if type(v) is property]
+
+###############################################################################
 ##################################################################### TaoiTable
 
-class TaoiTable(object):
+class TaoiTable(TaoiObject):
     """ Thin wrapper over a TreeAge Table """
     def __init__(self, table=None, **kwargs):
         try:
@@ -66,7 +75,7 @@ class TaoiTable(object):
                 self.var = TA.Table()
             elif type(table) == TA.Table:
                 log.debug('Copying from supplied table')
-                self.var = variable
+                self.var = table
             elif type(table) == TaoiTable:
                 msg = cat('Copy-from-instance logic has not been implemented',
                         ' yet.  Please use an instance of TA.Table')
@@ -85,7 +94,7 @@ class TaoiTable(object):
 ###############################################################################
 ################################################################## TaoiVariable
 
-class TaoiVariable(object):
+class TaoiVariable(TaoiObject):
     """ Thin wrapper over TreeAge Variable """
     def __init__(self, variable=None, **kwargs):
         try:
@@ -115,10 +124,6 @@ class TaoiVariable(object):
         """ Overload function operator to return the wrapped TA.Variable """
         return self.var
 
-    def properties(self):
-        return [k for k,v in self.__class__.__dict__.items() \
-                if type(v) is property]
-    
     # variable comment
     @property
     def comment(self):
