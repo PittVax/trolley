@@ -32,6 +32,7 @@ import hashlib
 from xml.etree import ElementTree as ET
 
 ###############################################################################
+############################################################# utility functions
 
 def cat(*args):
     return ''.join([str(i) for i in args])
@@ -44,11 +45,16 @@ def csv_key_value_dict(input_dict, key_name='key', value_name='value',
         w.writerow([k,v])
 
 ###############################################################################
-class TaoiVariableError(Exception):
+#################################################################### TaoiErrors
+class TaoiError(Exception):
+    pass
+class TaoiVariableError(TaoiError):
+    pass
+class TaoiTableError(TaoiError):
     pass
 
-class TaoiTableError(Exception):
-    pass
+###############################################################################
+##################################################################### TaoiTable
 
 class TaoiTable(object):
     """ Thin wrapper over a TreeAge Table """
@@ -76,6 +82,9 @@ class TaoiTable(object):
             if not isinstance(e, TaoiTableError):
                 raise
  
+###############################################################################
+################################################################## TaoiVariable
+
 class TaoiVariable(object):
     """ Thin wrapper over TreeAge Variable """
     def __init__(self, variable=None, **kwargs):
@@ -190,7 +199,8 @@ class TaoiVariable(object):
                     log.debug('Failure ' + msg)
                     raise
 
-    
+###############################################################################
+################################################################### TaoiSession
 
 class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
@@ -439,6 +449,7 @@ class TaoiSession(object):
                 key_name='variable_id', value_name='variable_description')
 
 ###############################################################################
+########################################################################## main
 
 def main():
 
