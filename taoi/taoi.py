@@ -62,6 +62,44 @@ class TaoiObject(object):
     def properties(self):
         return [k for k,v in self.__class__.__dict__.items() \
                 if type(v) is property]
+    def __call__(self):
+        """ Overload function operator to return the wrapped TA object """
+        return self.tao
+    # comment
+    @property
+    def comment(self):
+        return self.tao.getComment()
+    @comment.setter
+    def comment(self, v):
+        self.tao.setComment(v)
+    # description
+    @property
+    def description(self):
+        return self.tao.getDescription()
+    @description.setter
+    def description(self, v):
+        self.tao.setDescription(v)
+    # name
+    @property
+    def name(self):
+        return self.tao.getName()
+    @name.setter
+    def name(self, v):
+        self.tao.setName(v)
+
+    def update_from_dict(self, dictionary):
+        props = self.properties()
+        for k,v in dictionary.iteritems():
+            if k in props:
+                try:
+                    msg = 'setting [ %s ] to [ %s ]' % (k, v)
+                    v_old = self.__getattribute__(k)
+                    msg += ' (originally was [ %s ])' % v_old
+                    self.__setattr__(k, v)
+                    log.debug('Success ' + msg)
+                except Exception as e:
+                    log.debug('Failure ' + msg)
+                    raise
 
 ###############################################################################
 ##################################################################### TaoiTable
@@ -73,10 +111,10 @@ class TaoiTable(TaoiObject):
             if table is None:
                 log.debug(cat('No instance table to copy - instantiating ',
                     'a new one'))
-                self.var = TA.Table()
+                self.tao = TA.Table()
             elif type(table) == TA.Table:
                 log.debug('Copying from supplied table')
-                self.var = table
+                self.tao = table
             elif type(table) == TaoiTable:
                 msg = cat('Copy-from-instance logic has not been implemented',
                         ' yet.  Please use an instance of TA.Table')
@@ -102,10 +140,10 @@ class TaoiVariable(TaoiObject):
             if variable is None:
                 log.debug(cat('No instance variable to copy - instantiating ',
                     'a new one'))
-                self.var = TA.Variable()
+                self.tao = TA.Variable()
             elif type(variable) == TA.Variable:
                 log.debug('Copying from supplied variable')
-                self.var = variable
+                self.tao = variable
             elif type(variable) == TaoiVariable:
                 msg = cat('Copy-from-instance logic has not been implemented',
                         ' yet.  Please use an instance of TA.Variable')
@@ -121,54 +159,29 @@ class TaoiVariable(TaoiObject):
             if not isinstance(e, TaoiVariableError):
                 raise
                 
-    def __call__(self):
-        """ Overload function operator to return the wrapped TA.Variable """
-        return self.var
-
-    # variable comment
-    @property
-    def comment(self):
-        return self.var.getComment()
-    @comment.setter
-    def comment(self, v):
-        self.var.setComment(v)
-    # variable description
-    @property
-    def description(self):
-        return self.var.getDescription()
-    @description.setter
-    def description(self, v):
-        self.var.setDescription(v)
     # variable high value
     @property
     def high(self):
-        return self.var.getHighValue()
+        return self.tao.getHighValue()
     @high.setter
     def high(self, v):
-        self.var.setHighValue(v)
+        self.tao.setHighValue(v)
     # variable low value
     @property
     def low(self):
-        return self.var.getLowValue()
+        return self.tao.getLowValue()
     @low.setter
     def low(self, v):
-        self.var.setLowValue()
-    # variable name
-    @property
-    def name(self):
-        return self.var.getName()
-    @name.setter
-    def name(self, v):
-        self.var.setName(v)
+        self.tao.setLowValue()
 
     # root definition getters/setters
     @property
     def root_set(self):
-        return self.var.isRootDefinitionSet()
+        return self.tao.isRootDefinitionSet()
     @property
     def root_definition(self):
         if self.root_set:
-            return self.var.getRootDefinition()
+            return self.tao.getRootDefinition()
         else:
             msg = cat('Root definition does not exist! Check the property ',
                     'TaoiVariable.root_set first!')
@@ -177,7 +190,7 @@ class TaoiVariable(TaoiObject):
     @root_definition.setter
     def root_definition(self, v):
         if isinstance(v, TA.VariableDefinition):
-            self.var.setRootDefinition(v)
+            self.tao.setRootDefinition(v)
         else:
             msg = cat('root_definition must be set to an instance of %s, ',
                     'but an instance of %s was supplied') % (
@@ -190,20 +203,6 @@ class TaoiVariable(TaoiObject):
     @root_value.setter
     def root_value(self, v):
         self.root_definition.setValue(v)
-
-    def update_from_dict(self, dictionary):
-        props = self.properties()
-        for k,v in dictionary.iteritems():
-            if k in props:
-                try:
-                    msg = 'setting [ %s ] to [ %s ]' % (k, v)
-                    v_old = self.__getattribute__(k)
-                    msg += ' (originally was [ %s ])' % v_old
-                    self.__setattr__(k, v)
-                    log.debug('Success ' + msg)
-                except Exception as e:
-                    log.debug('Failure ' + msg)
-                    raise
 
 ###############################################################################
 ################################################################### TaoiSession
