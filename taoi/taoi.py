@@ -129,7 +129,17 @@ class TaoiTable(TaoiObject):
         except Exception as e:
             if not isinstance(e, TaoiTableError):
                 raise
- 
+        self._convert_internal_table()
+
+    def _convert_internal_table(self):
+        table = self.tao
+        self._rows = []
+        for r in table.getRows():
+            self._rows.append(r.getValues())
+        print(self._rows)
+
+
+
 ###############################################################################
 ################################################################## TaoiVariable
 
@@ -236,6 +246,7 @@ class TaoiSession(object):
     def _autorun(self):
         self.connect()
         self.open_tree()
+        self.initialize_tables()
 
     def _fail(self, msg):
         log.error(msg)
@@ -452,6 +463,13 @@ class TaoiSession(object):
         log.info('Printing variables summary as CSV')
         csv_key_value_dict(input_dict=self.variables,
                 key_name='variable_id', value_name='variable_description')
+
+    def initialize_tables(self):
+        """ Extracts all tables from the tree and initializes Taoi wrappers
+        around them """
+
+        for t in self.tree.getTables():
+            print(TaoiTable(t).name)
 
 ###############################################################################
 ########################################################################## main
