@@ -19,7 +19,7 @@ experiment:
       root:
         variables:
           - name: _chInput
-            value: 1
+            value: 0
       # arms for the second sweep
       arms:
         # first arm in the second sweep
