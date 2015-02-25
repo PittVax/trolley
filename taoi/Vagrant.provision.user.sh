@@ -4,6 +4,9 @@
 
 mkvirtualenv -p /opt/jython/bin/jython jythonenv
 
+# workon jythonenv by default
+echo "workon jythonenv" >> /home/vagrant/.bashrc
+
 cd /vagrant/external_dependencies
 
 tar xzvf PyYAML-3.11.tar.gz

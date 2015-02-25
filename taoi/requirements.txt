@@ -1,5 +1,5 @@
 # jython
 # javac, java
 readline==6.2.4.1
-jip==0.8.3
+# jip==0.8.3
 simplejson==3.6.5
