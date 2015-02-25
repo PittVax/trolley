@@ -18,3 +18,10 @@ jython setup.py --without-libyaml install
 # install requirements from pip requirements file
 pip install -r /vagrant/requirements.txt
 
+cd /home/vagrant
+
+ln -s /vagrant trolley
+
+cd trolley
+
+./taoi.py --help
