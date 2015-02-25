@@ -232,7 +232,7 @@ class TaoiSession(object):
 
         self.setc('host', host, 'localhost')
         if self.host != 'localhost':
-            self._fail('Only local execution is supported!')
+            log.info('Remote execution is still experiemental!')
        
         self.setc('treefile', treefile)
         if self.treefile is None:
@@ -356,7 +356,7 @@ class TaoiSession(object):
     def connect(self):
         """ Attempt to connect to the TreeAgePro application """
         try:
-            self.app = TA.TreeAgeProApplication()
+            self.app = TA.TreeAgeProApplication(self.host)
             if not self.app.isValid():
                 raise Exception('The TreeAge Pro Application is not valid')
             log.info(self.app.getWorkspacePath())
@@ -469,7 +469,7 @@ class TaoiSession(object):
         around them """
 
         for t in self.tree.getTables():
-            print(TaoiTable(t).name)
+            self._tables.append(TaoiTable(t))
 
 ###############################################################################
 ########################################################################## main

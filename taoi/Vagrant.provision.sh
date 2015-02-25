@@ -40,7 +40,7 @@ java -jar /opt/jython_installer.jar -s -d /opt/jython
 chown -R vagrant /opt/jython
 
 # become the vagrant user for remainder of provisioning
-su -c "source /vagrant/Vagrant.provision.user.sh" vagrant
+su -c "source /vagrant/Vagrant.provision.user.sh" -l vagrant
 
 # indicate that provisioning has already occurred
 #touch $PROVISIONED;

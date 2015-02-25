@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # source the init script (this should use bash_completion to source automatically
 # in subsequent logins
 . /etc/bash_completion.d/virtualenvwrapper
