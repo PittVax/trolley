@@ -5,3 +5,4 @@
 java/class
 *\$py.class
 external_dependencies/PyYAML-3.11/
+.vagrant/
