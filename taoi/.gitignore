@@ -7,3 +7,4 @@ java/class
 external_dependencies/PyYAML-3.11/
 .vagrant/
 *\$py.class
+vagrant
