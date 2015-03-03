@@ -221,6 +221,7 @@ class TaoiSession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
             outdir=None, debug=None, auto=None, config=None):
 
+        self._tables = []
         self._archive = dict()
 
         self.configfile = config
@@ -470,6 +471,28 @@ class TaoiSession(object):
 
         for t in self.tree.getTables():
             self._tables.append(TaoiTable(t))
+
+
+    def run_ce(self):
+        """ Runs the cost-effectiveness anaysis in the tree and returns a
+        dict of the columns """
+        if self.tree.getCalculationMethod() != 'ct_costEff':
+            msg = cat('Attempted to run cost-effectiveness analysis on a ',
+                    'tree that does not support it!')
+            log.error(msg)
+            raise TaoiError(msg)
+        report = runAnalysis(TA.AnalysisType.costEffectivenes,
+                None, ts.tree.getRoot()).getTextReport()
+        headers = report.getHeaders()
+        rows = report.getRows()
+        d = defaultdict(list)
+        for i in rows:
+            for j in headers:
+                pass
+                #d[headers[j]].append
+
+
+        
 
 ###############################################################################
 ########################################################################## main
