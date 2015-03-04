@@ -102,6 +102,12 @@ class TaoiObject(object):
                     log.debug('Failure ' + msg)
                     raise
 
+    def __unicode__(self):
+        return '%s %s' % (self.name, self.description)
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
+
 ###############################################################################
 ##################################################################### TaoiTable
 
@@ -425,7 +431,7 @@ class TaoiSession(object):
                 self._archive['variables'] = {v.getName(): v.getDescription() \
                         for v in self.tree.getVariables()}
             if self.debug or not hasattr(self, '_variables'):
-                self._variables = {v.getName(): v.getDescription() for v in \
+                self._variables = {v.getName(): TaoiVariable(v) for v in \
                     self.tree.getVariables()}
             #if self.debug:
             #    for d in diff_dicts(self._archive['variables'],
@@ -496,6 +502,7 @@ class TaoiSession(object):
     def run_experiment(self):
         e = self._c['experiment']
         log.info('Running experiment: %s' % e['name'])
+        log.debug(self.variables)
         if ('variables' in e['root'] and 
                 isinstance(e['root']['variables'], list) and
                 len(e['root']['variables']) > 0):
@@ -504,6 +511,13 @@ class TaoiSession(object):
                     v['name'],))
                 if 'comment' in v:
                     log.info('%s: %s' % (v['name'], v['comment']))
+                if v['name'] not in self.variables:
+                    msg = '%s not present in tree!'
+                    log.error(msg)
+                    raise TaoiError(msg)
+                
+
+                    
             
         
 
