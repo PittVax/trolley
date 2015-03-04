@@ -30,6 +30,7 @@ import yaml, json
 import os, sys, csv
 import hashlib
 from xml.etree import ElementTree as ET
+from collections import defaultdict
 
 ###############################################################################
 ############################################################# utility functions
@@ -472,8 +473,7 @@ class TaoiSession(object):
         for t in self.tree.getTables():
             self._tables.append(TaoiTable(t))
 
-
-    def run_ce(self):
+    def run_cost_effectiveness(self):
         """ Runs the cost-effectiveness anaysis in the tree and returns a
         dict of the columns """
         if self.tree.getCalculationMethod() != 'ct_costEff':
@@ -481,17 +481,30 @@ class TaoiSession(object):
                     'tree that does not support it!')
             log.error(msg)
             raise TaoiError(msg)
-        report = runAnalysis(TA.AnalysisType.costEffectivenes,
-                None, ts.tree.getRoot()).getTextReport()
+        report = self.tree.runAnalysis(TA.AnalysisType.costEffectivenes,
+                None, self.tree.getRoot()).getTextReport()
         headers = report.getHeaders()
         rows = report.getRows()
         d = defaultdict(list)
-        for i in rows:
-            for j in headers:
-                pass
-                #d[headers[j]].append
+        for r in rows:
+            i = 0
+            for h in headers:
+                d[h].append(r[i])
+                i += 1
+        return d
 
-
+    def run_experiment(self):
+        e = self._c['experiment']
+        log.info('Running experiment: %s' % e['name'])
+        if ('variables' in e['root'] and 
+                isinstance(e['root']['variables'], list) and
+                len(e['root']['variables']) > 0):
+            for v in e['root']['variables']:
+                log.info('Updating root variable %s' % (
+                    v['name'],))
+                if 'comment' in v:
+                    log.info('%s: %s' % (v['name'], v['comment']))
+            
         
 
 ###############################################################################

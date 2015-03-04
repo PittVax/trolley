@@ -15,7 +15,7 @@ experiment:
           be supplied by the table tags of the arms below
   sweeps:
     # second sweep
-    - name: external
+    - name: ABM
       root:
         variables:
           - name: _chInput
