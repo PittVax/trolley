@@ -27,23 +27,12 @@ except NameError as e:
     log = logging.getLogger(__name__)
 import argparse
 import yaml, json
-import os, sys, csv
+import os
 import hashlib
 from xml.etree import ElementTree as ET
 from collections import defaultdict
 
-###############################################################################
-############################################################# utility functions
-
-def cat(*args):
-    return ''.join([str(i) for i in args])
-
-def csv_key_value_dict(input_dict, key_name='key', value_name='value',
-        out=sys.stdout):
-    w = csv.writer(out, delimiter=',', quoting=csv.QUOTE_ALL)
-    w.writerow([key_name, value_name])
-    for k,v in input_dict.iteritems():
-        w.writerow([k,v])
+from utils.utility_functions import cat, csv_key_value_dict
 
 ###############################################################################
 #################################################################### TaoiErrors
@@ -222,9 +211,9 @@ class TaoiVariable(TaoiObject):
         self.root_definition.setValue(v)
 
 ###############################################################################
-################################################################### TaoiSession
+################################################################### TrolleySession
 
-class TaoiSession(object):
+class TrolleySession(object):
     def __init__(self, host=None, treefile=None, workspace=None,
             outdir=None, debug=None, auto=None, config=None):
 
@@ -558,7 +547,7 @@ def main():
 
     log.info(args)
     
-    ts = TaoiSession(host=args.host, treefile=args.treefile, workspace=args.workspace,
+    ts = TrolleySession(host=args.host, treefile=args.treefile, workspace=args.workspace,
             debug=args.debug, auto=True, config=args.config)
 
     if args.summary:
