@@ -1,2 +1,3 @@
 *.trex-backup*
 *checkpoint.ipynb
+.idea
