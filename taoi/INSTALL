@@ -15,7 +15,7 @@ PyYAML:
 - recommend using a virtual environment for jython dependencies
 
 TreeAge:
-- it may be necessary to start th TreeAgePro interface once "as administrator"
+- it may be necessary to start the TreeAgePro interface once "as administrator"
   * attempting to install a plugin within treeage prompted privilege escalation
   * this may be an osx-specific issue
 - it may be beneficial to increase the amount of memory available to treeage
