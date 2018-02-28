@@ -1,0 +1,9 @@
+version: '3'
+services:
+  jython:
+    image: harisekhon/jython
+    volumes:
+    - /taoi:/home
+
+
+    docker run -it --mount type=bind,src=c:\users\jraviotta\documents\repos\trolley\taoi,dst=/taoi --rm  harisekhon/jython
