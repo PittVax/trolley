@@ -1,0 +1,63 @@
+workspace: None
+tree: None
+host: localhost
+debug: False
+auto: True
+        
+experiment:
+  # this the shared prefix for all conditions in the experiment  
+  name: laiv_tiv
+  root:
+    variables:
+      - name: _chInput
+        comment: |-
+          Set to zero for default table set - the data for these will
+          be supplied by the table tags of the arms below
+  sweeps:
+    # second sweep
+    - name: ABM
+      root:
+        variables:
+          - name: _chInput
+            value: 0
+      # arms for the second sweep
+      arms:
+        # first arm in the second sweep
+        - name: ABM_1
+          # external data tables; the primary key for all tables will be the
+          # arm's name unless overridden in the source tag
+          tables:
+            - name: ATTACK_MONTHLY
+              source: attack_monthly.csv
+              primary_key: fred_run_1
+              columns: [month, value]
+              labels: [Index, Value] 
+            - name: VAX_MONTHLY
+              source: vaccination_monthly.csv
+              primary_key: fred_run_1
+              columns: [month, value]
+              labels: [Index, Value]
+        # second arm of the second sweep
+        - name: ABM_2
+          tables:
+            - name: ATTACK_MONTHLY
+              source: attack_monthly.csv
+              primary_key: fred_run_2
+              columns: [month, value]
+              labels: [Index, Value] 
+            - name: VAX_MONTHLY
+              source: vaccination_monthly.csv
+              primary_key: fred_run_2
+              columns: [month, value]
+              labels: [Index, Value]
+
+
+        
+              
+
+
+              
+
+        
+
+

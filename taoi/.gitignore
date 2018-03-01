@@ -1,0 +1,10 @@
+.*.swp
+.*.swo
+.*.swn
+*.pyc
+java/class
+*\$py.class
+external_dependencies/PyYAML-3.11/
+.vagrant/
+*\$py.class
+vagrant
