@@ -31,6 +31,3 @@ New-Alias drmi  Remove-DanglingImages
 New-Alias drmv  Remove-DanglingVolumes
 
 New-Alias dip  Get-ContainerIPAddress
-
-function Start-jython {docker run -it --rm -v ${PWD}:/scratch -w /scratch mcandre/docker-jython:latest jython}
-function Invoke-jython {docker run -i --rm -v ${PWD}:/scratch -w /scratch mcandre/docker-jython:latest jython}

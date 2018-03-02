@@ -30,3 +30,11 @@ TreeAge:
     -XX:MaxPermSize=512m
     -Xms256m
     -Xmx2048m
+
+# Using trolley as a docker container
+`docker build`
+
+# My notes
+[Docker quickstart](https://docs.docker.com/get-started/)  
+build with name, tag and save to docker hub
+`docker build -t pittvax/trolley:latest`
