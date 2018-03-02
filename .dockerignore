@@ -1,4 +1,6 @@
 # .dockerignore https://docs.docker.com/engine/reference/builder/#dockerignore-file
+# .dockerignore excludes objects from images during docker build
+
 # Ignore temp directories
 */temp
 */tmp
@@ -8,9 +10,9 @@
 .project
 .gitignore
 
-# Ignore objects handled by docker
+# Ignore non-image code
 /taoi/external_dependencies
-Dockerfile
+/trees/
 
 # Ignore vagrant artifacts
 .vagrant/
