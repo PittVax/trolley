@@ -1,40 +1,70 @@
-The TreeAge Object Interface exposes no way to set the workspace path to a
-location outside of the treeage application's installed directories.
+# Installation
+Download or clone this repo to your local machine.
 
-In order to use the tools provided in this package, either:
-- clone the git project into $HOME/treeage/workspace
-- create symlinks from that location to this package
-- copy the necessary input files (trees, data, etc) into the treeage workspace
-- use absolute paths
+## TreeAge configuration
+1. Place TreeAge projects in `./Trees`"
+1. Import existing projects into TreeAge OR turn `./trees` into a project
+    * Import existing projects
+      * Launch TreeAge
+      * Right click in the projects panel
+      * Select `Import...`
+      * Select `General>Existing Projects into Workspace`
+      * Click `Next`
+      * Choose `root directory` option and navigate to `./Trees`
+      * Tick boxes by available projects
+      * **DO NOT** select `Copy projects into workspace`
+      * Click `Finish`
+      * Selected projects should now appear in the projects panel. 
+    * Turn `./trees` into a project
+      * Launch TreeAge  
+      * Select `File>Projects>New Project`
+      * Navigate to and select `./trees`
+      * Click `Ok`
+      * The Project `trees` should now appear in the project panel
+              
+1. Optionally increase memory available to TreeAge
+      * Launch TreeAge as an administrator
+      * Select `Window>Application Preferences`
+      * Select `General>Startup settings`
+      * Increase `Maximum Java heap space:`
+      * Alternatively, alter settings directly in the TreeAgePro.ini file
+        Possibly located at `/Applications/TreeAgePro/TreeAgePro.app/Contents/MacOS/TreeAgePro.ini`
+        * Original settings were:  
+        ```
+        -XX:MaxPermSize=256m  
+        -Xms128m  
+        -Xmx1024m
+        ```  
+        * Doubling these gives:  
+        ```
+        -XX:MaxPermSize=512m  
+        -Xms256m  
+        -Xmx2048m  
+        ```
+1. Open the desired tree in TreeAge
 
-All input paths given to taoi modules will be relative to this workspace path 
+## Trolley configuration
+The TreeAge Object Interface (taoi) requires jython  
+Trolley requires PyYAML  
 
-
-PyYAML:
-- must be installed with jython
-- recommend using a virtual environment for jython dependencies
-
-TreeAge:
-- it may be necessary to start the TreeAgePro interface once "as administrator"
-  * attempting to install a plugin within treeage prompted privilege escalation
-  * this may be an osx-specific issue
-- it may be beneficial to increase the amount of memory available to treeage
-  * this is done in the TreeAgePro.ini file (or, possibly, within the settings
-    of the application.  On my system the file is:
-    /Applications/TreeAgePro/TreeAgePro.app/Contents/MacOS/TreeAgePro.ini
-  * Original settings were:
-    -XX:MaxPermSize=256m
-    -Xms128m
-    -Xmx1024m
-  * Doubling these gives:
-    -XX:MaxPermSize=512m
-    -Xms256m
-    -Xmx2048m
-
-# Using trolley as a docker container
-`docker build`
+1. Install dependencies to your machine (not awesome)
+  * [jython](http://www.jython.org/)  
+  * [PyYAML](http://pyyaml.org/wiki/PyYAML)  
+  * A python virtual environment is recommended for jython dependencies
+1. Use trolley as a docker container (very awesome)
+  * Install [docker](https://docs.docker.com/)  
+  * Open a shell in the root of this repo `./trolley`
+  * Run the following command in PowerShell or OSX terminal  
+  `docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley pittvax/trolley:latest`
+  * Run the following command in Git-Bash  
+    `winpty docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley pittvax/trolley:latest`
+1. Use trolley in a virtual machine (maybe awesome?)
+  * Install [Virtual Box](https://www.virtualbox.org/wiki/Downloads)  
+  * Install [Vagrant](https://www.vagrantup.com/)  
+  * Open a shell in the root of this repo `./trolley`  
+  * Run `vagrant up`
 
 # My notes
-[Docker quickstart](https://docs.docker.com/get-started/)  
-build with name, tag and save to docker hub
-`docker build -t pittvax/trolley:latest`
+`
+
+trolley.py -help 
