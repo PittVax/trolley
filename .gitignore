@@ -1,3 +1,4 @@
 *.trex-backup*
 *checkpoint.ipynb
 .idea
+.bash_history

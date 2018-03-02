@@ -1,6 +1,7 @@
 # .dockerignore https://docs.docker.com/engine/reference/builder/#dockerignore-file
 # Ignore temp directories
 */temp
+*/tmp
 
 # Ignore IDE files
 .idea
@@ -9,13 +10,11 @@
 
 # Ignore objects handled by docker
 /taoi/external_dependencies
+Dockerfile
 
 # Ignore vagrant artifacts
 .vagrant/
 */Vagrant*
-
-# Ignore stuff that should probably be reomoved from Trolley
-/contrib
 
 # Ignore convenience code
 /utils
@@ -27,5 +26,4 @@
 .*.swn
 *.pyc
 java/class
-*\$py.class
 *\$py.class
