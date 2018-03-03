@@ -66,7 +66,6 @@ Trolley requires PyYAML
     * Run `vagrant up`
 1. Shell configuration scripts are available in ./utils  
     * `ps-config.ps1` creates useful aliases for PowerShell
-    * `sh-config.sh` creates useful aliases for bash #TODO  
 
 # Trolley cli
 Help is available with `trolley.py -help`  
@@ -78,8 +77,13 @@ is installed.
   --workdir="/root/trolley" pittvax/trolley:latest jython trolley.py <args>`  
   * If aliases are installed use:
   `Start-Trolley <args>`
-  * From OSX terminal with Trolley on Virtual Box use:  
-  TODO
+  * From OSX terminal with Trolley on Virtual Box:
+    * Mount virtual machine with `vagrant ssh`
+    * Run `taoi/trolley.py <args>`
+    * Files in `~/trolley` are shared with the host
+    * Exit virtual machine with `exit`
+    * Shut down virtual machine with `vagrant down`
+    * Delete virtual machine with `vagrant destroy`
   * From any terminal with locally installed dependencies use:  
   `jython <path to trolley>/taoi/trolley.py <args>`  
 
