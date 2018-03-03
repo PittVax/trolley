@@ -53,19 +53,19 @@ Trolley requires PyYAML
     * [PyYAML](http://pyyaml.org/wiki/PyYAML)  
     * A python virtual environment is recommended for jython dependencies  
 1. Use trolley as a docker container (very awesome)
+    * Shell configuration scripts are available in ./utils  
+        * In PowerShell, `utils/ps-config.ps1` creates aliases for PowerShell
+        * In Bash, `source utils/trolley_aliases.sh` creates aliases for Bash  
     * Install [docker](https://docs.docker.com/)  
     * Open a shell in the root of this repo `./trolley`
-    * Run the following command in PowerShell or OSX terminal  
-    `docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley pittvax/trolley:latest`
-    * Run the following command in Git-Bash  
-    `winpty docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley pittvax/trolley:latest`
-1. Use trolley in a virtual machine (maybe awesome?)
+    * Run `Start-Trolley <args>` PowerShell or OSX terminal  
+    * Run `winpty Start-Trolley <args>` in Git-Bash  
+1. Use trolley in a virtual machine (a little awesome)
     * Install [Virtual Box](https://www.virtualbox.org/wiki/Downloads)  
     * Install [Vagrant](https://www.vagrantup.com/)  
     * Open a shell in the root of this repo `./trolley`  
     * Run `vagrant up`
-1. Shell configuration scripts are available in ./utils  
-    * `ps-config.ps1` creates useful aliases for PowerShell
+    * Mount virtual machine with `vagrant ssh`
 
 # Trolley cli
 Help is available with `trolley.py -help`  
@@ -73,10 +73,9 @@ Help is available with `trolley.py -help`
 `trolley.py` must be called from jython. The syntax will vary based on how jython 
 is installed. 
   * From PowerShell with Trolley on Docker use:  
+  `Start-Trolley <args>` which is an alias for   
   `docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley 
   --workdir="/root/trolley" pittvax/trolley:latest jython trolley.py <args>`  
-  * If aliases are installed use:
-  `Start-Trolley <args>`
   * From OSX terminal with Trolley on Virtual Box:
     * Mount virtual machine with `vagrant ssh`
     * Run `taoi/trolley.py <args>`
