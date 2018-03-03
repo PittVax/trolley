@@ -3,3 +3,4 @@
 .idea
 .bash_history
 .vagrant
+*.iml
