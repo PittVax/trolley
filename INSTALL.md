@@ -53,24 +53,25 @@ Trolley requires PyYAML
     * [PyYAML](http://pyyaml.org/wiki/PyYAML)  
     * A python virtual environment is recommended for jython dependencies  
 1. Use trolley as a docker container (very awesome)
+    1. Shell configuration scripts are available in ./utils  
+        * `ps-config.ps1` creates useful aliases for PowerShell
+        * `sh-config.sh` creates useful aliases for bash #TODO
     * Install [docker](https://docs.docker.com/)  
     * Open a shell in the root of this repo `./trolley`
     * Run the following command in PowerShell or OSX terminal  
     `docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley pittvax/trolley:latest`
-    * Run the following command in Git-Bash  
+    * If useing Git-Bash on windows, append `winpty` as such    
     `winpty docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley pittvax/trolley:latest`
 1. Use trolley in a virtual machine (maybe awesome?)
     * Install [Virtual Box](https://www.virtualbox.org/wiki/Downloads)  
     * Install [Vagrant](https://www.vagrantup.com/)  
     * Open a shell in the root of this repo `./trolley`  
     * Run `vagrant up`
-1. Shell configuration scripts are available in ./utils  
-    * `ps-config.ps1` creates useful aliases for PowerShell
-    * `sh-config.sh` creates useful aliases for bash #TODO  
 
 # Trolley cli
 Help is available with `trolley.py -help`  
 
+## Usage
 `trolley.py` must be called from jython. The syntax will vary based on how jython 
 is installed. 
   * From PowerShell with Trolley on Docker use:  
@@ -78,9 +79,16 @@ is installed.
   --workdir="/root/trolley" pittvax/trolley:latest jython trolley.py <args>`  
   * If aliases are installed use:
   `Start-Trolley <args>`
-  * From OSX terminal with Trolley on Virtual Box use:  
-  TODO
+  * From any shell with Trolley on Virtual Box:
+  #TODO -test this
+   ```
+   # enter the machine
+   vagrant ssh
+   cd path/to/trolley/in/machine
+   trolley.py  <args>
+   ```
   * From any terminal with locally installed dependencies use:  
   `jython <path to trolley>/taoi/trolley.py <args>`  
 
-## Usages
+## Examples
+#TODO

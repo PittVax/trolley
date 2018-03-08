@@ -11,7 +11,6 @@ RUN wget http://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz && \
     tar zxf PyYAML-3.12.tar.gz && rm -rf PyYAML-3.12.tar.gz && \
     cd PyYAML-3.12 && jython setup.py --without-libyaml install && \
     cd ../ && rm -rf PyYAML-3.12
-WORKDIR
 WORKDIR /root
 
 #Set ENTRYPOINT
