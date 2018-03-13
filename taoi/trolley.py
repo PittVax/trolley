@@ -55,7 +55,7 @@ class TrolleySession(object):
 
         self.setc('host', host, 'localhost')
         if self.host != 'localhost':
-            log.info('Remote execution is still experiemental!')
+            log.info('Remote execution is not allowed - host must be the same single user machine running TreeAge!')
        
         self.setc('treefile', treefile)
         if self.treefile is None:
