@@ -1,6 +1,6 @@
 """ Taoi classes that wrap TreeAge Java objects
 
-Implements a base class, specialized execeptions, and sprecialized variable and
+Implements a base class, specialized exceptions, and specialized variable and
 table wrappers.
 """
 

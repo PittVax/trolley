@@ -1,0 +1,31 @@
+# .dockerignore https://docs.docker.com/engine/reference/builder/#dockerignore-file
+# .dockerignore excludes objects from images during docker build
+
+# Ignore temp directories
+*/temp
+*/tmp
+
+# Ignore IDE files
+.idea
+.project
+.gitignore
+
+# Ignore non-image code
+/taoi/external_dependencies
+/trees/
+
+# Ignore vagrant artifacts
+.vagrant/
+*/Vagrant*
+
+# Ignore convenience code
+/utils
+
+# Ignore
+# Ignore stuff from .gitignore
+.*.swp
+.*.swo
+.*.swn
+*.pyc
+java/class
+*\$py.class

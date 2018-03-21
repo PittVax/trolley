@@ -1,2 +1,6 @@
 *.trex-backup*
 *checkpoint.ipynb
+.idea
+.bash_history
+.vagrant
+*.iml
