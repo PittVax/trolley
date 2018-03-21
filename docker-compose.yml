@@ -5,8 +5,6 @@ services:
     image: pittvax/trolley:latest
     container_name: "Trolley"
     working_dir: /root/trolley
-#    environment:
     volumes:
       - ./:/root/trolley
-#    entrypoint: sh
 #    command: -c "tail -f /dev/null"

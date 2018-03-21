@@ -1,4 +1,4 @@
-.PHONY: up down stop prune ps shell jython
+.PHONY: up down stop prune ps shell jython trolley
 
 ifneq (,$(findstring WINDOWS,$(PATH)))
 	SHELL := C:/Windows/System32/cmd.exe
@@ -35,5 +35,3 @@ trolley:
 	docker-compose run --rm trolley jython taoi/trolley.py $(filter-out $@,$(MAKECMDGOALS))
 %:
 	@:
-
-

@@ -89,7 +89,7 @@ is installed.
     Consider setting an alias as 
     ```
     # nix
-    alias  trolley="make trolley -- "
+    alias trolley="make trolley -- "
     
     # PowerShell
     function Start-Trolley {make trolley -- $args}

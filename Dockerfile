@@ -13,5 +13,4 @@ RUN wget http://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz && \
     cd ../ && rm -rf PyYAML-3.12
 WORKDIR /root
 
-#Set ENTRYPOINT
 ENTRYPOINT ["bash"]
