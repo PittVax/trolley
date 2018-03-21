@@ -47,27 +47,23 @@ Download or clone this repo to your local machine.
 ## Trolley configuration
 The TreeAge Object Interface (taoi) requires jython  
 Trolley requires PyYAML  
+There are three configuration options.  
 
 1. Install dependencies to your machine (not awesome)
     * [jython](http://www.jython.org/)  
     * [PyYAML](http://pyyaml.org/wiki/PyYAML)  
     * A python virtual environment is recommended for jython dependencies  
-1. Use trolley as a docker container (very awesome)
-    * Shell configuration scripts are available in ./utils  
-        * In PowerShell, `utils/ps-config.ps1` creates aliases for PowerShell
-        * In Bash, `source utils/trolley_aliases.sh` creates aliases for Bash  
-    * Install [docker](https://docs.docker.com/)  
-    * Open a shell in the root of this repo `./trolley`
-    * Run `Start-Trolley <args>` which is an alias for 
-     `docker run -it --rm --name trolley --mount type=bind,source=$(pwd),target=/root/trolley 
-     --workdir="/root/trolley" pittvax/trolley:latest jython trolley.py <args>`
-    * For Git-Bash on windows append `winpty` as such `winpty Start-Trolley <args>`
 1. Use trolley in a virtual machine (a little awesome)
     * Install [Virtual Box](https://www.virtualbox.org/wiki/Downloads)  
     * Install [Vagrant](https://www.vagrantup.com/)  
     * Open a shell in the root of this repo `./trolley`  
     * Run `vagrant up`
-    * Mount virtual machine with `vagrant ssh`
+    * Mount virtual machine with `vagrant ssh`  
+1. Use trolley as a docker container (very awesome)
+    * Install [docker](https://docs.docker.com/)  
+    * `Makefile` provides useful commands in the format `make <command>`  
+    * Open a shell in the root of this repo `./trolley`
+    * Run `make up` to build the app
 
 # Trolley cli
 Help is available with `trolley.py -help`  
@@ -75,8 +71,9 @@ Help is available with `trolley.py -help`
 ## Usage
 `trolley.py` must be called from jython. The syntax will vary based on how jython 
 is installed. 
-  * For Trolley on Docker use:  
-  `Start-Trolley <args>`   
+  * For locally installed dependencies use:  
+  `jython <path to trolley>/taoi/trolley.py <args>`  
+
   * For Trolley on Virtual Box:
     * Mount virtual machine with `vagrant ssh`
     * `cd ~/trolley`
@@ -85,8 +82,23 @@ is installed.
     * Exit virtual machine with `exit`
     * Shut down virtual machine with `vagrant down`
     * Delete virtual machine with `vagrant destroy`
-  * For locally installed dependencies use:  
-  `jython <path to trolley>/taoi/trolley.py <args>`  
+    
+  * For Trolley on Docker use:  
+  `Make trolley -- <args>`  
+    The extra `--` is mandatory EG: `make trolley -- --help`
+    Consider setting an alias as 
+    ```
+    # nix
+    alias  trolley="make trolley -- "
+    
+    # PowerShell
+    function Start-Trolley {make trolley -- $args}
+    Set-Alias trolley Start-Trolley
+    
+    # example command with alias set
+    trolley --help
+    ```
+
 
 ## Examples
 #TODO
